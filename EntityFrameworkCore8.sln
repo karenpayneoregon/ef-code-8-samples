@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A638F6B3-6409-4D7A-8ED3-65C73D6BC0AB}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{D5C632B1-F708-4531-AE71-17A7736246C4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind2023Library", "NorthWind2023Library\NorthWind2023Library.csproj", "{7691126E-1B90-47C3-A2F6-9E05D2964B9E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind2023App", "NorthWind2023App\NorthWind2023App.csproj", "{F421F393-9457-41A1-B9CA-CCF4229C0B69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console projects", "Console projects", "{03F153B5-E361-42AB-B232-A21F2F0E7AFB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexTypesSampleApp", "ComplexTypesSampleApp\ComplexTypesSampleApp.csproj", "{EC17388F-4B97-430D-B724-2685A56F56F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7691126E-1B90-47C3-A2F6-9E05D2964B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7691126E-1B90-47C3-A2F6-9E05D2964B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7691126E-1B90-47C3-A2F6-9E05D2964B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7691126E-1B90-47C3-A2F6-9E05D2964B9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F421F393-9457-41A1-B9CA-CCF4229C0B69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F421F393-9457-41A1-B9CA-CCF4229C0B69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F421F393-9457-41A1-B9CA-CCF4229C0B69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F421F393-9457-41A1-B9CA-CCF4229C0B69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC17388F-4B97-430D-B724-2685A56F56F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC17388F-4B97-430D-B724-2685A56F56F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC17388F-4B97-430D-B724-2685A56F56F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC17388F-4B97-430D-B724-2685A56F56F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7691126E-1B90-47C3-A2F6-9E05D2964B9E} = {D5C632B1-F708-4531-AE71-17A7736246C4}
+		{F421F393-9457-41A1-B9CA-CCF4229C0B69} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
+		{EC17388F-4B97-430D-B724-2685A56F56F1} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}
+	EndGlobalSection
+EndGlobal
