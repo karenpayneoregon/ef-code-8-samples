@@ -21,4 +21,16 @@ public static class EntityExtensions
                 },
                 LogLevel.Information);
     }
+    public static void ConfigureUseHierarchyId(this DbContextOptionsBuilder optionsBuilder, string connectionString)
+    {
+        optionsBuilder
+            .UseSqlServer(connectionString, sqlServerOptionsBuilder => sqlServerOptionsBuilder.UseHierarchyId())
+            .EnableSensitiveDataLogging()
+            .LogTo(new DbContextToFileLogger().Log,
+                new[]
+                {
+                    DbLoggerCategory.Database.Command.Name
+                },
+                LogLevel.Information);
+    }
 }
