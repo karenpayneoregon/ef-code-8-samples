@@ -1,4 +1,5 @@
-﻿using ImmutableComplexTypesSampleApp.Classes;
+﻿using EntityLibrary;
+using ImmutableComplexTypesSampleApp.Classes;
 using ImmutableComplexTypesSampleApp.Models;
 using Microsoft.Extensions.Logging;
 

@@ -12,6 +12,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Scripts\Script1.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Scripts\Script1.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
 	</ItemGroup>
 
@@ -48,6 +56,10 @@
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

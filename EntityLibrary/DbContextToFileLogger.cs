@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using static System.DateTime;
 
-namespace ImmutableComplexTypesSampleApp.Classes;
+namespace EntityLibrary;
 
 /// <summary>
 /// For logging messages from DbContext.

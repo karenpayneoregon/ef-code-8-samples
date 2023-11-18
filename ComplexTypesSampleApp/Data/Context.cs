@@ -1,5 +1,6 @@
 ﻿using ComplexTypesSampleApp.Classes;
 using ComplexTypesSampleApp.Models;
+using EntityLibrary;
 
 namespace ComplexTypesSampleApp.Data;
 
