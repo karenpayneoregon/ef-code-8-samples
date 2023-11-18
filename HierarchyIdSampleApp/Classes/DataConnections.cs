@@ -1,5 +1,4 @@
-﻿#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
-namespace UtilityLibarary;
+﻿namespace HierarchyIdSampleApp.Classes;
 /// <summary>
 /// Known connection strings
 /// </summary>
@@ -10,4 +9,3 @@ public sealed class DataConnections
     public string MainConnection { get; set; }
     public string SecondaryConnection { get; set; }
 }
-    

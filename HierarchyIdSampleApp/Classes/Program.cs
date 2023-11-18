@@ -1,8 +1,9 @@
-﻿using ExecuteUpdateDeleteSampleApp.Classes;
-
+﻿using HierarchyIdSampleApp.Classes;
+using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.CompilerServices;
 
 // ReSharper disable once CheckNamespace
-namespace ExecuteUpdateDeleteSampleApp;
+namespace HierarchyIdSampleApp;
 internal partial class Program
 {
     [ModuleInitializer]

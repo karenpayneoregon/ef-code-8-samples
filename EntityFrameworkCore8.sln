@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultConstraintSampleApp"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateOnlyTimeOnlySampleApp", "DateOnlyTimeOnlySampleApp\DateOnlyTimeOnlySampleApp.csproj", "{574E9A31-253D-4CDA-8768-0C3DC88CFB3F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HierarchyIdSampleApp", "HierarchyIdSampleApp\HierarchyIdSampleApp.csproj", "{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{574E9A31-253D-4CDA-8768-0C3DC88CFB3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{574E9A31-253D-4CDA-8768-0C3DC88CFB3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{574E9A31-253D-4CDA-8768-0C3DC88CFB3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -86,6 +92,7 @@ Global
 		{17FE9D83-9E37-4051-B0A4-6FDE95B7EAC3} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
 		{D1C1E0F2-EBDB-40E0-B878-33B1F51F678D} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
 		{574E9A31-253D-4CDA-8768-0C3DC88CFB3F} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
+		{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}
