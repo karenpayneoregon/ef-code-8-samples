@@ -7,5 +7,6 @@ The intent for this repository is to demonstrate new features for Entity Framewo
 - ComplexTypesSampleApp for complex types simple
 - ImmutableComplexTypesSampleApp for ImmutableComplex Types
 - ExecuteUpdateDeleteSampleApp samples for [ExecuteUpdate and ExecuteDelete](https://learn.microsoft.com/en-us/ef/core/saving/execute-insert-update-delete)
+- DateOnlyTimeOnlySampleApp example for working with DateOnly
 
 More code samples to follow.

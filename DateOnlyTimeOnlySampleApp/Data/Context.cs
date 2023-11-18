@@ -1,0 +1,38 @@
+﻿using DateOnlyTimeOnlySampleApp.Models;
+using EntityLibrary;
+using UtilityLibarary;
+
+namespace DateOnlyTimeOnlySampleApp.Data;
+
+internal partial class Context : DbContext
+{
+
+    public DbSet<School> Schools => Set<School>();
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+
+        optionsBuilder
+            .UseSqlServer(DataConnections.Instance.MainConnection,
+                sqlServerOptionsBuilder => 
+                    sqlServerOptionsBuilder.UseNetTopologySuite())
+            .EnableSensitiveDataLogging()
+            .LogTo(new DbContextToFileLogger().Log,
+                new[]
+                {
+                    DbLoggerCategory.Database.Command.Name
+                },
+                LogLevel.Information);
+        
+    }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.Entity<School>().OwnsMany(e => e.OpeningHours).ToJson();
+    }
+
+    protected override void ConfigureConventions(ModelConfigurationBuilder configurationBuilder)
+    {
+    }
+}
