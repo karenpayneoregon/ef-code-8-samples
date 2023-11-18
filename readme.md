@@ -11,5 +11,6 @@ The intent for this repository is to demonstrate new features for Entity Framewo
 - ImmutableComplexTypesSampleApp for ImmutableComplex Types
 - ExecuteUpdateDeleteSampleApp samples for [ExecuteUpdate and ExecuteDelete](https://learn.microsoft.com/en-us/ef/core/saving/execute-insert-update-delete)
 - DateOnlyTimeOnlySampleApp example for working with DateOnly
+- HierarchyIdSampleApp example for working with HierarchyId for SQL-Server
 
 More code samples to follow.

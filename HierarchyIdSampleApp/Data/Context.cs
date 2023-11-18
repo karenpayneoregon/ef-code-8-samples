@@ -1,6 +1,5 @@
 ﻿using EntityLibrary;
 using HierarchyIdSampleApp.Models;
-using UtilityLibarary;
 
 namespace HierarchyIdSampleApp.Data;
 
@@ -8,6 +7,7 @@ internal class Context : DbContext
 {
     private string ConnectionString { get; }
 
+ 
     public Context()
     {
 
