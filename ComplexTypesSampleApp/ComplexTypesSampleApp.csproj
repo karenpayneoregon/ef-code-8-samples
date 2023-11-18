@@ -52,6 +52,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
+	  <ProjectReference Include="..\UtilityLibarary\UtilityLibarary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

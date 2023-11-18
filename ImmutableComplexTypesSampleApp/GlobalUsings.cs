@@ -2,4 +2,3 @@
 
 global using ConsoleHelperLibrary.Classes;
 global using Spectre.Console;
-global using static ImmutableComplexTypesSampleApp.Classes.SpectreConsoleHelpers;

@@ -1,14 +1,14 @@
 ﻿
-using ImmutableComplexTypesSampleApp.Classes;
+using ExecuteUpdateDeleteSampleApp.Classes;
 using static UtilityLibarary.SpectreConsoleHelpers;
 
-namespace ImmutableComplexTypesSampleApp;
+namespace ExecuteUpdateDeleteSampleApp;
 internal partial class Program
 {
     static async Task Main(string[] args)
     {
         await Setup();
-        await Operations.ComplexTypesDemo();
+        await Operations.ExecuteUpdateDeleteSample();
         ExitPrompt();
     }
 }

@@ -1,4 +1,7 @@
-﻿namespace ImmutableComplexTypesSampleApp.Classes;
+﻿using System.Runtime.CompilerServices;
+using Spectre.Console;
+
+namespace UtilityLibarary;
 public class SpectreConsoleHelpers
 {
     public static void ExitPrompt()

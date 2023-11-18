@@ -12,14 +12,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="Scripts\Script1.sql" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="Scripts\Script1.sql" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
 	</ItemGroup>
 
@@ -59,8 +51,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
-	  <ProjectReference Include="..\UtilityLibarary\UtilityLibarary.csproj" />
+		<ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
+		<ProjectReference Include="..\UtilityLibarary\UtilityLibarary.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

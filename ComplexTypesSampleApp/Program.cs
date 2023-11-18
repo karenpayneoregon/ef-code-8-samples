@@ -1,5 +1,6 @@
 ﻿
 using ComplexTypesSampleApp.Classes;
+using static UtilityLibarary.SpectreConsoleHelpers;
 
 namespace ComplexTypesSampleApp;
 internal partial class Program
