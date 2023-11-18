@@ -1,5 +1,6 @@
 ﻿using ImmutableComplexTypesSampleApp.Models;
 using Microsoft.Extensions.Options;
+using UtilityLibarary;
 
 namespace ImmutableComplexTypesSampleApp.Classes;
 internal class SetupServices

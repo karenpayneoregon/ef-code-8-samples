@@ -1,4 +1,4 @@
-﻿namespace ComplexTypesSampleApp.Classes;
+﻿namespace UtilityLibarary;
 /// <summary>
 /// Known connection strings
 /// </summary>

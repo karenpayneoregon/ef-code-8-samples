@@ -1,5 +1,6 @@
 ﻿using ComplexTypesSampleApp.Models;
 using Microsoft.Extensions.Options;
+using UtilityLibarary;
 
 namespace ComplexTypesSampleApp.Classes;
 internal class SetupServices
