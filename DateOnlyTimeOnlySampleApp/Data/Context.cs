@@ -11,19 +11,8 @@ internal partial class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-
-        optionsBuilder
-            .UseSqlServer(DataConnections.Instance.MainConnection,
-                sqlServerOptionsBuilder => 
-                    sqlServerOptionsBuilder.UseNetTopologySuite())
-            .EnableSensitiveDataLogging()
-            .LogTo(new DbContextToFileLogger().Log,
-                new[]
-                {
-                    DbLoggerCategory.Database.Command.Name
-                },
-                LogLevel.Information);
         
+        optionsBuilder.Configure(DataConnections.Instance.MainConnection);
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

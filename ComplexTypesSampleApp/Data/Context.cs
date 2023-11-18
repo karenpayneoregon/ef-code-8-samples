@@ -17,18 +17,9 @@ internal class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-
-        optionsBuilder
-            .UseSqlServer(DataConnections.Instance.MainConnection)
-            .EnableSensitiveDataLogging()
-            .LogTo(new DbContextToFileLogger().Log,
-                new[]
-                {
-                    DbLoggerCategory.Database.Command.Name
-                },
-                LogLevel.Information);
-        
+        optionsBuilder.Configure(DataConnections.Instance.MainConnection);
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Customer>()

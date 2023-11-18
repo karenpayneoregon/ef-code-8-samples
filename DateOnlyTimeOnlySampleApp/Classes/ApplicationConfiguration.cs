@@ -1,6 +1,5 @@
 ﻿using DateOnlyTimeOnlySampleApp.Models;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace DateOnlyTimeOnlySampleApp.Classes;
 internal class ApplicationConfiguration
