@@ -2,6 +2,8 @@
 
 The intent for this repository is to demonstrate new features for Entity Framework Core 8. Base [code samples](https://github.com/dotnet/EntityFramework.Docs/tree/main/samples/core/Miscellaneous/NewInEFCore8) were obtained **from Microsoft** which are fantastic but not setup for newcomers to learn from so those code samples were simply refactored for ease of learning.
 
+Entity Framework Core 8: [Improved JSON, queryable collections , and more…](https://www.youtube.com/watch?v=_8iH5QnkIJo&list=PLdo4fOcmZ0oULyHSPBx-tQzePOYlhvrAU&t=2s) | .NET Conf 2023
+
 > **Note**
 > Extracting code samples is not as easy as many developers would think, hopefully they are of use.
 
