@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "VisualStudioTools": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\OED\\DotnetLand\\VS2022\\EntityFrameworkCore8\\BooksApp\\bin\\Release\\net8.0\\BenchmarkDotNet.Artifacts"
+    }
+  }
+}
