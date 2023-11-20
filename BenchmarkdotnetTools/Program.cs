@@ -1,14 +1,15 @@
 ﻿using System.Diagnostics;
 
-namespace VisualStudioTools;
+namespace BenchmarkDotnetTools;
 
 internal class Program
 {
-    static void Main(string[] paths)
+    
+    static void Main(string[] version)
     {
         var target = Path.Combine(
             Directory.GetCurrentDirectory(), 
-            "bin", "release", "net8.0", "BenchmarkDotNet.Artifacts", "results");
+            "bin", "release", version[0], "BenchmarkDotNet.Artifacts", "results");
         if (Directory.Exists(target))
         {
             Process.Start("explorer.exe", $"/select, {target}");
