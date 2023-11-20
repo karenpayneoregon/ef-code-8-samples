@@ -89,4 +89,18 @@ public partial class Context : DbContext
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+    private static Func<Context, int, Orders> _getOrder =
+        EF.CompileQuery((Context context, int id) =>
+            context.Orders
+                .Include(o => o.Employee)
+                .Include(o => o.ShipViaNavigation)
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Product)
+                .ThenInclude(p => p.Category)
+                .FirstOrDefault(o => o.OrderID == id));
+    public Orders GetOrder(int id)
+    {
+        return _getOrder(this, id);
+    }
 }
