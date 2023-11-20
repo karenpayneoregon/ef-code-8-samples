@@ -94,7 +94,7 @@ public partial class Context : DbContext
 
     #region Compile queries for multiple execution
 
-    private static Func<Context, int, Orders> _getOrder =
+    private static readonly Func<Context, int, Orders> _getOrder =
         CompileQuery((Context context, int orderIdentifier) =>
             context.Orders
                 .Include(o => o.Employee)
@@ -104,7 +104,7 @@ public partial class Context : DbContext
                 .ThenInclude(p => p.Category)
                 .FirstOrDefault(o => o.OrderID == orderIdentifier));
 
-    private static Func<Context, int, Task<Orders>> _getOrderAsync =
+    private static readonly Func<Context, int, Task<Orders>> _getOrderAsync =
         CompileAsyncQuery((Context context, int orderIdentifier) =>
             context.Orders
                 .Include(o => o.Employee)

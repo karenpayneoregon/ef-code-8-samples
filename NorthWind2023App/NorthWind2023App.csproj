@@ -17,11 +17,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConfigurationLibrary" Version="1.0.4" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.5" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -36,6 +36,11 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\NorthWind2023Library\NorthWind2023Library.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- ReSharper disable once VulnerablePackage -->
+		<PackageReference Include="BenchmarkDotNet" Version="0.13.10" />
 	</ItemGroup>
 
 	<Target Name="MakeMyDir" AfterTargets="Build">
