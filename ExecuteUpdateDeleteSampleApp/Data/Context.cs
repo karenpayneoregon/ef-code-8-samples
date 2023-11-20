@@ -1,5 +1,4 @@
 ﻿using EntityLibrary;
-using ExecuteUpdateDeleteSampleApp.Classes;
 using ExecuteUpdateDeleteSampleApp.Models;
 using UtilityLibarary;
 
