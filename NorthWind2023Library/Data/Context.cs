@@ -8,6 +8,8 @@ using NorthWind2023Library.Classes;
 using NorthWind2023Library.Data.Configurations;
 using NorthWind2023Library.Models;
 using static ConfigurationLibrary.Classes.ConfigurationHelper;
+using static Microsoft.EntityFrameworkCore.EF;
+
 #nullable disable
 
 namespace NorthWind2023Library.Data;
@@ -90,17 +92,32 @@ public partial class Context : DbContext
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
+    #region Compile queries for multiple execution
+
     private static Func<Context, int, Orders> _getOrder =
-        EF.CompileQuery((Context context, int id) =>
+        CompileQuery((Context context, int orderIdentifier) =>
             context.Orders
                 .Include(o => o.Employee)
                 .Include(o => o.ShipViaNavigation)
                 .Include(o => o.OrderDetails)
                 .ThenInclude(od => od.Product)
                 .ThenInclude(p => p.Category)
-                .FirstOrDefault(o => o.OrderID == id));
-    public Orders GetOrder(int id)
-    {
-        return _getOrder(this, id);
-    }
+                .FirstOrDefault(o => o.OrderID == orderIdentifier));
+
+    private static Func<Context, int, Task<Orders>> _getOrderAsync =
+        CompileAsyncQuery((Context context, int orderIdentifier) =>
+            context.Orders
+                .Include(o => o.Employee)
+                .Include(o => o.ShipViaNavigation)
+                .Include(o => o.OrderDetails)
+                .ThenInclude(od => od.Product)
+                .ThenInclude(p => p.Category)
+                .FirstOrDefault(o => o.OrderID == orderIdentifier));
+
+    public Orders GetOrder(int id) 
+        => _getOrder(this, id);
+    public async Task<Orders> GetOrderAsync(int id) 
+        => await _getOrderAsync(this, id);
+
+    #endregion
 }
