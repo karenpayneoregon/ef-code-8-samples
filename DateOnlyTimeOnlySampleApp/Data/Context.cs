@@ -12,7 +12,7 @@ internal partial class Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         
-        optionsBuilder.Configure(DataConnections.Instance.MainConnection);
+        optionsBuilder.ConfigureWithFileLogging(DataConnections.Instance.MainConnection);
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

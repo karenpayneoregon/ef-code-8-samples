@@ -17,7 +17,7 @@ internal class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.Configure(DataConnections.Instance.MainConnection);
+        optionsBuilder.ConfigureWithFileLogging(DataConnections.Instance.MainConnection);
     }
 
 }

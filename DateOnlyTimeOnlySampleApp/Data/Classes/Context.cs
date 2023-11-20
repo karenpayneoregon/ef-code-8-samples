@@ -1,6 +1,7 @@
 ﻿
 using DateOnlyTimeOnlySampleApp.Models;
 
+// ReSharper disable once CheckNamespace
 namespace DateOnlyTimeOnlySampleApp.Data;
 internal partial class Context
 {

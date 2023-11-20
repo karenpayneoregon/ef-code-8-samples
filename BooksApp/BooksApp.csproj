@@ -23,6 +23,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<!-- ReSharper disable once VulnerablePackage -->
 		<PackageReference Include="BenchmarkDotNet" Version="0.13.10" />
 		<PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.13.10" />
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.5" />

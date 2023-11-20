@@ -1,12 +1,11 @@
-﻿using ComplexTypesSampleApp.Classes;
-using ComplexTypesSampleApp.Models;
+﻿using ComplexTypesSampleApp.Models;
 using EntityLibrary;
 using UtilityLibarary;
 
 namespace ComplexTypesSampleApp.Data;
 
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
+
 
 internal class Context : DbContext
 {
@@ -17,7 +16,7 @@ internal class Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.Configure(DataConnections.Instance.MainConnection);
+        optionsBuilder.ConfigureWithFileLogging(DataConnections.Instance.MainConnection);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

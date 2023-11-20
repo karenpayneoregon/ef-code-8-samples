@@ -5,11 +5,11 @@ namespace EntityLibrary;
 public static class EntityExtensions
 {
     /// <summary>
-    /// Setup provider to SQL-Server and logging to file
+    /// Setup provider to SQL-Server and logging to file for development as sensitive logging is enabled
     /// </summary>
     /// <param name="optionsBuilder"></param>
     /// <param name="connectionString">Valid connection string</param>
-    public static void Configure(this DbContextOptionsBuilder optionsBuilder, string connectionString)
+    public static void ConfigureWithFileLogging(this DbContextOptionsBuilder optionsBuilder, string connectionString)
     {
         optionsBuilder
             .UseSqlServer(connectionString)
@@ -20,6 +20,17 @@ public static class EntityExtensions
                     DbLoggerCategory.Database.Command.Name
                 },
                 LogLevel.Information);
+    }
+    /// <summary>
+    /// Setup provider to SQL-Server no logging to file for development as sensitive logging is enabled
+    /// </summary>
+    /// <param name="optionsBuilder"></param>
+    /// <param name="connectionString"></param>
+    public static void ConfigureWithoutLogging(this DbContextOptionsBuilder optionsBuilder, string connectionString)
+    {
+        optionsBuilder
+            .UseSqlServer(connectionString)
+            .EnableSensitiveDataLogging();
     }
     public static void ConfigureUseHierarchyId(this DbContextOptionsBuilder optionsBuilder, string connectionString)
     {
