@@ -2,6 +2,8 @@
 
 Simple example showing computed columns.
 
+![Screenshot2](assets/screenshot2.png)
+
 Below shows how to get comuted columns with SQL statement.
 
 ![Screenshot1](assets/screenshot1.png)
