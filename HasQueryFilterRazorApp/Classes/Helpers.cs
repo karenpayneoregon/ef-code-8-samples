@@ -1,4 +1,6 @@
-﻿namespace HasQueryFilterRazorApp.Classes;
+﻿#pragma warning disable CA1416
+#pragma warning disable CA1416
+namespace HasQueryFilterRazorApp.Classes;
 
 public class Helpers
 {

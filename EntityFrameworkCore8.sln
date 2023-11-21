@@ -54,6 +54,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP projects", "ASP project
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HasQueryFilterRazorApp", "HasQueryFilterRazorApp\HasQueryFilterRazorApp.csproj", "{2B2BF682-450A-47D4-BA8D-BA239D3543D3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CreateAndPopulateSqlServerApp", "CreateAndPopulateSqlServerApp\CreateAndPopulateSqlServerApp.csproj", "{54890BB5-2C89-4E51-AC10-6A4E71D2AA9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,6 +130,10 @@ Global
 		{2B2BF682-450A-47D4-BA8D-BA239D3543D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B2BF682-450A-47D4-BA8D-BA239D3543D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B2BF682-450A-47D4-BA8D-BA239D3543D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54890BB5-2C89-4E51-AC10-6A4E71D2AA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54890BB5-2C89-4E51-AC10-6A4E71D2AA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54890BB5-2C89-4E51-AC10-6A4E71D2AA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54890BB5-2C89-4E51-AC10-6A4E71D2AA9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,6 +158,7 @@ Global
 		{6B056CFB-D9B0-4E4E-8082-02345ED4624B} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 		{3A916FD0-34CD-48E6-AA64-5BCB72DF633F} = {D5C632B1-F708-4531-AE71-17A7736246C4}
 		{2B2BF682-450A-47D4-BA8D-BA239D3543D3} = {102E00B5-C267-4ADF-8808-884E3374BD22}
+		{54890BB5-2C89-4E51-AC10-6A4E71D2AA9A} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}
