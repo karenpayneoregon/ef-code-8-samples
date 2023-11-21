@@ -18,25 +18,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console projects", "Console
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplexTypesSampleApp", "ComplexTypesSampleApp\ComplexTypesSampleApp.csproj", "{EC17388F-4B97-430D-B724-2685A56F56F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImmutableComplexTypesSampleApp", "ImmutableComplexTypesSampleApp\ImmutableComplexTypesSampleApp.csproj", "{7A93F7C4-CB8A-4543-9A2A-C5CBC3405C09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ImmutableComplexTypesSampleApp", "ImmutableComplexTypesSampleApp\ImmutableComplexTypesSampleApp.csproj", "{7A93F7C4-CB8A-4543-9A2A-C5CBC3405C09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLibrary", "EntityLibrary\EntityLibrary.csproj", "{E57A5031-F151-412D-A7DD-2A18C33CA55A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityLibrary", "EntityLibrary\EntityLibrary.csproj", "{E57A5031-F151-412D-A7DD-2A18C33CA55A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilityLibarary", "UtilityLibarary\UtilityLibarary.csproj", "{1C8C5E2E-D928-443C-88F5-57C633634E39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UtilityLibarary", "UtilityLibarary\UtilityLibarary.csproj", "{1C8C5E2E-D928-443C-88F5-57C633634E39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExecuteUpdateDeleteSampleApp", "ExecuteUpdateDeleteSampleApp\ExecuteUpdateDeleteSampleApp.csproj", "{17FE9D83-9E37-4051-B0A4-6FDE95B7EAC3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExecuteUpdateDeleteSampleApp", "ExecuteUpdateDeleteSampleApp\ExecuteUpdateDeleteSampleApp.csproj", "{17FE9D83-9E37-4051-B0A4-6FDE95B7EAC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultConstraintSampleApp", "DefaultConstraintSampleApp\DefaultConstraintSampleApp.csproj", "{D1C1E0F2-EBDB-40E0-B878-33B1F51F678D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultConstraintSampleApp", "DefaultConstraintSampleApp\DefaultConstraintSampleApp.csproj", "{D1C1E0F2-EBDB-40E0-B878-33B1F51F678D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateOnlyTimeOnlySampleApp", "DateOnlyTimeOnlySampleApp\DateOnlyTimeOnlySampleApp.csproj", "{574E9A31-253D-4CDA-8768-0C3DC88CFB3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateOnlyTimeOnlySampleApp", "DateOnlyTimeOnlySampleApp\DateOnlyTimeOnlySampleApp.csproj", "{574E9A31-253D-4CDA-8768-0C3DC88CFB3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HierarchyIdSampleApp", "HierarchyIdSampleApp\HierarchyIdSampleApp.csproj", "{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HierarchyIdSampleApp", "HierarchyIdSampleApp\HierarchyIdSampleApp.csproj", "{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksApp", "BooksApp\BooksApp.csproj", "{CCBCF928-BA04-4080-90CC-3822D15088C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BooksApp", "BooksApp\BooksApp.csproj", "{CCBCF928-BA04-4080-90CC-3822D15088C9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{4C8569AA-17EC-4D25-B9EF-710931F8A6F3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BenchmarkDotnetTools", "BenchmarkdotnetTools\BenchmarkDotnetTools.csproj", "{C8264947-C787-442D-B799-716C7B6D1C87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputedColumnsApp", "ComputedColumnsApp\ComputedColumnsApp.csproj", "{E7A0701D-312D-45C2-8FB5-1D3B6EFB9FDE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -92,6 +94,10 @@ Global
 		{C8264947-C787-442D-B799-716C7B6D1C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8264947-C787-442D-B799-716C7B6D1C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8264947-C787-442D-B799-716C7B6D1C87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7A0701D-312D-45C2-8FB5-1D3B6EFB9FDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7A0701D-312D-45C2-8FB5-1D3B6EFB9FDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7A0701D-312D-45C2-8FB5-1D3B6EFB9FDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7A0701D-312D-45C2-8FB5-1D3B6EFB9FDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +115,7 @@ Global
 		{7AE9DAC6-4DF2-46B2-9FBD-6825BD9FB5C5} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
 		{CCBCF928-BA04-4080-90CC-3822D15088C9} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
 		{C8264947-C787-442D-B799-716C7B6D1C87} = {4C8569AA-17EC-4D25-B9EF-710931F8A6F3}
+		{E7A0701D-312D-45C2-8FB5-1D3B6EFB9FDE} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}
