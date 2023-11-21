@@ -35,3 +35,8 @@ modelBuilder.Entity<Products>(entity =>
     entity.Property(e => e.ProductName).IsRequired();
 });
 ```
+
+## See also
+
+[SQL-Server: Computed columns with Ef Core](https://dev.to/karenpayneoregon/sql-server-computed-columns-with-ef-core-3h8d) article.
+
