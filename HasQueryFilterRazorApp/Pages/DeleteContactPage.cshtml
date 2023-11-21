@@ -1,0 +1,23 @@
+﻿@page
+@model HasQueryFilterRazorApp.Pages.DeleteContactPageModel
+
+@{
+    ViewData["Title"] = "Delete contact";
+}
+
+
+<h1 class="fs-3 mb-3 bg-light p-2 border">Are you sure you want to delete?</h1>
+<div>
+    
+    <hr />
+    <div class="mb-2">
+        <span class="fw-bold">Contact</span>
+        @Html.DisplayFor(model => model.Contact.FirstName) @Html.DisplayFor(model => model.Contact.LastName)
+    </div>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Contact.ContactId" />
+        <input type="submit" value="Delete" class="btn btn-danger" style="width: 8em"/> |
+        <a asp-page="./Index" class="btn btn-primary" style="width: 8em">Back to List</a>
+    </form>
+</div>

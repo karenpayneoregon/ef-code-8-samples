@@ -1,0 +1,55 @@
+﻿@page
+@model HasQueryFilterRazorApp.Pages.ViewAllContactsPageModel
+
+@{
+    ViewData["Title"] = "View and change delete";
+}
+
+<h1 class="fs-3 mb-3 bg-light p-2 border">View All</h1>
+
+<form method="post">
+    <table class="table table-bordered shadow">
+        <caption>List of all contacts with ability to change delete status</caption>
+        <thead>
+            <tr class="bg-light">
+                <th>
+                    @Html.DisplayNameFor(model => model.Contacts[0].FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contacts[0].LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contacts[0].isDeleted)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (int index = 0; index < Model.Contacts.Count; index++)
+            {
+                <tr>
+
+                    <input type="hidden" asp-for="Contacts[index].ContactId" />
+
+                    <td>
+                        @Model.Contacts[index].FirstName
+                    </td>
+                    <td>
+                        @Model.Contacts[index].LastName
+                    </td>
+                    <td>
+                        @* to pass accessibility we need aria-label *@
+                        <input id="d@index"
+                           asp-for="@Model.Contacts[index].isDeleted"
+                           aria-label="change delete status" />
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

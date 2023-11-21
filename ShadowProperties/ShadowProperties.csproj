@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>disable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Scripts\RestoredDeleted.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="Scripts\RestoredDeleted.sql" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!--<PackageReference Include="EntityFrameworkCoreHelpers" Version="1.0.1" />-->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.8" />
+		<PackageReference Include="Bogus" Version="34.0.2" />
+	</ItemGroup>
+
+
+
+</Project>

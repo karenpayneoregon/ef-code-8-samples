@@ -1,0 +1,80 @@
+﻿@page
+@model HasQueryFilterRazorApp.Pages.ViewRawPageModel
+@{
+    ViewData["Title"] = "Report";
+}
+
+
+
+<h1 class="fs-4 mb-3 bg-light p-2 border">Report</h1>
+
+<table class="table table-bordered shadow">
+    <thead>
+        <caption>Read only list of contacts</caption>
+        <tr class="bg-light">
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].ContactId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].LastUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reports[0].LastUpdated)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Reports[0].Deleted)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int index = 0; index < Model.Reports.Count; index++)
+        {
+            <tr>
+                <td>
+                    @Model.Reports[index].ContactId
+                </td>
+                <td>
+                    @Model.Reports[index].FirstName
+                </td>
+                <td>
+                    @Model.Reports[index].LastName
+                </td>
+                <td>
+                    @Model.Reports[index].LastUser
+                </td>
+                <td>
+                    @Model.Reports[index].CreatedBy
+                </td>
+                <td>
+                    @Model.Reports[index].CreatedAt
+                </td>
+                <td>
+                    @Model.Reports[index].LastUpdated
+                </td>
+                <td class="text-center">
+                    @if (Model.Reports[index].Deleted == "Y")
+                    {
+                        <span class="fw-bold">@Model.Reports[index].Deleted</span>
+                    }
+                    else
+                    {
+                        @Model.Reports[index].Deleted
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

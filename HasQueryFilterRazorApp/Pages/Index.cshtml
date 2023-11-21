@@ -1,0 +1,69 @@
+﻿@page
+@using Microsoft.AspNetCore.Antiforgery
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model IndexModel
+@{
+    //ViewData["Title"] = "Contact list";
+}
+
+@inject IAntiforgery antiforgery
+@{
+    var token = antiforgery.GetAndStoreTokens(HttpContext).RequestToken;
+}
+
+<h1 class="fs-4 mb-3 bg-light p-2 border">Active contacts</h1>
+<form method="post" name="form1">
+    <input type="hidden" asp-for="Identifier" id="identifier" />
+    <table class="table table-bordered shadow">
+        <caption>List of active contacts</caption>
+        <thead>
+            <tr class="bg-light">
+                <th>
+                    @Html.DisplayNameFor(model => model.Contacts[0].ContactId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contacts[0].FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Contacts[0].LastName)
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Contacts)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ContactId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        <a asp-page="./DeleteContactPage" id="@item.ContactId" asp-route-id="@item.ContactId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</form>
+
+<div class="row mt-4">
+    <div>
+        Deleted contacts count
+        <span class="fw-bold">
+            @{
+
+                @Model.IgnoreCount
+                ;
+            }
+        </span> which are excluded in above list.
+    </div>
+</div>
+
+

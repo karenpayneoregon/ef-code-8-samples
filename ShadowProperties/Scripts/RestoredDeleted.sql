@@ -1,0 +1,1 @@
+﻿UPDATE dbo.Contact1 SET isDeleted = 0;
