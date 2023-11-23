@@ -62,9 +62,8 @@ public class WineOperations
     {
         using WineContext context = new();
 
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Grouped");
-        Console.ResetColor();
+
+        CyanMarkup("Grouped");
 
         List<WineGroupItem> allWinesGrouped = context.Wines
             .GroupBy( wine => wine.WineType)
