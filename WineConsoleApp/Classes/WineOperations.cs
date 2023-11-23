@@ -1,6 +1,8 @@
 ﻿using System.Text;
 using WineConsoleApp.Data;
 using WineConsoleApp.Models;
+using static WineConsoleApp.Classes.AnsiConsoleHelpers;
+
 #pragma warning disable CS8602
 
 namespace WineConsoleApp.Classes;
@@ -33,8 +35,8 @@ public class WineOperations
         Index indexer = wineContainer
             .FindIndex(w => w.Value.Name == "Pinot Grigi");
 
-        Console.WriteLine("Last two wines");
 
+        CyanMarkup("Last two wines");
         Range range = Range.StartAt(indexer);
 
         var lastTwoWines = wines.ToArray()[range];
@@ -83,9 +85,8 @@ public class WineOperations
 
         List<Wine> allWines = context.Wines.ToList();
 
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("All");
-        Console.ResetColor();
+
+        CyanMarkup("All");
 
         foreach (Wine wine in allWines)
         {
@@ -98,9 +99,7 @@ public class WineOperations
             .Where(wine => wine.WineType == WineType.Rose)
             .ToList();
 
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Rose");
-        Console.ResetColor();
+        CyanMarkup("Rose");
 
         if (rose.Count == 0)
         {
@@ -114,9 +113,8 @@ public class WineOperations
             }
         }
 
-        Console.ForegroundColor = ConsoleColor.Cyan;
-        Console.WriteLine("Red");
-        Console.ResetColor();
+
+        CyanMarkup("Red");
 
         List<Wine> redWines = context.Wines
             .Where(wine => wine.WineType == WineType.Red)

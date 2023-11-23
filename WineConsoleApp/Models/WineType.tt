@@ -44,7 +44,7 @@ namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDi
         <#= Pascalize(reader[columnName]) #> = <#= reader[columnId] #><# loop = reader.Read(); #><#= loop ? ",\r\n" : string.Empty #><#
     }
 #>
-}
+ <#= "\r\n" #>    }
 }
 <#+
     private string Pascalize(object value)

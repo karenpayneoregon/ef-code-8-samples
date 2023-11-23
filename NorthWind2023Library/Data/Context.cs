@@ -9,6 +9,7 @@ using NorthWind2023Library.Data.Configurations;
 using NorthWind2023Library.Models;
 using static ConfigurationLibrary.Classes.ConfigurationHelper;
 using static Microsoft.EntityFrameworkCore.EF;
+// ReSharper disable InconsistentNaming
 
 #nullable disable
 

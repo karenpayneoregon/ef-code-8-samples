@@ -23,6 +23,10 @@ public class WineContext : DbContext
                 },
                 LogLevel.Information);
 
+    /// <summary>
+    /// * Provide predefined data
+    /// * Setup conversion for WineType (enum)
+    /// </summary>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder

@@ -1,6 +1,6 @@
-﻿using Spectre.Console;
-using WineConsoleApp.Classes;
+﻿using WineConsoleApp.Classes;
 using WineConsoleApp.Data;
+using static WineConsoleApp.Classes.AnsiConsoleHelpers;
 
 namespace WineConsoleApp;
 
@@ -10,8 +10,8 @@ internal partial class Program
     {
         using var context = new WineContext();
 
-        context.Database.EnsureDeleted();
-        context.Database.EnsureCreated();
+        context.CleanStart();
+
         WineOperations.Run();
 
         Line();
@@ -19,7 +19,7 @@ internal partial class Program
         WineOperations.Indexing();
 
         Console.WriteLine();
-        AnsiConsole.MarkupLine("[cyan]See log file under the app folder[/]");
+        CyanMarkup("[cyan]See ef core log file under the app folder[/]");
 
         ExitPrompt();
     }

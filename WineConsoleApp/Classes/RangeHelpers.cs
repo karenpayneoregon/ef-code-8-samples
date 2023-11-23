@@ -5,10 +5,8 @@ namespace WineConsoleApp.Classes;
 public class RangeHelpers
 {
 
-
-    public static List<Container<T>> Get<T>(List<T> list)
-    {
-        var elementsList = list.Select((element, index) => new Container<T>
+    public static List<Container<T>> Get<T>(List<T> list) =>
+        list.Select((element, index) => new Container<T>
         {
             Value = element,
             StartIndex = new Index(index),
@@ -16,7 +14,4 @@ public class RangeHelpers
                 true),
             MonthIndex = index + 1
         }).ToList();
-
-        return elementsList;
-    }
 }

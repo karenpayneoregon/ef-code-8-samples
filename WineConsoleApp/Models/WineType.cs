@@ -14,5 +14,6 @@ namespace WineConsoleApp.Models
         [Description("Dinner white")] 
         White = 2,
         [Description("Imported rose")] 
-        Rose = 3}
+        Rose = 3 
+    }
 }
