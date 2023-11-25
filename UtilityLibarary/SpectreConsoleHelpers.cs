@@ -23,6 +23,10 @@ public class SpectreConsoleHelpers
     {
         AnsiConsole.MarkupLine($"  [springgreen3_1]{message}[/]");
     }
+    public static void Message(string message)
+    {
+        AnsiConsole.MarkupLine($"[springgreen3_1]{message}[/]");
+    }
     private static void Render(Rule rule)
     {
         AnsiConsole.Write(rule);

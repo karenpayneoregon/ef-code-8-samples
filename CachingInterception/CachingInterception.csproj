@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -29,5 +29,7 @@
 	<ItemGroup>
 		<PackageReference Include="Spectre.Console" Version="0.47.0" />
 	</ItemGroup>
-
+	<Target Name="MakeMyDir" AfterTargets="Build">
+		<MakeDir Directories="$(OutDir)LogFiles" />
+	</Target>
 </Project>

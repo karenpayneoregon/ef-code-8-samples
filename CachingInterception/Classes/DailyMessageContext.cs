@@ -1,4 +1,7 @@
 using System;
+using System.IO;
+using System.Threading.Tasks;
+using Classes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -6,19 +9,26 @@ public class DailyMessageContext : DbContext
 {
     private static readonly CachingCommandInterceptor _cachingInterceptor
         = new CachingCommandInterceptor();
+    private readonly StreamWriter _logStream = new StreamWriter("LogFiles\\ef-logs.txt", append: true);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
             .EnableSensitiveDataLogging()
             .AddInterceptors(_cachingInterceptor)
-            .LogTo(Console.WriteLine, LogLevel.Information)
+            .LogTo(_logStream.WriteLine, LogLevel.Information)
             .UseSqlite("DataSource=dailymessage.db");
 
     public DbSet<DailyMessage> DailyMessages { get; set; }
-}
 
-public class DailyMessage
-{
-    public int Id { get; set; }
-    public string Message { get; set; }
+    public override void Dispose()
+    {
+        base.Dispose();
+        _logStream.Dispose();
+    }
+
+    public override async ValueTask DisposeAsync()
+    {
+        await base.DisposeAsync();
+        await _logStream.DisposeAsync();
+    }
 }
