@@ -2,6 +2,7 @@
 using Classes;
 using static UtilityLibarary.SpectreConsoleHelpers;
 
+// ReSharper disable once CheckNamespace
 namespace CachingInterception;
 
 public partial class Program
@@ -13,6 +14,7 @@ public partial class Program
         await Operations.InsertRecordAsync();
         await Operations.CachedMessageAsync();
         await Operations.CacheIsExpiredAsync();
+
         ExitPrompt();
     }
 }

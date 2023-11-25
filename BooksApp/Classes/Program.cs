@@ -1,6 +1,4 @@
-﻿using BooksApp.Classes;
-using Microsoft.Extensions.DependencyInjection;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
 
 // ReSharper disable once CheckNamespace
 namespace BooksApp;
