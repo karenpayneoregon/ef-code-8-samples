@@ -61,7 +61,7 @@ public partial class Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
             .UseSqlServer(ConnectionString())
-            .EnableSensitiveDataLogging()
+            //.EnableSensitiveDataLogging()
             .LogTo(new DbContextToFileLogger().Log, 
                 new[]
                 {

@@ -1,0 +1,12 @@
+
+
+    info: 11/27/2023 06:44:07.092 RelationalEventId.CommandExecuted[20101]
+          SELECT TOP(1) [b].[Id], [b].[Price], [b].[Title]
+          FROM [Book] AS [b]
+          WHERE [b].[Id] = 1
+    ----------------------------------------
+    info: 11/27/2023 06:44:43.849 RelationalEventId.CommandExecuted[20101]
+          SELECT TOP(1) [b].[Id], [b].[Price], [b].[Title]
+          FROM [Book] AS [b]
+          WHERE [b].[Id] = @__id_0
+    ----------------------------------------

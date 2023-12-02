@@ -56,5 +56,11 @@
 		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
+	</ItemGroup>
 
+	<Target Name="MakeMyDir" AfterTargets="Build">
+		<MakeDir Directories="$(OutDir)LogFiles" />
+	</Target>
 </Project>
