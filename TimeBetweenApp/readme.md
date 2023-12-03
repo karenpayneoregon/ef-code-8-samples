@@ -1,6 +1,6 @@
 ﻿# About
 
-An example for TimeOnly IsBetween which was introduced with EF Core 8.
+An example for TimeOnly [IsBetween](https://learn.microsoft.com/en-us/ef/core/providers/sql-server/functions) which was introduced with EF Core 8.
 
 ![Figure1](assets/Figure1.png)
 
