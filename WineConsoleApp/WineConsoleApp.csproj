@@ -13,12 +13,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="ForTwitter.sql" />
 	  <None Remove="Models\readme.md" />
 	  <None Remove="readme.md" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Content Include="assets\csharp.ico" />
+	  <Content Include="ForTwitter.sql" />
 	  <Content Include="Models\readme.md" />
 	  <Content Include="readme.md" />
 	</ItemGroup>

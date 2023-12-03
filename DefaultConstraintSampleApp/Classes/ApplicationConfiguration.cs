@@ -1,6 +1,6 @@
 ﻿using DefaultConstraintSampleApp.Models;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+
 
 namespace DefaultConstraintSampleApp.Classes;
 internal class ApplicationConfiguration

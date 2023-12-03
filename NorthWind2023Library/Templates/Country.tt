@@ -1,0 +1,53 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="EnvDTE.dll" #>
+<#@ Assembly Name="System.Data" #>
+<#@ import namespace="EnvDTE" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#
+    var tableName = Path.GetFileNameWithoutExtension(Host.TemplateFile);
+    var path = Path.GetDirectoryName(Host.TemplateFile);
+    
+    var columnId = "CountryIdentifier";
+    var columnName = "Name";
+
+    var connectionString = "Data Source=.\\SQLEXPRESS;Initial Catalog=NorthWind2023;Integrated Security=True;Encrypt=False";
+    IServiceProvider serviceProvider = (IServiceProvider)Host;
+	DTE dte = (DTE)serviceProvider.GetService(typeof(DTE));
+	Project project = dte.Solution.FindProjectItem(Host.TemplateFile).ContainingProject;
+#>
+using System.CodeDom.Compiler;
+
+namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDirectoryName(Host.TemplateFile).Remove(0, Path.GetDirectoryName(project.FileName).Length).Replace("\\", ".") #>
+{
+    /// <summary>
+    /// <#= tableName #> auto generated enumeration
+    /// </summary>
+    public enum <#= tableName #>
+    {
+<#
+    SqlConnection conn = new SqlConnection(connectionString);
+    string command = $"select {columnId}, {columnName} from Countries as Country order by {columnId}";
+    SqlCommand comm = new SqlCommand(command, conn);
+
+    conn.Open();
+    SqlDataReader reader = comm.ExecuteReader();
+    bool loop = reader.Read();
+
+    while(loop)
+    {
+#>      <#= Pascalize(reader[columnName]) #> = <#= reader[columnId] #><# loop = reader.Read(); #><#= loop ? ",\r\n" : string.Empty #><#
+    }
+#>
+ <#= "\r\n" #>    }
+}
+<#+
+    private string Pascalize(object value)
+    {
+		Regex rx = new Regex(@"(?:[^a-zA-Z0-9]*)(?<first>[a-zA-Z0-9])(?<reminder>[a-zA-Z0-9]*)(?:[^a-zA-Z0-9]*)");
+        return rx.Replace(value.ToString(), m => m.Groups["first"].ToString().ToUpper() + m.Groups["reminder"].ToString().ToLower());
+    }
+#>

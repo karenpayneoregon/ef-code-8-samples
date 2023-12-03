@@ -94,10 +94,11 @@ public class WineOperations
 
         Console.WriteLine();
 
+        var parameterizedWineType = WineType.Rose;
         List<Wine> rose = context.Wines
-            .Where(wine => wine.WineType == WineType.Rose)
+            .Where(wine => wine.WineType == parameterizedWineType)
             .ToList();
-
+        
         CyanMarkup("Rose");
 
         if (rose.Count == 0)

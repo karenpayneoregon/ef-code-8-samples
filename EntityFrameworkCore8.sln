@@ -62,6 +62,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interception", "Interceptio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CachingInterception", "CachingInterception\CachingInterception.csproj", "{007B39D1-CE64-47C3-AA8C-29F4830F9549}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleHelper", "ConsoleHelper\ConsoleHelper.csproj", "{E14C12A9-4C16-4648-8E6C-91897795E4A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -144,6 +146,10 @@ Global
 		{007B39D1-CE64-47C3-AA8C-29F4830F9549}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{007B39D1-CE64-47C3-AA8C-29F4830F9549}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{007B39D1-CE64-47C3-AA8C-29F4830F9549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E14C12A9-4C16-4648-8E6C-91897795E4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E14C12A9-4C16-4648-8E6C-91897795E4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E14C12A9-4C16-4648-8E6C-91897795E4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E14C12A9-4C16-4648-8E6C-91897795E4A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -172,6 +178,7 @@ Global
 		{029FBFA3-6FEA-4867-9797-02ED3FE71AFA} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
 		{E99D6F1D-F4C3-4C2A-902E-CA9922DEDD73} = {029FBFA3-6FEA-4867-9797-02ED3FE71AFA}
 		{007B39D1-CE64-47C3-AA8C-29F4830F9549} = {E99D6F1D-F4C3-4C2A-902E-CA9922DEDD73}
+		{E14C12A9-4C16-4648-8E6C-91897795E4A5} = {4C8569AA-17EC-4D25-B9EF-710931F8A6F3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}
