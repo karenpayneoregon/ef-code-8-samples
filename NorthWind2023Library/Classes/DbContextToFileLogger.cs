@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using static System.DateTime;
+#pragma warning disable CS8604 // Possible null reference argument.
 
 namespace NorthWind2023Library.Classes;
 
