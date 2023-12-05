@@ -2,11 +2,11 @@
 
 namespace NorthWind2023ReportsToApp.Classes;
 
-public class Colored
+public class Other
 {
     [ModuleInitializer]
     public static void InitColored()
     {
-        AnsiConsole.MarkupLine("[cyan]Reading employee information[/]");
+        
     }
 }

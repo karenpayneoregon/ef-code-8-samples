@@ -1,4 +1,6 @@
 ﻿
+using NorthWind2023Library.Models;
+
 namespace NorthWind2023ReportsToApp.Models
 {
     public class Manager

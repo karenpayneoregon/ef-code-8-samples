@@ -12,6 +12,7 @@ public partial class Employees
     public string LastName { get; set; }
 
     public string FirstName { get; set; }
+    public string FullName => $"{FirstName} {LastName}";
 
     public int? ContactTypeIdentifier { get; set; }
 

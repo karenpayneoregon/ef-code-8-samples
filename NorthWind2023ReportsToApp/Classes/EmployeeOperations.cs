@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using NorthWind2023ReportsToApp.Data;
+using NorthWind2023Library.Data;
+using NorthWind2023Library.Models;
 using NorthWind2023ReportsToApp.Models;
 
 namespace NorthWind2023ReportsToApp.Classes;
@@ -11,12 +12,12 @@ public class EmployeeOperations
     /// Example for self-referencing table where the property <see cref="Employees.ReportsTo"/> is null
     /// this indicates the <see cref="Employees"/> is a manager.
     ///
-    /// <see cref="Employees.WorkersNavigation"/> for a manager will contain their employees.
+    /// <see cref="Employees.ReportsToNavigationEmployee"/> for a manager will contain their employees.
     /// </summary>
     [SuppressMessage("ReSharper", "All")]
     public static void EmployeeReportsToManager()
     {
-        using var context = new NorthContext();
+        using var context = new Context();
 
         List<Employees> employees = [.. context.Employees];
             
@@ -37,7 +38,7 @@ public class EmployeeOperations
             Manager manager = new()
             {
                 Employee = employees.Find(employee => 
-                    employee.EmployeeId == group.Key.Value)
+                    employee.EmployeeID == group.Key.Value)
             };
 
             foreach (Employees groupedItem in group)
@@ -53,7 +54,7 @@ public class EmployeeOperations
 
         foreach (var manager in managers)
         {
-            table.AddRow(manager.Employee.FullName);
+            table.AddRow($"[cyan]{manager.Employee.FullName}[/]");
             foreach (var worker in manager.Workers)
             {
                 table.AddRow("", worker.FullName);
