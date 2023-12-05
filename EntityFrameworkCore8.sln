@@ -66,7 +66,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleHelper", "ConsoleHel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeBetweenApp", "TimeBetweenApp\TimeBetweenApp.csproj", "{CCD6BF6F-C784-4407-B8D4-DEC983CC816A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DateBetweenApp", "DateBetweenApp\DateBetweenApp.csproj", "{0ECAF58D-E6A2-485C-9166-76887D7A8DB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateBetweenApp", "DateBetweenApp\DateBetweenApp.csproj", "{0ECAF58D-E6A2-485C-9166-76887D7A8DB2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind2023ReportsToApp", "NorthWind2023ReportsToApp\NorthWind2023ReportsToApp.csproj", "{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -162,6 +164,10 @@ Global
 		{0ECAF58D-E6A2-485C-9166-76887D7A8DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0ECAF58D-E6A2-485C-9166-76887D7A8DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0ECAF58D-E6A2-485C-9166-76887D7A8DB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,6 +199,7 @@ Global
 		{E14C12A9-4C16-4648-8E6C-91897795E4A5} = {4C8569AA-17EC-4D25-B9EF-710931F8A6F3}
 		{CCD6BF6F-C784-4407-B8D4-DEC983CC816A} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 		{0ECAF58D-E6A2-485C-9166-76887D7A8DB2} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
+		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}
