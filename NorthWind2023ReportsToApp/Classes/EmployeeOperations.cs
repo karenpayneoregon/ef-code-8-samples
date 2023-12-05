@@ -14,7 +14,6 @@ public class EmployeeOperations
     ///
     /// <see cref="Employees.ReportsToNavigationEmployee"/> for a manager will contain their employees.
     /// </summary>
-    [SuppressMessage("ReSharper", "All")]
     public static void EmployeeReportsToManager()
     {
         using var context = new Context();

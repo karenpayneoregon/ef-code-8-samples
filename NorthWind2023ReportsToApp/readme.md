@@ -17,3 +17,4 @@ EF Core code samples using a modified version of NorthWind database, script to c
 
 - Originally written in .NET Core 5, now .NET Core 8
 - This project came from another Visual Studio solution which was setup with EF Core and refacored to use NorthWind2023Library.
+- Makes us of [Collection expressions](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-12.0/collection-expressions)
