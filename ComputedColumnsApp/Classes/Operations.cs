@@ -54,7 +54,7 @@ internal class Operations
         {
             /*
              * Price is a computed column of PriceRaw.
-             * We could format via :C6 to get the same result as Price but we are simply showing possibilities
+             * We could format via :C6 to get the same result as Price, but we are simply showing possibilities
              * with computed columns not formatting.
              */
             Console.WriteLine($"{product.Id,-3}{product.ProductName,-20}{product.PriceRaw,-15} {product.Price}");

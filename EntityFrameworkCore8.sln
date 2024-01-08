@@ -70,6 +70,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateBetweenApp", "DateBetwe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NorthWind2023ReportsToApp", "NorthWind2023ReportsToApp\NorthWind2023ReportsToApp.csproj", "{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HasConversion_Bool_ColorApp", "HasConversion_Bool_ColorApp\HasConversion_Bool_ColorApp.csproj", "{2AE3CC8A-EF29-4D59-97A3-E0101CB052B4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -168,6 +170,10 @@ Global
 		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE3CC8A-EF29-4D59-97A3-E0101CB052B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE3CC8A-EF29-4D59-97A3-E0101CB052B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE3CC8A-EF29-4D59-97A3-E0101CB052B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE3CC8A-EF29-4D59-97A3-E0101CB052B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -200,6 +206,7 @@ Global
 		{CCD6BF6F-C784-4407-B8D4-DEC983CC816A} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 		{0ECAF58D-E6A2-485C-9166-76887D7A8DB2} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 		{BB83AFC0-EF96-4913-8F8D-9857A6EBD532} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
+		{2AE3CC8A-EF29-4D59-97A3-E0101CB052B4} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}

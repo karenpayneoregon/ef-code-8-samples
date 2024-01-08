@@ -1,0 +1,2 @@
+﻿--- 
+ALTER DATABASE [EF.Friends] SET MULTI_USER
