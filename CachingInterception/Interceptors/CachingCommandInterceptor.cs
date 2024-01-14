@@ -4,6 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
+namespace Interceptors;
+
 public class CachingCommandInterceptor : DbCommandInterceptor
 {
     #region InterceptorState
