@@ -13,6 +13,7 @@ public class CustomersContext : DbContext
     {
         optionsBuilder
             .EnableSensitiveDataLogging()
+            .AddInterceptors(new AuditInterceptor())
             .AddInterceptors(new CommandSourceInterceptor())
             .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFCoreSample1");
     }

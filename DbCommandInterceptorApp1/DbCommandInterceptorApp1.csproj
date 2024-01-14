@@ -42,5 +42,8 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
+	<Target Name="MakeMyDir" AfterTargets="Build">
+		<MakeDir Directories="$(OutDir)Json" />
+	</Target>
 
 </Project>
