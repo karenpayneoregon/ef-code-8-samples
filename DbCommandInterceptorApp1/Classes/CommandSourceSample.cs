@@ -25,6 +25,11 @@ public static partial class CommandSourceSample
 
         context.SaveChanges();
 
+        var customer = context.Customers.FirstOrDefault();
+        customer.JoinDate = new DateOnly(2024, 1, 12);
+
+        context.SaveChanges();
+
         context.ChangeTracker.Clear();
 
         var customers = context.Customers.ToList();
