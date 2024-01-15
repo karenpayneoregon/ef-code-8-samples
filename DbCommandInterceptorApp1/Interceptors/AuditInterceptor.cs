@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DbCommandInterceptorApp1.Classes;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace DbCommandInterceptorApp1.Classes;
+namespace DbCommandInterceptorApp1.Interceptors;
 
 public class AuditInterceptor : SaveChangesInterceptor
 {
@@ -61,8 +62,8 @@ public class AuditInterceptor : SaveChangesInterceptor
 
                     break;
             }
-                
-                
+
+
             List<CompareModel> data = changesList.AppendFromFile(fileName);
             data.ToJson(DateTime.Now.ToString("yyyyMMdd"));
             changesList.Clear();
