@@ -24,7 +24,7 @@ using System.ComponentModel;
 namespace <#= project.Properties.Item("DefaultNamespace").Value #><#= Path.GetDirectoryName(Host.TemplateFile).Remove(0, Path.GetDirectoryName(project.FileName).Length).Replace("\\", ".") #>
 {
     /// <summary>
-    /// <#= tableName #> auto generated enumeration
+    /// <#= tableName #> auto generated enumeration.
     /// </summary>
     [GeneratedCode("TextTemplatingFileGenerator", "10")]
     public enum <#= tableName #>

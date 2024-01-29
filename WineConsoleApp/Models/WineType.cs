@@ -4,7 +4,7 @@ using System.ComponentModel;
 namespace WineConsoleApp.Models
 {
     /// <summary>
-    /// WineType auto generated enumeration
+    /// WineType auto generated enumeration.
     /// </summary>
     [GeneratedCode("TextTemplatingFileGenerator", "10")]
     public enum WineType

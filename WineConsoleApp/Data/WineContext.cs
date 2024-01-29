@@ -14,8 +14,8 @@ public class WineContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
-            .UseSqlServer(ConnectionString())
-            .EnableSensitiveDataLogging()
+            .UseSqlServer(ConnectionString()) // read connection string from appsettings.json
+            .EnableSensitiveDataLogging()     // for development only
             .LogTo(new DbContextToFileLogger().Log,
                 new[]
                 {
