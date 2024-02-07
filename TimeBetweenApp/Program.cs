@@ -1,5 +1,6 @@
 ﻿using TimeBetweenApp.Data;
 using TimeBetweenApp.Models;
+// ReSharper disable EntityFramework.UnsupportedServerSideFunctionCall
 
 namespace TimeBetweenApp;
 
