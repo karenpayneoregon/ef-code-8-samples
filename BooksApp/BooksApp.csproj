@@ -24,10 +24,10 @@
 
 	<ItemGroup>
 		<!-- ReSharper disable once VulnerablePackage -->
-		<PackageReference Include="BenchmarkDotNet" Version="0.13.10" />
-		<PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.13.10" />
-		<PackageReference Include="ConfigurationLibrary" Version="1.0.5" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+		<PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+		<PackageReference Include="BenchmarkDotNet.Diagnostics.Windows" Version="0.13.12" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -53,7 +53,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>

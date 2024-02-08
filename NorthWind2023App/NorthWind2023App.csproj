@@ -17,7 +17,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ConfigurationLibrary" Version="1.0.5" />
+		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -40,7 +40,7 @@
 
 	<ItemGroup>
 		<!-- ReSharper disable once VulnerablePackage -->
-		<PackageReference Include="BenchmarkDotNet" Version="0.13.10" />
+		<PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
 	</ItemGroup>
 
 	<Target Name="MakeMyDir" AfterTargets="Build">
