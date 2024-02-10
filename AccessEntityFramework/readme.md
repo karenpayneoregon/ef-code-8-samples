@@ -15,4 +15,4 @@ Because there are develoers still using Access database using managed data provi
 
 ## See also
 
-[From MS-Access to EF Core (C#)](http://example.com) article which has the same source code in EF Core 7 while here EF Core 8 is used.
+[From MS-Access to EF Core (C#)](https://dev.to/karenpayneoregon/from-ms-access-to-ef-core-c-14nn) article which has the same source code in EF Core 7 while here EF Core 8 is used.
