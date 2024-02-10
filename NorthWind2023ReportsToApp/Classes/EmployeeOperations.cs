@@ -2,6 +2,7 @@
 using NorthWind2023Library.Data;
 using NorthWind2023Library.Models;
 using NorthWind2023ReportsToApp.Models;
+// ReSharper disable AccessToDisposedClosure
 
 namespace NorthWind2023ReportsToApp.Classes;
 
@@ -17,6 +18,7 @@ public class EmployeeOperations
     public static void EmployeeReportsToManager()
     {
         using var context = new Context();
+
         AnsiConsole.Status()
             .Start("Working...", ctx =>
             {
@@ -36,15 +38,14 @@ public class EmployeeOperations
 
                 var table = CreateViewTable();
 
-                List<Manager> managers = new();
+                List<Manager> managers = [];
 
                 foreach (var group in groupedData)
                 {
 
                     Manager manager = new()
                     {
-                        Employee = employees.Find(employee =>
-                            employee.EmployeeID == group.Key.Value)
+                        Employee = employees.Find(employee => employee.EmployeeID == group.Key.Value)
                     };
 
                     foreach (Employees groupedItem in group)
@@ -53,7 +54,6 @@ public class EmployeeOperations
                     }
 
                     managers.Add(manager);
-
                 }
 
                 managers = managers.OrderBy(employee => employee.Employee.LastName).ToList();
@@ -69,9 +69,8 @@ public class EmployeeOperations
 
                 Console.Clear();
                 AnsiConsole.Write(table);
+
             });
-
-
     }
 
     private static Table CreateViewTable() =>
