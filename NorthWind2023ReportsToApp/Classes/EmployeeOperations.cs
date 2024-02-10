@@ -17,51 +17,60 @@ public class EmployeeOperations
     public static void EmployeeReportsToManager()
     {
         using var context = new Context();
-
-        List<Employees> employees = [.. context.Employees];
-            
-        List<IGrouping<int?, Employees>> groupedData = employees
-            .Where(employee => employee.ReportsTo.HasValue)
-            .ToList()
-            .OrderBy(employee => employee.LastName)
-            .GroupBy(employee => employee.ReportsTo)
-            .ToList();
-
-        var table = CreateViewTable();
-
-        List<Manager> managers = new();
-
-        foreach (var group in groupedData)
-        {
-
-            Manager manager = new()
+        AnsiConsole.Status()
+            .Start("Working...", ctx =>
             {
-                Employee = employees.Find(employee => 
-                    employee.EmployeeID == group.Key.Value)
-            };
+                Thread.Sleep(500);
 
-            foreach (Employees groupedItem in group)
-            {
-                manager.Workers.Add(groupedItem);
-            }
+                ctx.Spinner(Spinner.Known.Star);
+                ctx.SpinnerStyle(Style.Parse("cyan"));
 
-            managers.Add(manager);
+                List<Employees> employees = [.. context.Employees];
 
-        }
+                List<IGrouping<int?, Employees>> groupedData = employees
+                    .Where(employee => employee.ReportsTo.HasValue)
+                    .ToList()
+                    .OrderBy(employee => employee.LastName)
+                    .GroupBy(employee => employee.ReportsTo)
+                    .ToList();
 
-        managers = managers.OrderBy(employee => employee.Employee.LastName).ToList();
+                var table = CreateViewTable();
 
-        foreach (var manager in managers)
-        {
-            table.AddRow($"[cyan]{manager.Employee.FullName}[/]");
-            foreach (var worker in manager.Workers)
-            {
-                table.AddRow("", worker.FullName);
-            }
-        }
+                List<Manager> managers = new();
 
-        Console.Clear();
-        AnsiConsole.Write(table);
+                foreach (var group in groupedData)
+                {
+
+                    Manager manager = new()
+                    {
+                        Employee = employees.Find(employee =>
+                            employee.EmployeeID == group.Key.Value)
+                    };
+
+                    foreach (Employees groupedItem in group)
+                    {
+                        manager.Workers.Add(groupedItem);
+                    }
+
+                    managers.Add(manager);
+
+                }
+
+                managers = managers.OrderBy(employee => employee.Employee.LastName).ToList();
+
+                foreach (var manager in managers)
+                {
+                    table.AddRow($"[cyan]{manager.Employee.FullName}[/]");
+                    foreach (var worker in manager.Workers)
+                    {
+                        table.AddRow("", worker.FullName);
+                    }
+                }
+
+                Console.Clear();
+                AnsiConsole.Write(table);
+            });
+
 
     }
 
