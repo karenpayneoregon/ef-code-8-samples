@@ -19,7 +19,10 @@ public class EmployeeOperations
     {
         using var context = new Context();
 
+        var table = CreateViewTable();
+
         AnsiConsole.Status()
+
             .Start("Working...", ctx =>
             {
                 Thread.Sleep(500);
@@ -31,12 +34,9 @@ public class EmployeeOperations
 
                 List<IGrouping<int?, Employees>> groupedData = employees
                     .Where(employee => employee.ReportsTo.HasValue)
-                    .ToList()
                     .OrderBy(employee => employee.LastName)
                     .GroupBy(employee => employee.ReportsTo)
                     .ToList();
-
-                var table = CreateViewTable();
 
                 List<Manager> managers = [];
 
@@ -54,21 +54,28 @@ public class EmployeeOperations
                     }
 
                     managers.Add(manager);
+
                 }
 
                 managers = managers.OrderBy(employee => employee.Employee.LastName).ToList();
 
+
+                Console.Clear();
+
+                var root = new Tree("~[white on blue][B]Employees[/][/]~");
+
                 foreach (var manager in managers)
                 {
-                    table.AddRow($"[cyan]{manager.Employee.FullName}[/]");
+                    var currentNode = root.AddNode(manager.Employee.FullName);
+
                     foreach (var worker in manager.Workers)
                     {
-                        table.AddRow("", worker.FullName);
+                        currentNode.AddNode(worker.FullName);
                     }
                 }
 
-                Console.Clear();
-                AnsiConsole.Write(table);
+                AnsiConsole.Write(root);
+
 
             });
     }
