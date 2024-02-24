@@ -6,3 +6,8 @@ Learn how isolate EF Core logging to a file with sensitive information for devel
 
 Environment, Microsoft Visual Studio 2022 or higher, Microsoft SQL Server, database Chinook using Microsoft Entity Framework Core 8.
 
+# Article
+
+[EF Core log to file benefits](https://dev.to/karenpayneoregon/ef-core-log-to-file-benefits-13jp)
+
+
