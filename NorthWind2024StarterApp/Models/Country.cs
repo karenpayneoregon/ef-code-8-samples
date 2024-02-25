@@ -2,18 +2,46 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace NorthWind2024StarterApp.Models;
 
-public partial class Country
+public partial class Country : INotifyPropertyChanged
 {
-    public int CountryIdentifier { get; set; }
+    private int _countryIdentifier;
+    private string _name;
 
-    public string Name { get; set; }
+    public int CountryIdentifier
+    {
+        get => _countryIdentifier;
+        set
+        {
+            if (value == _countryIdentifier) return;
+            _countryIdentifier = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public string Name
+    {
+        get => _name;
+        set
+        {
+            if (value == _name) return;
+            _name = value;
+            OnPropertyChanged();
+        }
+    }
 
     public virtual ICollection<Customer> Customers { get; set; } = new List<Customer>();
 
     public virtual ICollection<Employee> Employees { get; set; } = new List<Employee>();
 
     public virtual ICollection<Supplier> Suppliers { get; set; } = new List<Supplier>();
+    public event PropertyChangedEventHandler PropertyChanged;
+    protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
 }

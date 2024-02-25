@@ -40,5 +40,5 @@ public partial class Customer
 
     public virtual Country CountryIdentifierNavigation { get; set; }
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+    public virtual List<Order> Orders { get; set; } = new List<Order>();
 }

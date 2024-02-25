@@ -4,6 +4,7 @@ using NorthWind2024StarterApp.Classes;
 using NorthWind2024StarterApp.Components;
 using NorthWind2024StarterApp.Data;
 using NorthWind2024StarterApp.Models;
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace NorthWind2024StarterApp;
 
@@ -44,10 +45,10 @@ public partial class Form1 : Form
         CategoriesComboBox.SelectedIndexChanged += CategoriesComboBox_SelectedIndexChanged;
 
         GetProductsForSelectedCategory();
-        _productsBindingSource.ListChanged += _productsBindingSource_ListChanged;
+        _productsBindingSource.ListChanged += ProductsBindingSource_ListChanged;
     }
 
-    private void _productsBindingSource_ListChanged(object? sender, ListChangedEventArgs e)
+    private void ProductsBindingSource_ListChanged(object? sender, ListChangedEventArgs e)
     {
         if (e.ListChangedType == ListChangedType.ItemChanged)
         {
