@@ -28,7 +28,7 @@ partial class MasterDetails
     /// </summary>
     private void InitializeComponent()
     {
-        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
         CustomersDataGridView = new DataGridView();
         CompanyNameColumn = new DataGridViewTextBoxColumn();
         CountryColumn = new DataGridViewComboBoxColumn();
@@ -44,6 +44,8 @@ partial class MasterDetails
         // 
         // CustomersDataGridView
         // 
+        CustomersDataGridView.AllowUserToAddRows = false;
+        CustomersDataGridView.AllowUserToDeleteRows = false;
         CustomersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         CustomersDataGridView.Columns.AddRange(new DataGridViewColumn[] { CompanyNameColumn, CountryColumn });
         CustomersDataGridView.Location = new Point(0, 35);
@@ -104,10 +106,10 @@ partial class MasterDetails
         // FreightColumn
         // 
         FreightColumn.DataPropertyName = "Freight";
-        dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
-        dataGridViewCellStyle2.Format = "C2";
-        dataGridViewCellStyle2.NullValue = null;
-        FreightColumn.DefaultCellStyle = dataGridViewCellStyle2;
+        dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
+        dataGridViewCellStyle1.Format = "C2";
+        dataGridViewCellStyle1.NullValue = null;
+        FreightColumn.DefaultCellStyle = dataGridViewCellStyle1;
         FreightColumn.HeaderText = "Freight";
         FreightColumn.MinimumWidth = 6;
         FreightColumn.Name = "FreightColumn";

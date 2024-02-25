@@ -10,8 +10,8 @@ public class Dialogs
 
         var buttons = new TaskDialogButtonCollection
         {
-            yesButton,
-            noButton
+            noButton,
+            yesButton
         };
 
 
