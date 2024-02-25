@@ -138,6 +138,8 @@ public partial class Product : INotifyPropertyChanged
     public virtual Supplier Supplier { get; set; }
     public string SupperlierCompanyName => Supplier.CompanyName;
 
+    public override string ToString() => ProductName;
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

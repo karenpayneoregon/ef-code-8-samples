@@ -7,6 +7,7 @@ using NorthWind2024StarterApp.Components;
 using NorthWind2024StarterApp.Data;
 using NorthWind2024StarterApp.Models;
 using NorthWind2024StarterApp.Validators;
+// ReSharper disable CollectionNeverQueried.Local
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 #pragma warning disable CS8634 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'class' constraint.
 
@@ -89,6 +90,36 @@ public partial class MasterDetails : Form
 
 
         SetupMasterBindingNavigatorAddRemoveButtons();
+
+        OrdersDataGridView.DoubleClick += OrdersDataGridView_DoubleClick;
+    }
+
+    private void OrdersDataGridView_DoubleClick(object? sender, EventArgs e)
+    {
+        if (_ordersBindingSource.Current is not null)
+        {
+            var current = (Order)_ordersBindingSource.Current;
+            using var context = new Context();
+            List<OrderDetail> details = context
+                .OrderDetails
+                .AsNoTracking()
+                .Include(x => x.Product)
+                .ThenInclude(x => x.Category)
+                .Where(x => x.OrderId == current.OrderId)
+                .ToList();
+
+            if (details is not null)
+            {
+                List<ProductItem> results = details
+                    .Select(x => 
+                        new ProductItem(
+                            x.Product.ProductName, 
+                            x.Product.Category, 
+                            x.Product.UnitPrice, 
+                            x.Quantity))
+                    .ToList();
+            }
+        }
     }
 
     /// <summary>
