@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.ComponentModel;
-using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using NorthWind2024StarterApp.Classes;
 using NorthWind2024StarterApp.Components;
@@ -15,7 +14,7 @@ using NorthWind2024StarterApp.Validators;
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace NorthWind2024StarterApp;
-public partial class MasterDetails : Form
+public partial class MasterDetailsForm : Form
 {
     private SortableBindingList<CustomerItem> _customersSortableBindingList;
     private BindingSource _customerBindingSource = new();
@@ -24,7 +23,7 @@ public partial class MasterDetails : Form
 
     private BindingSource _countryBindingSource = new();
     
-    public MasterDetails()
+    public MasterDetailsForm()
     {
         InitializeComponent();
 
@@ -92,13 +91,33 @@ public partial class MasterDetails : Form
         SetupMasterBindingNavigatorAddRemoveButtons();
 
         OrdersDataGridView.DoubleClick += OrdersDataGridView_DoubleClick;
+        OrdersDataGridView.KeyDown += OrdersDataGridView_KeyDown;
+    }
+
+    private void OrdersDataGridView_KeyDown(object? sender, KeyEventArgs e)
+    {
+        if (e.KeyData == Keys.Enter)
+        {
+            ViewOrderDetails();
+            e.Handled = true;
+        }
     }
 
     private void OrdersDataGridView_DoubleClick(object? sender, EventArgs e)
     {
+        ViewOrderDetails();
+    }
+
+    /// <summary>
+    /// Show order details for the current order if any items to show.
+    /// </summary>
+    private void ViewOrderDetails()
+    {
         if (_ordersBindingSource.Current is not null)
         {
-            var current = (Order)_ordersBindingSource.Current;
+
+            var current = (Order) _ordersBindingSource.Current;
+
             using var context = new Context();
             List<OrderDetail> details = context
                 .OrderDetails
@@ -118,6 +137,9 @@ public partial class MasterDetails : Form
                             x.Product.UnitPrice, 
                             x.Quantity))
                     .ToList();
+
+                using OrderDetailsForm f = new(results, current.OrderId);
+                f.ShowDialog();
             }
         }
     }

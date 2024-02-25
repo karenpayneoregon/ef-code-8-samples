@@ -1,6 +1,6 @@
 ﻿namespace NorthWind2024StarterApp;
 
-partial class MasterDetails
+partial class MasterDetailsForm
 {
     /// <summary>
     /// Required designer variable.

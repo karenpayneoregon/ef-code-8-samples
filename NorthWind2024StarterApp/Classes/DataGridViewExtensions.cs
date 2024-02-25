@@ -1,4 +1,6 @@
-﻿namespace NorthWind2024StarterApp.Classes;
+﻿using System.Text.RegularExpressions;
+
+namespace NorthWind2024StarterApp.Classes;
 public static class DataGridViewExtensions
 {
     public static void ExpandColumns(this DataGridView source, bool sizable = false)
@@ -23,5 +25,16 @@ public static class DataGridViewExtensions
 
 
     }
+    public static void FixHeaders(this DataGridView source)
+    {
+        string SplitCamelCase(string sender)
+            => string.Join(" ", Regex.Matches(sender,
+                @"([A-Z][a-z]+)").Select(m => m.Value));
 
+        for (int index = 0; index < source.Columns.Count; index++)
+        {
+            //source.Columns[index].Width = 150;
+            source.Columns[index].HeaderText = SplitCamelCase(source.Columns[index].HeaderText);
+        }
+    }
 }
