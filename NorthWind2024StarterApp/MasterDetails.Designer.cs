@@ -28,7 +28,7 @@ partial class MasterDetails
     /// </summary>
     private void InitializeComponent()
     {
-        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
         CustomersDataGridView = new DataGridView();
         CompanyNameColumn = new DataGridViewTextBoxColumn();
         CountryColumn = new DataGridViewComboBoxColumn();
@@ -106,10 +106,10 @@ partial class MasterDetails
         // FreightColumn
         // 
         FreightColumn.DataPropertyName = "Freight";
-        dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleRight;
-        dataGridViewCellStyle1.Format = "C2";
-        dataGridViewCellStyle1.NullValue = null;
-        FreightColumn.DefaultCellStyle = dataGridViewCellStyle1;
+        dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleRight;
+        dataGridViewCellStyle2.Format = "C2";
+        dataGridViewCellStyle2.NullValue = null;
+        FreightColumn.DefaultCellStyle = dataGridViewCellStyle2;
         FreightColumn.HeaderText = "Freight";
         FreightColumn.MinimumWidth = 6;
         FreightColumn.Name = "FreightColumn";
@@ -133,6 +133,7 @@ partial class MasterDetails
         Controls.Add(CustomersBindingNavigator);
         Controls.Add(OrdersDataGridView);
         Controls.Add(CustomersDataGridView);
+        FormBorderStyle = FormBorderStyle.FixedToolWindow;
         Name = "MasterDetails";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "MasterDetails";
