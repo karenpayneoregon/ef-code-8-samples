@@ -63,6 +63,16 @@ namespace NorthWind2024StarterApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        internal static System.Drawing.Icon blueInformation_32 {
+            get {
+                object obj = ResourceManager.GetObject("blueInformation_32", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         internal static System.Drawing.Icon QuestionBlue {
             get {
                 object obj = ResourceManager.GetObject("QuestionBlue", resourceCulture);

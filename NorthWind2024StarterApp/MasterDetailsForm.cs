@@ -150,11 +150,15 @@ public partial class MasterDetailsForm : Form
     /// </summary>
     private void SetupMasterBindingNavigatorAddRemoveButtons()
     {
-        CustomersBindingNavigator.AddNewItem = null;
-        CustomersBindingNavigator.Items["bindingNavigatorAddNewItem"].Click += CustomersAdd_Click;
+        CustomersBindingNavigator.RemoveDefaultHandlers();
+        CustomersBindingNavigator.AddItemButton.Click += CustomersAdd_Click;
+        CustomersBindingNavigator.DeleteItemButton.Click += CustomersDelete_Click1;
+        CustomersBindingNavigator.AboutItemButton.Click += AboutItemButton_Click;
+    }
 
-        CustomersBindingNavigator.DeleteItem = null;
-        CustomersBindingNavigator.Items["bindingNavigatorDeleteItem"].Click += CustomersDelete_Click1;
+    private void AboutItemButton_Click(object? sender, EventArgs e)
+    {
+        Dialogs.Information(this, "", "EF Core sample for master-details");
     }
 
     /*
@@ -162,7 +166,10 @@ public partial class MasterDetailsForm : Form
      */
     private void CustomersDelete_Click1(object? sender, EventArgs e)
     {
-        CustomerItem current = _customersSortableBindingList[_customerBindingSource.Position];
+
+        CustomerItem current = _customersSortableBindingList[ _customerBindingSource.Position ];
+
+
 
         if (Dialogs.Question(this, $"Remove {current.CompanyName}"))
         {
