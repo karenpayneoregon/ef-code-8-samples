@@ -15,37 +15,21 @@ namespace NorthWind2024StarterApp.Components
         }
 
         /// <summary>
-        /// Prohibit adding new items
+        /// Set Enable for add button
         /// </summary>
-        public void DisableAddButton()
+        public void AddButtonEnable(bool enable = false)
         {
-            AddNewItem.Enabled = false;
+            AddNewItem.Enabled = enable;
         }
 
         /// <summary>
-        /// Prohibit deleting items
+        /// Set Enable for delete button
         /// </summary>
-        public void DisableRemoveButton()
+        public void RemoveButtonEnable(bool enable = false)
         {
-            DeleteItem.Enabled = false;
+            DeleteItem.Enabled = enable;
         }
-
-        /// <summary>
-        /// Enable Adding new items
-        /// </summary>
-        public void EnableAddNewItems()
-        {
-            AddNewItem.Enabled = true;
-        }
-
-        /// <summary>
-        /// Enable removing items
-        /// </summary>
-        public void EnableRemoveItems()
-        {
-            DeleteItem.Enabled = true;
-        }
-
+        
         /// <summary>
         /// Remove default actions for delete and add buttons
         /// </summary>
@@ -54,6 +38,23 @@ namespace NorthWind2024StarterApp.Components
             AddNewItem = null;
             DeleteItem = null;
         }
+
+        /// <summary>
+        /// Hide about button
+        /// </summary>
+        public void HideAboutButton()
+        {
+            AboutItemButton.Visible = false;
+        }
+
+        /// <summary>
+        /// Show about button
+        /// </summary>
+        public void ShowAboutButton()
+        {
+            AboutItemButton.Visible = true;
+        }
+
 
         /// <summary>
         /// Provide access to the add new button
