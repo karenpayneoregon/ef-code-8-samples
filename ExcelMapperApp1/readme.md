@@ -10,7 +10,7 @@ An example which reads from a specific worksheet in an Excel file with the first
 
 ## Connection string
 
-Is in Data\Context.cs
+Is in `appsettings.json`
 
 # Requies
 

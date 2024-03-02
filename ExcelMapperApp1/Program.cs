@@ -24,14 +24,15 @@ internal partial class Program
             ExcelMapper excel = new();
             await using var context = new Context();
 
-            var customers = (await excel.FetchAsync<Customers>(excelFile, 
-                nameof(Customers))).ToList();
+            var customers = (await excel.FetchAsync<Customers>(excelFile,
+                nameof(Customers)))
+                .ToList();
 
             context.Customers.AddRange(customers);
             var affected = await context.SaveChangesAsync();
 
-            AnsiConsole.MarkupLine(affected > 0 ? 
-                $"[cyan]Saved[/] [b]{affected}[/] [cyan]records[/]" : 
+            AnsiConsole.MarkupLine(affected > 0 ?
+                $"[cyan]Saved[/] [b]{affected}[/] [cyan]records[/]" :
                 "[red]Failed[/]");
 
         }
@@ -41,7 +42,6 @@ internal partial class Program
         }
 
         AnsiConsole.MarkupLine("[yellow]Done[/]");
-
         Console.ReadLine();
     }
 }
