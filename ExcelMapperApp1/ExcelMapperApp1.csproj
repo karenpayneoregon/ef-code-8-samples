@@ -13,11 +13,13 @@
 
 	<ItemGroup>
 	  <None Remove="readme.md" />
+	  <None Remove="readme1.md" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Content Include="assets\csharp.ico" />
 	  <Content Include="readme.md" />
+	  <Content Include="readme1.md" />
 	</ItemGroup>
 
 	<ItemGroup>
