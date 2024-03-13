@@ -3,6 +3,7 @@
 using ChinookLoggingSample.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using EntityCoreFileLogger;
 using EntityFrameworkChinookLoggingSample.Classes;
 
 #nullable disable
