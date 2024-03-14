@@ -12,24 +12,24 @@ namespace CreateAndPopulateSqlServerApp.Classes
             context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
 
-            List<ContactType> contactTypes = new()
-            {
-                new () { ContactTitle = "Accounting Manager" },
-                new () { ContactTitle = "Owner" },
-                new () { ContactTitle = "Sales Agent" },
-                new () { ContactTitle = "Sales Manager" }
-            };
+            List<ContactType> contactTypes =
+            [
+                new() { ContactTitle = "Accounting Manager" },
+                new() { ContactTitle = "Owner" },
+                new() { ContactTitle = "Sales Agent" },
+                new() { ContactTitle = "Sales Manager" }
+            ];
 
             context.AddRange(contactTypes);
             Console.WriteLine($"Contact types saved {context.SaveChanges()}");
 
-            List<Contacts> contacts = new()
-            {
-                new () { ContactTypeIdentifier = 2, FirstName = "Karen", LastName = "Payne" },
-                new () { ContactTypeIdentifier = 1, FirstName = "Mary", LastName = "Jones" },
-                new () { ContactTypeIdentifier = 4, FirstName = "John", LastName = "Gallagher" },
-                new () { ContactTypeIdentifier = 2, FirstName = "Kim", LastName = "Jones" },
-            };
+            List<Contacts> contacts =
+            [
+                new() { ContactTypeIdentifier = 2, FirstName = "Karen", LastName = "Payne" },
+                new() { ContactTypeIdentifier = 1, FirstName = "Mary", LastName = "Jones" },
+                new() { ContactTypeIdentifier = 4, FirstName = "John", LastName = "Gallagher" },
+                new() { ContactTypeIdentifier = 2, FirstName = "Kim", LastName = "Jones" }
+            ];
 
             context.AddRange(contacts);
             Console.WriteLine($"Contacts saved {context.SaveChanges()}");

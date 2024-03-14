@@ -48,9 +48,13 @@ namespace NorthWind2024StarterApp.Data.Configurations
             .HasForeignKey(d => d.ContactTypeIdentifier)
             .HasConstraintName("FK_Customers_ContactType");
 
-            entity.HasOne(d => d.CountryIdentifierNavigation).WithMany(p => p.Customers)
+            entity.HasOne(d => d.CountryIdentifierNavigation)
+                .WithMany(p => p.Customers)
             .HasForeignKey(d => d.CountryIdentifier)
             .HasConstraintName("FK_Customers_Countries");
+
+            entity.Navigation(d => d.CountryIdentifierNavigation)
+                .AutoInclude();
 
             OnConfigurePartial(entity);
         }
