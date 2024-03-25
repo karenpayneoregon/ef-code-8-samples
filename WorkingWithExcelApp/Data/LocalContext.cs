@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using WorkingWithExcelApp.Models;
+#nullable disable
 
 namespace WorkingWithExcelApp.Data;
 

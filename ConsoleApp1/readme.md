@@ -1,0 +1,3 @@
+﻿# About
+
+Not EF Core
