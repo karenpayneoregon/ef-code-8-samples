@@ -17,11 +17,12 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
+		<PackageReference Include="EntityCoreFileLogger" Version="1.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.3" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="FluentValidation" Version="11.9.0" />
-		<PackageReference Include="ObjectDumper.NET" Version="4.1.15" />
+		<PackageReference Include="ObjectDumper.NET" Version="4.1.17" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Properties\Resources.Designer.cs">
@@ -60,4 +61,8 @@
 	  <Folder Include="assets\" />
 	</ItemGroup>
 
+	<Target Name="MakeLogDir" AfterTargets="Build">
+		<!-- Create folder LogFiles than each day create a folder with the current date -->
+		<MakeDir Directories="$(OutDir)LogFiles\$([System.DateTime]::Now.ToString(yyyy-MM-dd))" />
+	</Target>
 </Project>

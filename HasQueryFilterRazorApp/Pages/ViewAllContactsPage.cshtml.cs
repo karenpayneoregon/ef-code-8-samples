@@ -30,6 +30,11 @@ public class ViewAllContactsPageModel : PageModel
                 .Contacts
                 .IgnoreQueryFilters() // IMPORTANT
                 .ToListAsync();
+
+            var test = _context
+                .Contacts
+                .IgnoreQueryFilters() // IMPORTANT
+                ;
         }
     }
 
