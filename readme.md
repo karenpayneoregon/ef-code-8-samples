@@ -2,7 +2,7 @@
 
 The intent for this repository is to demonstrate new features for Entity Framework Core 8. Base [code samples](https://github.com/dotnet/EntityFramework.Docs/tree/main/samples/core/Miscellaneous/NewInEFCore8) were obtained **from Microsoft** which are fantastic but not setup for newcomers to learn from so those code samples were simply refactored for ease of learning.
 
-Entity Framework Core 8: [Improved JSON, queryable collections , and more…](https://www.youtube.com/watch?v=_8iH5QnkIJo&list=PLdo4fOcmZ0oULyHSPBx-tQzePOYlhvrAU&t=2s) | .NET Conf 2023
+Entity Framework Core 8: [Improved JSON, queryable collections , and moreâ€¦](https://www.youtube.com/watch?v=_8iH5QnkIJo&list=PLdo4fOcmZ0oULyHSPBx-tQzePOYlhvrAU&t=2s) | .NET Conf 2023
 
 > **Note**
 > Extracting code samples is not as easy as many developers would think, hopefully they are of use.
@@ -29,7 +29,6 @@ Entity Framework Core 8: [Improved JSON, queryable collections , and more…](http
 | BooksApp | This project shows two different ways to group books (the model) by price range. The methods used are benchmarked. |  |
 | ComplexTypesSampleApp | This sample app demonstrates how to use the [Complex Types](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#value-objects-using-complex-types) API to create, read, update complex types. The code was taken from this repository [project](https://github.com/dotnet/EntityFramework.Docs/tree/main/samples/core/Miscellaneous/NewInEFCore8) and modified for the reader to learn from even though the original code is easy to follow but was generic to suite several different ways of writing the code. |  |
 | ComputedColumnsApp | This project show how computed columns can be used with EF Core. Note EF Power Tools was used to reverse engineer the database and properly recognize computed columns. | See also [SQL-Server: Computed columns with Ef Core](https://dev.to/karenpayneoregon/sql-server-computed-columns-with-ef-core-3h8d) article.
- |
 | CreateAndPopulateSqlServerApp | Port from EF Core 7 to EF Core 8 for an example of [interceptors](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/interceptors). | See [EF Core debugging part 1](https://dev.to/karenpayneoregon/ef-core-debugging-part-1-512f) article for details using an `iterceptor` for save changes. |
 | DateBetweenApp | A demonstration for `DateOnly` with a special extension method for determining if a date is between two dates. |  |
 | DateOnlyTimeOnlySampleApp | An example for working with `DateOnly` and `Json columns`. | The code was taken from this repository [project](https://github.com/dotnet/EntityFramework.Docs/tree/main/samples/core/Miscellaneous/NewInEFCore8) and modified for the reader to learn from even though the original code is easy to follow but was generic to suite several different ways of writing the code. |
@@ -47,7 +46,3 @@ Entity Framework Core 8: [Improved JSON, queryable collections , and more…](http
 | WineConsoleApp | A basic code sample on working with [enumerations](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum) as a model for EF Core 8. For the demonstration to be easy to run the first time executing the application a check is done to see if the database exists, if not, the database is created and tables are populated in the DbContext. | Has Value conversions and T4 templates |
 | CachingInterception | Interceptors Code sample from Microsoft, refactored for ease of learning by Karen. | In this sample, logging is different from all other projects in this repository where other projects which write to a log file per day, this sample uses a single log file as per [Microsoft docs](https://learn.microsoft.com/en-us/ef/core/logging-events-diagnostics/simple-logging#logging-to-a-file). |
 | GetWeekendDatesCorrectlyAppCore | Reading EF Core error messages | See project readme file for details |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
