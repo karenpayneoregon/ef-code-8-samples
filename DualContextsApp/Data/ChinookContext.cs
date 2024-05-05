@@ -42,7 +42,8 @@ public partial class ChinookContext : DbContext
     public virtual DbSet<Track> Track { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(Instance.MainConnection).EnableSensitiveDataLogging()
+        => optionsBuilder.UseSqlServer(Instance.MainConnection)
+            .EnableSensitiveDataLogging()
             .LogTo(new DbContextToFileLogger().Log, new[]
                 {
                     DbLoggerCategory.Database.Command.Name

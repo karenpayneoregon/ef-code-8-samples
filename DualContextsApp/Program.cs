@@ -10,12 +10,12 @@ internal partial class Program
     {
         await RegisterConnectionServices.Configure();
         
-        var (album, artistName) = await Operations.GetAlbum();
-
+        var (album, artistName) = await Operations.GetAlbumStoredProcedureParameters();
         var countries = new List<int> { 4, 9 };
         var customersCountries = await Operations.GetCustomersCountriesFiltered(countries);
 
         Debugger.Break();
+
 
     }
 }

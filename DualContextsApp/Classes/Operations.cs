@@ -1,11 +1,27 @@
 ﻿using DualContextsApp.ChinookModels;
 using DualContextsApp.Data;
 using DualContextsApp.NorthModels;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Threading;
 
 namespace DualContextsApp.Classes;
 internal class Operations
 {
+    public static async Task<Album> LedZeppelinIV(int albumIdentifier = 129)
+    {
+        await using var context = new ChinookContext();
+        
+        return await context
+            .Album
+            .AsNoTracking()
+            .AsSplitQuery()
+            .TagWith("Chinook Split")
+            .Include(a => a.Track.OrderBy(track => track.Name))
+            .Include(album => album.Artist)
+            .FirstOrDefaultAsync(a => a.AlbumId == albumIdentifier);
+    }
+
     public static async Task<List<CustomersCountries>> GetCustomersCountriesFiltered(List<int> countries)
     {
 
@@ -25,6 +41,7 @@ internal class Operations
 
         IQueryable<CustomersCountries> data = context.Database
             .SqlQuery<CustomersCountries>(sql)
+            .TagWith($"NorthWind2024 {nameof(GetCustomersCountriesFiltered)}")
             .Where(x => countries.Contains(x.CountryIdentifier));
 
         return data.ToList();
@@ -52,8 +69,39 @@ internal class Operations
 
         IQueryable<AlbumSpecial> data = context.Database
             .SqlQuery<AlbumSpecial>(sql)
+            .TagWith($"Chinook {nameof(GetAlbum)}")
             .Where(x => x.AlbumId == albumId);
         
+        return (data.ToList(), artistName);
+    }
+
+    public static async Task<(List<AlbumSpecial> album, string artist)> GetAlbumStoredProcedure(int artistId = 22, int albumId = 129)
+    {
+        await using var context = new ChinookContext();
+
+        var artistName = (await context.Artist.FirstOrDefaultAsync(x => x.ArtistId == artistId)).Name;
+        
+        IEnumerable<AlbumSpecial> data = context.Database
+            .SqlQuery<AlbumSpecial>(@$"exec ups_LedZeppelinIVAlbum")
+            .TagWith($"Chinook {nameof(GetAlbumStoredProcedure)}")
+            .AsEnumerable()
+            .Where(x => x.AlbumId == albumId);
+
+        return (data.ToList(), artistName);
+    }
+
+    public static async Task<(List<AlbumSpecial> album, string artist)> GetAlbumStoredProcedureParameters(int artistId = 22, int albumId = 129)
+    {
+        await using var context = new ChinookContext();
+
+        var artistName = (await context.Artist.FirstOrDefaultAsync(x => x.ArtistId == artistId)).Name;
+
+        IEnumerable<AlbumSpecial> data = context.Database
+            .SqlQuery<AlbumSpecial>($"exec ups_LedZeppelinIVAlbumParams @AlbumId = {albumId}")
+            .TagWith($"Chinook {nameof(GetAlbumStoredProcedureParameters)}")
+            .AsEnumerable()
+            .Where(x => x.AlbumId == albumId);
+
         return (data.ToList(), artistName);
     }
 }
