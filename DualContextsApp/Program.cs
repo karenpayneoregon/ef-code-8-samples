@@ -8,6 +8,7 @@ internal partial class Program
 {
     static async Task Main(string[] args)
     {
+        
         await RegisterConnectionServices.Configure();
         
         var (album, artistName) = await Operations.GetAlbumStoredProcedureParameters();

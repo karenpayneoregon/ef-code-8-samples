@@ -99,8 +99,7 @@ internal class Operations
         IEnumerable<AlbumSpecial> data = context.Database
             .SqlQuery<AlbumSpecial>($"exec ups_LedZeppelinIVAlbumParams @AlbumId = {albumId}")
             .TagWith($"Chinook {nameof(GetAlbumStoredProcedureParameters)}")
-            .AsEnumerable()
-            .Where(x => x.AlbumId == albumId);
+            .AsEnumerable();
 
         return (data.ToList(), artistName);
     }
