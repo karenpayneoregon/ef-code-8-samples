@@ -99,7 +99,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Work in progress", "Work in
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityCoreFileLogger", "EntityCoreFileLogger\EntityCoreFileLogger.csproj", "{CC7FF02D-9B9D-4355-B73D-9B6EE6C32779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkingWithExcelApp", "WorkingWithExcelApp\WorkingWithExcelApp.csproj", "{4E591CF9-0BFE-44E4-A288-05B95F14AED1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithExcelApp", "WorkingWithExcelApp\WorkingWithExcelApp.csproj", "{4E591CF9-0BFE-44E4-A288-05B95F14AED1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DualContextsApp", "DualContextsApp\DualContextsApp.csproj", "{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -247,6 +249,10 @@ Global
 		{4E591CF9-0BFE-44E4-A288-05B95F14AED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E591CF9-0BFE-44E4-A288-05B95F14AED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E591CF9-0BFE-44E4-A288-05B95F14AED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

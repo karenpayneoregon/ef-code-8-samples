@@ -1,20 +1,15 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace NorthWind2024StarterApp.Models;
+namespace DualContextsApp.NorthModels;
 public class CustomerItem : INotifyPropertyChanged
 {
     private int _customerIdentifier;
     private string _companyName;
     private int? _countryIdentifier;
     private string _countryName;
-    private List<Order> _orders = new List<Order>();
+    private List<Order> _orders = new();
 
     public int CustomerIdentifier
     {
