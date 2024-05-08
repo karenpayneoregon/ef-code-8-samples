@@ -1,9 +1,13 @@
-﻿using DualContextsApp.ChinookModels;
+﻿#nullable disable
+using System.Data;
+using Dapper;
+using DualContextsApp.ChinookModels;
 using DualContextsApp.Data;
 using DualContextsApp.NorthModels;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System.Threading;
+using static ConsoleConfigurationLibrary.Classes.AppConnections;
+// ReSharper disable PossibleInvalidOperationException
 
 namespace DualContextsApp.Classes;
 internal class Operations
@@ -102,5 +106,86 @@ internal class Operations
             .AsEnumerable();
 
         return (data.ToList(), artistName);
+    }
+
+    /// <summary>
+    /// Add new record without getting the primary key while <see cref="NorthAddCustomerDapper"/> uses
+    /// the same stored procedures and gets the primary key
+    /// </summary>
+    public static async Task NorthAddCustomer()
+    {
+        NorthModels.Customer cust = new()
+        {
+            CompanyName = "New Customer",
+            ContactId = 1,
+            Street = "123 Main St",
+            City = "New York",
+            Region = "NY",
+            PostalCode = "10001",
+            CountryIdentifier = 1,
+            Phone = "123-456-7890",
+            Fax = "987-654-3210",
+            ContactTypeIdentifier = 1,
+            ModifiedDate = DateTime.Now
+        };
+
+        await using var context = new NorthContext();
+        var affected = await context.Database.ExecuteSqlAsync(
+            $"""
+             EXEC dbo.usp_AddCustomer
+             @CompanyName = {cust.CompanyName},
+             @ContactId = {cust.ContactId},
+             @Street = {cust.Street},
+             @City = {cust.City},
+             @Region = {cust.Region},
+             @PostalCode = {cust.PostalCode},
+             @CountryIdentifier = {cust.CountryIdentifier},
+             @Phone = {cust.Phone},
+             @ContactTypeIdentifier = {cust.ContactTypeIdentifier}
+             """);
+    
+    
+        
+    }
+
+    /// <summary>
+    /// Dapper version of <see cref="NorthAddCustomer"/> which gets the primary key
+    /// </summary>
+    public static async Task NorthAddCustomerDapper()
+    {
+        
+        NorthModels.Customer cust = new()
+        {
+            CompanyName = "New Customer",
+            ContactId = 1,
+            Street = "123 Main St",
+            City = "New York",
+            Region = "NY",
+            PostalCode = "10001",
+            CountryIdentifier = 9,
+            Phone = "123-456-7890",
+            Fax = "987-654-3210",
+            ContactTypeIdentifier = 3
+        };
+        
+        var parameters = new DynamicParameters();
+        
+        parameters.Add("@CompanyName", cust.CompanyName);
+        parameters.Add("@ContactId", cust.ContactId);
+        parameters.Add("@Street", cust.Street);
+        parameters.Add("@City", cust.City);
+        parameters.Add("@Region", cust.Region);
+        parameters.Add("@PostalCode", cust.PostalCode);
+        parameters.Add("@CountryIdentifier", cust.CountryIdentifier);
+        parameters.Add("@Phone", cust.Phone);
+        parameters.Add("@ContactTypeIdentifier", cust.ContactTypeIdentifier);
+
+        parameters.Add("Identifier", dbType: DbType.Int32, direction: ParameterDirection.Output);
+        
+        await using var cn = new SqlConnection(Instance.SecondaryConnection);
+        await cn.ExecuteAsync("dbo.usp_AddCustomer", parameters, commandType: CommandType.StoredProcedure);
+        var id = parameters.Get<int?>("Identifier");
+        cust.CustomerIdentifier = id.Value ;
+        
     }
 }

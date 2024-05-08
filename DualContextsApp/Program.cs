@@ -10,13 +10,17 @@ internal partial class Program
     {
         
         await RegisterConnectionServices.Configure();
-        
+
+        //await Operations.NorthAddCustomer();
+        //Debugger.Break();
+        await Operations.NorthAddCustomerDapper();
+
+    }
+
+    private static async Task ChinookExamples()
+    {
         var (album, artistName) = await Operations.GetAlbumStoredProcedureParameters();
         var countries = new List<int> { 4, 9 };
         var customersCountries = await Operations.GetCustomersCountriesFiltered(countries);
-
-        Debugger.Break();
-
-
     }
 }

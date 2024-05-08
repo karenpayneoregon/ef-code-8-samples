@@ -1,5 +1,12 @@
 ﻿# About
 
+https://github.com/karenpayneoregon/ef-core-6-tips/tree/master/Experiment1
+
+https://jaliyaudagedara.blogspot.com/2023/08/ef-core-80-preview-raw-sql-queries-for.html
+
+https://learn.microsoft.com/en-us/ef/core/querying/sql-queries
+
+
 Two examples for [SqlQuery](https://learn.microsoft.com/en-us/ef/core/querying/sql-queries#querying-scalar-non-entity-types)
 
 ## Two databases

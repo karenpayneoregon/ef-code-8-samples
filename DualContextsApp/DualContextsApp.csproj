@@ -23,6 +23,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.2" />
+		<PackageReference Include="Dapper" Version="2.1.28" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
 	</ItemGroup>
 
 	<ItemGroup>
