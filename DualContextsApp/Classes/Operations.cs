@@ -15,7 +15,7 @@ internal class Operations
     public static async Task<Album> LedZeppelinIV(int albumIdentifier = 129)
     {
         await using var context = new ChinookContext();
-        
+
         return await context
             .Album
             .AsNoTracking()
@@ -51,12 +51,12 @@ internal class Operations
         return data.ToList();
     }
 
-    public static async Task<(List<AlbumSpecial> album, string artist)> GetAlbum(int artistId = 22,int albumId = 129)
+    public static async Task<(List<AlbumSpecial> album, string artist)> GetAlbum(int artistId = 22, int albumId = 129)
     {
         await using var context = new ChinookContext();
 
         var artistName = (await context.Artist.FirstOrDefaultAsync(x => x.ArtistId == artistId)).Name;
-        
+
         FormattableString sql =
             $"""
              SELECT     A.AlbumId,
@@ -75,7 +75,7 @@ internal class Operations
             .SqlQuery<AlbumSpecial>(sql)
             .TagWith($"Chinook {nameof(GetAlbum)}")
             .Where(x => x.AlbumId == albumId);
-        
+
         return (data.ToList(), artistName);
     }
 
@@ -84,7 +84,7 @@ internal class Operations
         await using var context = new ChinookContext();
 
         var artistName = (await context.Artist.FirstOrDefaultAsync(x => x.ArtistId == artistId)).Name;
-        
+
         IEnumerable<AlbumSpecial> data = context.Database
             .SqlQuery<AlbumSpecial>(@$"exec ups_LedZeppelinIVAlbum")
             .TagWith($"Chinook {nameof(GetAlbumStoredProcedure)}")
@@ -143,17 +143,16 @@ internal class Operations
              @Phone = {cust.Phone},
              @ContactTypeIdentifier = {cust.ContactTypeIdentifier}
              """);
-    
-    
-        
+
+
+
     }
 
-    /// <summary>
-    /// Dapper version of <see cref="NorthAddCustomer"/> which gets the primary key
-    /// </summary>
+
+
     public static async Task NorthAddCustomerDapper()
     {
-        
+
         NorthModels.Customer cust = new()
         {
             CompanyName = "New Customer",
@@ -167,25 +166,26 @@ internal class Operations
             Fax = "987-654-3210",
             ContactTypeIdentifier = 3
         };
-        
-        var parameters = new DynamicParameters();
-        
-        parameters.Add("@CompanyName", cust.CompanyName);
-        parameters.Add("@ContactId", cust.ContactId);
-        parameters.Add("@Street", cust.Street);
-        parameters.Add("@City", cust.City);
-        parameters.Add("@Region", cust.Region);
-        parameters.Add("@PostalCode", cust.PostalCode);
-        parameters.Add("@CountryIdentifier", cust.CountryIdentifier);
-        parameters.Add("@Phone", cust.Phone);
-        parameters.Add("@ContactTypeIdentifier", cust.ContactTypeIdentifier);
 
-        parameters.Add("Identifier", dbType: DbType.Int32, direction: ParameterDirection.Output);
-        
+
         await using var cn = new SqlConnection(Instance.SecondaryConnection);
-        await cn.ExecuteAsync("dbo.usp_AddCustomer", parameters, commandType: CommandType.StoredProcedure);
-        var id = parameters.Get<int?>("Identifier");
-        cust.CustomerIdentifier = id.Value ;
+
+        var id = await cn.ExecuteScalarAsync<int>("dbo.usp_AddCustomer1",
+            new
+            {
+                cust.CompanyName,
+                cust.ContactId,
+                cust.Street,
+                cust.City,
+                cust.Region,
+                cust.PostalCode,
+                cust.CountryIdentifier,
+                cust.Phone,
+                cust.ContactTypeIdentifier
+            }, commandType: CommandType.StoredProcedure);
+
+
+        cust.CustomerIdentifier = id;
         
     }
 }
