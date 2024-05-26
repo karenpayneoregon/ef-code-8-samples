@@ -26,8 +26,7 @@ internal partial class Program
             .Album
             .AsNoTracking()
             .AsSplitQuery()
-            //.TagWith("LedZeppelin_IV_Album")
-            .TagWithDebugInfo("LedZeppelin_IV_Album")
+            .TagWithDebugInfo("LedZeppelin IV Album")
             .Include(a => a.Track.OrderBy(track => track.Name))
             .Include(album => album.Artist)
             .FirstOrDefault(a => a.AlbumId == albumIdentifier);
