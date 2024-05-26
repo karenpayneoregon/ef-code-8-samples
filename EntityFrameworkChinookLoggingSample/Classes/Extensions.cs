@@ -1,4 +1,5 @@
-﻿namespace EntityFrameworkChinookLoggingSample.Classes;
+﻿#nullable disable
+namespace EntityFrameworkChinookLoggingSample.Classes;
 public static class Extensions
 {
     public static string ShowTime(this int sender)

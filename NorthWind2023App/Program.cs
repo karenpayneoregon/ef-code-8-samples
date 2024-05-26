@@ -13,8 +13,8 @@ internal partial class Program
     static void Main(string[] args)
     {
 
-        _ = BenchmarkRunner.Run<NorthOperations>();
-
+        //_ = BenchmarkRunner.Run<NorthOperations>();
+        NorthOperations.SingleDetails();
         AnsiConsole.MarkupLine("[yellow]Done[/]");
         Console.ReadLine();
     }

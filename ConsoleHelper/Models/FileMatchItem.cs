@@ -1,13 +1,8 @@
 ﻿namespace ConsoleHelper.Models;
 
-public class FileMatchItem
+public class FileMatchItem(string sender)
 {
-    public FileMatchItem(string sender)
-    {
-        Folder = Path.GetDirectoryName(sender);
-        FileName = Path.GetFileName(sender);
-    }
-    public string? Folder { get; init; }
-    public string FileName { get; init; }
+    public string? Folder { get; init; } = Path.GetDirectoryName(sender);
+    public string FileName { get; init; } = Path.GetFileName(sender);
     public override string ToString() => $"{Folder}\\{FileName}";
 }

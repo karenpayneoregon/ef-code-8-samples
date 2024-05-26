@@ -9,5 +9,6 @@ internal class Samples
 
         Console.WriteLine(string.Join(",", items));
         Console.WriteLine(items.Aggregate((left, right) => $"{left},{right}"));
+        Console.ReadLine();
     }
 }

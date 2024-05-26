@@ -58,4 +58,16 @@ public class NorthOperations
             Orders order = context.GetOrder(orderIdentifier);
         }
     }
+
+    public static OrderDetails SingleDetails()
+    {
+        using var context = new Context();
+        var list = context.OrderDetails
+            .Include(od => od.Order)
+            .Include(od => od.Product)
+            .AsNoTrackingWithIdentityResolution()
+            .FirstOrDefault( x => x.OrderID == 10250);
+
+        return list;
+    }
 }
