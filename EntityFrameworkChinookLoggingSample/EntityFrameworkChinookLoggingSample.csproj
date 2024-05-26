@@ -7,6 +7,10 @@
 		<Nullable>disable</Nullable>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<PathMap>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)'))=./</PathMap>
+	</PropertyGroup>
+
 	<ItemGroup>
 	  <None Remove="readme.md" />
 	</ItemGroup>
