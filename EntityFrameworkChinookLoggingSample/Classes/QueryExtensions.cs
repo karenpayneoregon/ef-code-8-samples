@@ -17,6 +17,7 @@ public static class QueryExtensions
     /// </returns>
     /// <remarks>
     /// Author Dave Callan
+    /// Additions Karen Payne
     /// </remarks>
     public static IQueryable<T> TagWithDebugInfo<T>(this IQueryable<T> query,
         string message = "",
