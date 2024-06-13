@@ -30,8 +30,7 @@ public class CachingCommandInterceptor : DbCommandInterceptor
         {
             lock (_lock)
             {
-                if (_message != null
-                    && DateTime.UtcNow < _queriedAt + new TimeSpan(0, 0, 10))
+                if (_message != null && DateTime.UtcNow < _queriedAt + new TimeSpan(0, 0, 10))
                 {
                     command.CommandText = "-- Get_Daily_Message: Skipping DB call; using cache.";
                     result = InterceptionResult<DbDataReader>.SuppressWithResult(new CachedDailyMessageDataReader(_id, _message));
@@ -50,8 +49,7 @@ public class CachingCommandInterceptor : DbCommandInterceptor
         DbDataReader result,
         CancellationToken cancellationToken = default)
     {
-        if (command.CommandText.StartsWith("-- Get_Daily_Message", StringComparison.Ordinal)
-            && !(result is CachedDailyMessageDataReader))
+        if (command.CommandText.StartsWith("-- Get_Daily_Message", StringComparison.Ordinal) && !(result is CachedDailyMessageDataReader))
         {
             try
             {

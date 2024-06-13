@@ -59,14 +59,14 @@ internal class Operations
 
         FormattableString sql =
             $"""
-             SELECT     A.AlbumId,
-                        A.Title,
-                        A.ArtistId,
-                        T.TrackId,
-                        T.Name As SongName,
-                        T.Milliseconds,
-                        FLOOR(T.Milliseconds / (1000 * 60)) % 60 AS Minutes
-              FROM      dbo.Album AS A
+             SELECT A.AlbumId,
+                    A.Title,
+                    A.ArtistId,
+                    T.TrackId,
+                    T.Name As SongName,
+                    T.Milliseconds,
+                    FLOOR(T.Milliseconds / (1000 * 60)) % 60 AS Minutes
+              FROM  dbo.Album AS A
              INNER JOIN dbo.Track AS T
                 ON A.AlbumId = T.AlbumId
              """;

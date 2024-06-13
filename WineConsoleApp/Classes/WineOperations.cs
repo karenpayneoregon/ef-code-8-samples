@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Spectre.Console;
 using WineConsoleApp.Data;
 using WineConsoleApp.Models;
 using static WineConsoleApp.Classes.AnsiConsoleHelpers;
@@ -56,6 +57,28 @@ public class WineOperations
         }
 
         Console.WriteLine();
+
+        
+
+        /*
+         * Example of iterate an enum
+         */
+
+        foreach (WineType wineType in (WineType[])Enum.GetValues(typeof(WineType)))
+        {
+            var wineTypeArray = wines.Where(w => w.WineType == wineType);
+            AnsiConsole.MarkupLine($"[lightgreen_1]{wineType}[/]");
+            foreach (var wine in wineTypeArray)
+            {
+                Console.WriteLine($"{wine.WineId,-2}{wine.Name}");
+            }
+
+            Console.WriteLine();
+            
+        }
+
+
+
     }
 
     public static void Run()

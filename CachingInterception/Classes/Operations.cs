@@ -12,17 +12,15 @@ internal class Operations
     public static async Task Initialize()
     {
         PrintCyan();
-        using (var context = new DailyMessageContext())
-        {
-            await context.Database.EnsureDeletedAsync();
-            await context.Database.EnsureCreatedAsync();
+        await using var context = new DailyMessageContext();
+        await context.Database.EnsureDeletedAsync();
+        await context.Database.EnsureCreatedAsync();
 
-            context.AddRange(
-                new DailyMessage { Message = "Remember: All builds are GA; no builds are RTM." },
-                new DailyMessage { Message = "Keep calm and drink tea" });
+        context.AddRange(
+            new DailyMessage { Message = "Remember: All builds are GA; no builds are RTM." },
+            new DailyMessage { Message = "Keep calm and drink tea" });
 
-            await context.SaveChangesAsync();
-        }
+        await context.SaveChangesAsync();
     }
 
     public static async Task FirstSelectAsync()

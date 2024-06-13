@@ -101,7 +101,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityCoreFileLogger", "Ent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkingWithExcelApp", "WorkingWithExcelApp\WorkingWithExcelApp.csproj", "{4E591CF9-0BFE-44E4-A288-05B95F14AED1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DualContextsApp", "DualContextsApp\DualContextsApp.csproj", "{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DualContextsApp", "DualContextsApp\DualContextsApp.csproj", "{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetPropertyValuesSample", "SetPropertyValuesSample\SetPropertyValuesSample.csproj", "{923620B2-E6BB-4C4A-99B3-0862BE2EB8C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -253,6 +255,10 @@ Global
 		{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CCA1528-83F0-4ECA-BF59-E2877F84BE33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{923620B2-E6BB-4C4A-99B3-0862BE2EB8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{923620B2-E6BB-4C4A-99B3-0862BE2EB8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{923620B2-E6BB-4C4A-99B3-0862BE2EB8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{923620B2-E6BB-4C4A-99B3-0862BE2EB8C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -297,6 +303,7 @@ Global
 		{AA892594-AFF4-4C0F-9657-0FB3932599E3} = {102E00B5-C267-4ADF-8808-884E3374BD22}
 		{CC7FF02D-9B9D-4355-B73D-9B6EE6C32779} = {D5C632B1-F708-4531-AE71-17A7736246C4}
 		{4E591CF9-0BFE-44E4-A288-05B95F14AED1} = {03F153B5-E361-42AB-B232-A21F2F0E7AFB}
+		{923620B2-E6BB-4C4A-99B3-0862BE2EB8C8} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}
