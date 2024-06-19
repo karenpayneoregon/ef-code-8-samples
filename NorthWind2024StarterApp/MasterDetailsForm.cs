@@ -6,6 +6,8 @@ using NorthWind2024StarterApp.Components;
 using NorthWind2024StarterApp.Data;
 using NorthWind2024StarterApp.Models;
 using NorthWind2024StarterApp.Validators;
+using static NorthWind2024StarterApp.Classes.Dialogs;
+
 // ReSharper disable CollectionNeverQueried.Local
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 #pragma warning disable CS8634 // The type cannot be used as type parameter in the generic type or method. Nullability of type argument doesn't match 'class' constraint.
@@ -73,6 +75,7 @@ public partial class MasterDetailsForm : Form
         CountryColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing;
 
         _customerBindingSource.PositionChanged += CustomerBindingSource_PositionChanged;
+        CustomersDataGridView.UserDeletingRow += CustomersDataGridView_UserDeletingRow;
 
         _ordersBindingSource.DataSource = _customerBindingSource;
         _ordersBindingSource.DataMember = "Orders";
@@ -94,6 +97,25 @@ public partial class MasterDetailsForm : Form
         OrdersDataGridView.KeyDown += OrdersDataGridView_KeyDown;
     }
 
+    private void CustomersDataGridView_UserDeletingRow(object? sender, DataGridViewRowCancelEventArgs e)
+    {
+        if (_customerBindingSource.Current is null) return;
+
+        if (AskToRemoveCurrentRow())
+        {
+            e.Cancel = true;
+            _customerBindingSource.RemoveCurrent();
+        }
+        else
+        {
+            e.Cancel = true;
+        }
+    }
+    private bool AskToRemoveCurrentRow()
+    {
+        var current = _customersSortableBindingList[_customerBindingSource.Position];
+        return Question(this, $"Remove {current.CompanyName}");
+    }
     private void OrdersDataGridView_KeyDown(object? sender, KeyEventArgs e)
     {
         if (e.KeyData == Keys.Enter)
@@ -158,7 +180,7 @@ public partial class MasterDetailsForm : Form
 
     private void AboutItemButton_Click(object? sender, EventArgs e)
     {
-        Dialogs.Information(this, "", "EF Core sample for master-details");
+        Information(this, "", "EF Core sample for master-details");
     }
 
     /*
@@ -171,7 +193,7 @@ public partial class MasterDetailsForm : Form
 
 
 
-        if (Dialogs.Question(this, $"Remove {current.CompanyName}"))
+        if (Question(this, $"Remove {current.CompanyName}"))
         {
             
             using var context = new Context();

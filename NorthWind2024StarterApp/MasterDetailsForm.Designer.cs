@@ -45,7 +45,6 @@ partial class MasterDetailsForm
         // CustomersDataGridView
         // 
         CustomersDataGridView.AllowUserToAddRows = false;
-        CustomersDataGridView.AllowUserToDeleteRows = false;
         CustomersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         CustomersDataGridView.Columns.AddRange(new DataGridViewColumn[] { CompanyNameColumn, CountryColumn });
         CustomersDataGridView.Location = new Point(0, 35);
@@ -126,7 +125,7 @@ partial class MasterDetailsForm
         CustomersBindingNavigator.TabIndex = 2;
         CustomersBindingNavigator.Text = "coreBindingNavigator1";
         // 
-        // MasterDetails
+        // MasterDetailsForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -135,7 +134,7 @@ partial class MasterDetailsForm
         Controls.Add(OrdersDataGridView);
         Controls.Add(CustomersDataGridView);
         FormBorderStyle = FormBorderStyle.FixedToolWindow;
-        Name = "MasterDetails";
+        Name = "MasterDetailsForm";
         StartPosition = FormStartPosition.CenterScreen;
         Text = "MasterDetails";
         ((System.ComponentModel.ISupportInitialize)CustomersDataGridView).EndInit();
