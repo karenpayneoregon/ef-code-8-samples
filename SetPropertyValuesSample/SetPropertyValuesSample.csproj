@@ -21,7 +21,7 @@
 	</ItemGroup>-->
 
 	<ItemGroup>
-		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.0" />
+		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -44,7 +44,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
 	</ItemGroup>
 
 
@@ -54,10 +54,10 @@
 		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Options" Version="8.0.2" />
 	</ItemGroup>
 
 

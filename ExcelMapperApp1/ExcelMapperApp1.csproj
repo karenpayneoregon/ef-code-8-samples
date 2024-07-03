@@ -28,14 +28,15 @@
 
 	<ItemGroup>
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
-		<PackageReference Include="Dapper" Version="2.1.28" />
+		<PackageReference Include="Dapper" Version="2.1.35" />
 		<!-- ReSharper disable once VulnerablePackage -->
-		<PackageReference Include="ExcelMapper" Version="5.2.588" />
+		<PackageReference Include="ExcelMapper" Version="5.2.590" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.5" />
-		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.6" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+		<PackageReference Include="ObjectDumper.NET" Version="4.2.7" />
 	</ItemGroup>
 
 
@@ -49,6 +50,9 @@
 	  </None>
 	  <None Update="Customers.xlsx">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Update="Nested.xlsx">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>
 	</ItemGroup>
 

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ShadowProperties.Interfaces;
-using ShadowProperties.Models;
+
 
 // ReSharper disable once CheckNamespace
 namespace ShadowProperties.Data;

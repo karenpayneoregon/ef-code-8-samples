@@ -39,3 +39,27 @@ public partial class Customers
 ## Worksheet
 
 ![Excel](assets/excel.png)
+
+## Read rows as nested objects
+
+In this code sample, rows content data for a person and address which are read back using the following two models. Also, several columns with spaces are mapped to the properties without spaces.
+
+```csharp
+public class Person
+{
+    [Column("First Name")]
+    public string FirstName { get; set; }
+    [Column("Last Name")]
+    public string LastName { get; set; }
+    [Column("Birth Date")]
+    public DateOnly BirthDate { get; set; }
+    public Address Address { get; set; }
+}
+
+public class Address
+{
+    public string Street { get; set; }
+    public string City { get; set; }
+    public string Zip { get; set; }
+}
+```

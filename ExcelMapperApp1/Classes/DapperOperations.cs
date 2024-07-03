@@ -11,6 +11,11 @@ internal class DapperOperations
     /// <summary>
     /// Delete existing records and reset the identity column
     /// </summary>
+    /// <remarks>
+    /// Same can be done with EF Core
+    /// context.Database.EnsureDeleted();
+    /// context.Database.EnsureCreated();
+    /// </remarks>
     public void Reset()
     {
         _cn.Execute($"DELETE FROM dbo.{nameof(Customers)}");
