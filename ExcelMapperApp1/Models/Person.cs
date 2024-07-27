@@ -7,6 +7,7 @@ namespace ExcelMapperApp1.Models;
 /// </summary>
 public class Person
 {
+    public int Id { get; set; }
     [Column("First Name")]
     public string FirstName { get; set; }
     [Column("Last Name")]
@@ -18,6 +19,7 @@ public class Person
 
 public class Address
 {
+    public int Id { get; set; }
     public string Street { get; set; }
     public string City { get; set; }
     public string Zip { get; set; }
