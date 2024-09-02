@@ -48,6 +48,11 @@
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	  </Compile>
+	  <Compile Update="Properties\Resources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Resources.resx</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -70,6 +75,13 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Properties\Resources.resx">
+	    <Generator>ResXFileCodeGenerator</Generator>
+	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<Target Name="MakeMyDir" AfterTargets="Build">

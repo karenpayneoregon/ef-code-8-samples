@@ -13,7 +13,7 @@ internal partial class Program
         context.CleanStart();
 
         WineOperations.Run();
-
+        
         Line();
 
         WineOperations.Indexing();

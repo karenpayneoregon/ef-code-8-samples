@@ -15,6 +15,8 @@ public class WineOperations
         using WineContext context = new();
         var wines = context.Wines.ToList();
 
+        var rose = wines.Where(w => w.WineType == WineType.Rose);
+
         var wineContainer = RangeHelpers.Get(wines);
 
         StringBuilder builder = new();
