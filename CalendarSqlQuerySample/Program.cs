@@ -29,7 +29,8 @@ internal partial class Program
     private static async Task NormalStatement(Context context, int year)
     {
         
-        var currentYear = await context.Calendar.Where(x => x.CalendarYear == year && x.Holiday)
+        var currentYear = await context.Calendar
+            .Where(x => x.CalendarYear == year && x.Holiday)
             .TagWithDebugInfo("Holidays Normal")
             .ToListAsync();
 
@@ -46,10 +47,12 @@ internal partial class Program
     /// </remarks>
     private static async Task RawExampleProtected(Context context, int year)
     {
+
         var currentYear = await context.Database
             .SqlQuery<Holiday>(SqlStatements.GetHolidays(year))
             .TagWithDebugInfo("Holidays Protected")
             .ToListAsync();
+
         AnsiConsole.MarkupLine(ObjectDumper.Dump(currentYear)
             .Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holiday[/][yellow]}[/]"));
     }

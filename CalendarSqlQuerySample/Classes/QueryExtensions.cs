@@ -1,20 +1,19 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
-
 namespace CalendarSqlQuerySample.Classes;
 
 public static class QueryExtensions
 {
     /// <summary>
-    /// Wrapper for EF Core TagWith
+    /// Adds debug information to the query.
     /// </summary>
-    /// <param name="message">Optional text</param>
-    /// <param name="memberName"></param>
-    /// <param name="filePath"></param>
-    /// <param name="lineNumber"></param>
-    /// <returns>
-    /// Formatted string for EF Core TagWith
-    /// </returns>
+    /// <typeparam name="T">The type of the query.</typeparam>
+    /// <param name="query">The query to tag with debug information.</param>
+    /// <param name="message">The optional debug message.</param>
+    /// <param name="memberName">The name of the calling member.</param>
+    /// <param name="filePath">The path of the calling file.</param>
+    /// <param name="lineNumber">The line number of the calling code.</param>
+    /// <returns>The query with debug information.</returns>
     /// <remarks>
     /// Author Dave Callan
     /// Additions Karen Payne
@@ -25,8 +24,9 @@ public static class QueryExtensions
         [CallerFilePath] string filePath = "",
         [CallerLineNumber] int lineNumber = 0)
     {
-        return query.TagWith(string.IsNullOrWhiteSpace(message) ? 
-            $"Executing method {memberName} in {filePath} at line {lineNumber}" : 
-            $"Executing method {memberName} in {filePath} at line {lineNumber} message {message}");
+        var path = Path.GetFileName(filePath);
+        return query.TagWith(string.IsNullOrWhiteSpace(message) ?
+            $"Executing method {memberName} in {path} at line {lineNumber}" :
+            $"Executing method {memberName} in {path} at line {lineNumber} message {message}");
     }
 }
