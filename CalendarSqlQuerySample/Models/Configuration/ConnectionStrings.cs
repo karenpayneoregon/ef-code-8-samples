@@ -1,4 +1,4 @@
-﻿namespace CalendarSqlQuerySample.Models;
+﻿namespace CalendarSqlQuerySample.Models.Configuration;
 /// <summary>
 /// For application connection strings
 /// </summary>

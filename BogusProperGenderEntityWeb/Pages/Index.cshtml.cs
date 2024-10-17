@@ -1,5 +1,4 @@
 ﻿using BogusProperGenderEntityLib.Data;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Serilog;
 

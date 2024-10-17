@@ -14,11 +14,15 @@ internal partial class Program
 
         int year = DateTime.Now.Year;
 
-        await RawExampleProtected(context, year);
+        await TheSolution(context, year);
         await RawExampleUnprotected(context, year);
+
         Console.WriteLine(new string('-',100));
+
         await NormalStatement(context, year);
+
         ExitPrompt();
+
     }
 
     /// <summary>
@@ -45,7 +49,7 @@ internal partial class Program
     /// <remarks>
     /// Parameter for year is protected from SQL injection.
     /// </remarks>
-    private static async Task RawExampleProtected(Context context, int year)
+    private static async Task TheSolution(Context context, int year)
     {
 
         var currentYear = await context.Database
@@ -54,7 +58,7 @@ internal partial class Program
             .ToListAsync();
 
         AnsiConsole.MarkupLine(ObjectDumper.Dump(currentYear)
-            .Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holiday[/][yellow]}[/]"));
+            .Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holidays[/][yellow]}[/]"));
     }
 
     /// <summary>
@@ -69,6 +73,8 @@ internal partial class Program
     private static async Task RawExampleUnprotected(Context context, int year)
     {
 
+        SpectreConsoleHelpers.PrintCyan();
+
         var currentYear = await context.Database.SqlQueryRaw<Holiday>(
             $"""
              SELECT CalendarDate,
@@ -79,11 +85,15 @@ internal partial class Program
                     DayOfWeekName,
                     IIF(BusinessDay = 0, 'No', 'Yes') AS BusinessDay,
                     IIF(Weekday = 0, 'No', 'Yes') AS [Weekday]
-               FROM DateTimeDatabase.dbo.Calendar
+               FROM dbo.Calendar
               WHERE CalendarYear = {year}
                 AND Holiday = 1;
              """)
             .TagWithDebugInfo("Holidays Unprotected")
             .ToListAsync();
+
+        AnsiConsole.MarkupLine(ObjectDumper.Dump(currentYear)
+            .Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holidays[/][yellow]}[/]"));
+
     }
 }    

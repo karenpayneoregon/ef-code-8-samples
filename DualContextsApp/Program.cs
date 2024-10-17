@@ -14,6 +14,7 @@ internal partial class Program
         //await Operations.NorthAddCustomer();
         //Debugger.Break();
         await Operations.NorthAddCustomerDapper();
+        await ChinookExamples();
 
     }
 

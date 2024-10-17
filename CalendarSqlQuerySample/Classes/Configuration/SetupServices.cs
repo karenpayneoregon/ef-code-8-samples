@@ -1,6 +1,7 @@
-﻿using Microsoft.Extensions.Options;
+﻿using CalendarSqlQuerySample.Models.Configuration;
+using Microsoft.Extensions.Options;
 
-namespace CalendarSqlQuerySample.Classes;
+namespace CalendarSqlQuerySample.Classes.Configuration;
 internal class SetupServices
 {
     private readonly ConnectionStrings _options;

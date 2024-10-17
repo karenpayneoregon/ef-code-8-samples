@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using CalendarSqlQuerySample.Classes;
+using CalendarSqlQuerySample.Classes.Configuration;
 using CalendarSqlQuerySample.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;

@@ -31,6 +31,7 @@ public partial class Context : DbContext
                     DbLoggerCategory.Database.Command.Name
                 },
                 LogLevel.Information);
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Event>(entity =>

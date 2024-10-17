@@ -1,4 +1,4 @@
-﻿using CalendarSqlQuerySample.Classes;
+﻿using CalendarSqlQuerySample.Classes.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Runtime.CompilerServices;
 

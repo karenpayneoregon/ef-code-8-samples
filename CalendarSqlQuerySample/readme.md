@@ -2,6 +2,10 @@
 
 Provides a basic example for EF Core [Raw SQL queries for unmapped types](https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-8.0/whatsnew#raw-sql-queries-for-unmapped-types).
 
+## Important
+
+Use `SqlQuery` which creates `parameterized` SQL queries rather than using `SqlQueryRaw` which does not parameterized SQL queries. See comments in code along with hovering over `SqlQuery` and `SqlQueryRaw` for more information.
+
 ##  Article
 
 https://dev.to/karenpayneoregon/ef-core-queries-for-unmapped-types-20o3

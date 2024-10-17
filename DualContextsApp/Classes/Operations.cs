@@ -93,7 +93,12 @@ internal class Operations
 
         return (data.ToList(), artistName);
     }
-
+    /// <summary>
+    /// Retrieves album details and the artist's name using a stored procedure with parameters.
+    /// </summary>
+    /// <param name="artistId">The identifier of the artist. Default is 22.</param>
+    /// <param name="albumId">The identifier of the album. Default is 129.</param>
+    /// <returns>A tuple containing a list of <see cref="AlbumSpecial"/> and the artist's name.</returns>
     public static async Task<(List<AlbumSpecial> album, string artist)> GetAlbumStoredProcedureParameters(int artistId = 22, int albumId = 129)
     {
         await using var context = new ChinookContext();

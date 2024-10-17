@@ -1,7 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using CalendarSqlQuerySample.Models.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace CalendarSqlQuerySample.Classes;
+namespace CalendarSqlQuerySample.Classes.Configuration;
 internal class ApplicationConfiguration
 {
     /// <summary>

@@ -24,9 +24,14 @@ public static class QueryExtensions
         [CallerFilePath] string filePath = "",
         [CallerLineNumber] int lineNumber = 0)
     {
+#if DEBUG
         var path = Path.GetFileName(filePath);
         return query.TagWith(string.IsNullOrWhiteSpace(message) ?
             $"Executing method {memberName} in {path} at line {lineNumber}" :
             $"Executing method {memberName} in {path} at line {lineNumber} message {message}");
+#else
+        return query;
+#endif
+
     }
 }

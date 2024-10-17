@@ -16,8 +16,7 @@ public static class QueryExtensions
     /// Formatted string for EF Core TagWith
     /// </returns>
     /// <remarks>
-    /// Author Dave Callan
-    /// Additions Karen Payne
+    /// Author Karen Payne
     /// </remarks>
     public static IQueryable<T> TagWithDebugInfo<T>(this IQueryable<T> query,
         string message = "",
