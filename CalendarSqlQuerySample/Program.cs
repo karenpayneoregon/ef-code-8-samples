@@ -1,7 +1,5 @@
-﻿using System.Data;
-using CalendarSqlQuerySample.Classes;
+﻿using CalendarSqlQuerySample.Classes;
 using CalendarSqlQuerySample.Data;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 #pragma warning disable EF1002
 
