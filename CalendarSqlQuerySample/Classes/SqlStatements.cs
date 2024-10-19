@@ -33,7 +33,7 @@ internal class SqlStatements
     /// <remarks>
     /// Uses CASE vs IIF
     /// </remarks>
-    public static FormattableString GetHolidays1(int year) =>
+    public static FormattableString GetHolidays1() =>
         $"""
          SELECT CalendarDate,
              CalendarDateDescription AS [Description],
@@ -44,7 +44,7 @@ internal class SqlStatements
              CASE WHEN BusinessDay = 0 THEN 'No' ELSE 'Yes' END AS BusinessDay,
              CASE WHEN Weekday = 0 THEN 'No' ELSE 'Yes' END AS [Weekday]
          FROM dbo.Calendar
-         WHERE CalendarYear = {year}
+         WHERE CalendarYear = @year
            AND Holiday      = 1;
          """;
 }

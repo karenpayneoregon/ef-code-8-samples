@@ -1,5 +1,7 @@
-﻿using CalendarSqlQuerySample.Classes;
+﻿using System.Data;
+using CalendarSqlQuerySample.Classes;
 using CalendarSqlQuerySample.Data;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 #pragma warning disable EF1002
 
@@ -15,9 +17,10 @@ internal partial class Program
         int year = DateTime.Now.Year;
 
         await TheSolution(context, year);
+        await TheSolutionStoredProcedure(context, year);
         await RawExampleUnprotected(context, year);
 
-        Console.WriteLine(new string('-',100));
+        //Console.WriteLine(new string('-',100));
 
         await NormalStatement(context, year);
 
@@ -60,6 +63,15 @@ internal partial class Program
         AnsiConsole.MarkupLine(ObjectDumper.Dump(currentYear)
             .Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holidays[/][yellow]}[/]"));
     }
+    private static async Task TheSolutionStoredProcedure(Context context, int year)
+    {
+
+        List<HolidaysByYearResult> currentYear = await context
+            .Procedures.uspHolidaysByYearAsync(year);
+
+        AnsiConsole.MarkupLine(ObjectDumper.Dump(currentYear)
+            .Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holidays[/][yellow]}[/]"));
+    }
 
     /// <summary>
     /// Executes a raw SQL query to retrieve holidays for a specific year.
@@ -96,4 +108,4 @@ internal partial class Program
             .Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holidays[/][yellow]}[/]"));
 
     }
-}    
+}

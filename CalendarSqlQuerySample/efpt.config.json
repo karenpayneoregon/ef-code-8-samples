@@ -15,8 +15,60 @@
    "T4TemplatePath": null,
    "Tables": [
       {
+         "Name": "[dbo].[Birthdays]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Calendar]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DateFormats]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Event]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Events]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Movies]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[People]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Person1]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Room]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Sales]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TimeTable]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[usp_HolidaysByYear]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[usp_HolidaysForMonthYear]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[udf_AddBusinessDays]",
+         "ObjectType": 2
       }
    ],
    "UiHint": null,

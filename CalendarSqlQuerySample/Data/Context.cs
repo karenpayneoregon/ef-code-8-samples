@@ -25,7 +25,9 @@ public partial class Context : DbContext
     public virtual DbSet<Calendar> Calendar { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(DataConnections.Instance.MainConnection).EnableSensitiveDataLogging()
+        => optionsBuilder.UseSqlServer(DataConnections.Instance.MainConnection)
+            // comment out for prod environment 
+            .EnableSensitiveDataLogging()
             .LogTo(new DbContextToFileLogger().Log, new[]
                 {
                     DbLoggerCategory.Database.Command.Name

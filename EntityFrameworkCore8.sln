@@ -111,7 +111,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BogusProperGenderEntityLib"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BogusProperGenderEntityWeb", "BogusProperGenderEntityWeb\BogusProperGenderEntityWeb.csproj", "{2D2E35B3-A99D-4640-8C3E-50CF75E2D0BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalendarSqlQuerySample", "CalendarSqlQuerySample\CalendarSqlQuerySample.csproj", "{522E2A87-AFAD-41B3-9A47-9ED874714D3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CalendarSqlQuerySample", "CalendarSqlQuerySample\CalendarSqlQuerySample.csproj", "{522E2A87-AFAD-41B3-9A47-9ED874714D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
