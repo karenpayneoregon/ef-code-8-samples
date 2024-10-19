@@ -1,4 +1,5 @@
 ﻿using CalendarSqlQuerySample.Classes;
+using CalendarSqlQuerySample.Classes.DatabaseClasses;
 using CalendarSqlQuerySample.Data;
 using Microsoft.EntityFrameworkCore;
 #pragma warning disable EF1002
@@ -14,13 +15,10 @@ internal partial class Program
 
         int year = DateTime.Now.Year;
 
-        await TheSolution(context, year);
-        await TheSolutionStoredProcedure(context, year);
+        //await TheSolution(context, year);
+        await TheSolutionStoredProcedureFormated(context, year);
         await RawExampleUnprotected(context, year);
-
-        //Console.WriteLine(new string('-',100));
-
-        await NormalStatement(context, year);
+        //await NormalStatement(context, year);
 
         ExitPrompt();
 
@@ -69,6 +67,38 @@ internal partial class Program
 
         AnsiConsole.MarkupLine(ObjectDumper.Dump(currentYear)
             .Replace("{Holiday}", "[yellow]{[/][lightskyblue3]Holidays[/][yellow]}[/]"));
+    }
+    private static async Task TheSolutionStoredProcedureFormated(Context context, int year)
+    {
+
+        List<HolidaysByYearResult> currentYear = await context
+            .Procedures.uspHolidaysByYearAsync(year);
+
+        var table = CreateTable();
+        foreach (var item in currentYear)
+        {
+            table.AddRow(
+                item.CalendarDate.ToString(), 
+                item.Description, 
+                item.DayOfWeekName, 
+                item.BusinessDay, 
+                item.Weekday);
+        }
+
+        AnsiConsole.Write(table);
+
+    }
+    public static Table CreateTable()
+    {
+        var table = new Table()
+            .AddColumn("[b]Date[/]")
+            .AddColumn("[b]Description[/]")
+            .AddColumn("[b]Day Of Week[/]")
+            .AddColumn("[b]Business Day[/]")
+            .AddColumn("[b]Week day[/]")
+            .Alignment(Justify.Left)
+            .BorderColor(Color.LightSlateGrey);
+        return table;
     }
 
     /// <summary>

@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using static System.DateTime;
 
-namespace CalendarSqlQuerySample.Classes;
+namespace CalendarSqlQuerySample.Classes.DatabaseClasses;
 
 /// <summary>
 /// For logging messages from DbContext.
@@ -22,9 +22,9 @@ public class DbContextToFileLogger
     /// <summary>
     /// Log file name
     /// </summary>
-    private readonly string _fileName = 
-        Path.Combine(AppDomain.CurrentDomain.BaseDirectory, 
-            "LogFiles", $"{Now.Year}-{Now.Month:D2}-{Now.Day:D2}", 
+    private readonly string _fileName =
+        Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+            "LogFiles", $"{Now.Year}-{Now.Month:D2}-{Now.Day:D2}",
             "EF_Log.txt");
 
     /// <summary>

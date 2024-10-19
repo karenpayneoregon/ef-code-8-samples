@@ -1,6 +1,6 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
-namespace CalendarSqlQuerySample.Classes;
+namespace CalendarSqlQuerySample.Classes.DatabaseClasses;
 
 public static class QueryExtensions
 {

@@ -14,37 +14,21 @@ public partial class Calendar
     public int Month { get; set; }
     [Column("CalendarDay")]
     public int Day { get; set; }
-
     public string DayOfWeekName { get; set; }
-
     public DateOnly FirstDateOfWeek { get; set; }
-
     public DateOnly LastDateOfWeek { get; set; }
-
     public DateOnly FirstDateOfMonth { get; set; }
-
     public DateOnly LastDateOfMonth { get; set; }
-
     public DateOnly FirstDateOfQuarter { get; set; }
-
     public DateOnly LastDateOfQuarter { get; set; }
-
     public DateOnly FirstDateOfYear { get; set; }
-
     public DateOnly LastDateOfYear { get; set; }
-
     public bool BusinessDay { get; set; }
-
     public bool NonBusinessDay { get; set; }
-
     public bool Weekend { get; set; }
-
     public bool Holiday { get; set; }
-
     public bool Weekday { get; set; }
-
     [Column("CalendarDateDescription")]
     public string Description { get; set; }
-
     public string HolidayComputed { get; set; }
 }
