@@ -1,5 +1,7 @@
 ﻿using DateBetweenApp.Classes;
 using DateBetweenApp.Data;
+using DateBetweenApp.Models;
+
 // ReSharper disable PossibleInvalidOperationException
 
 namespace DateBetweenApp;

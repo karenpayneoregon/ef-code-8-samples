@@ -17,10 +17,9 @@ public class WineContext : DbContext
             .UseSqlServer(ConnectionString()) // read connection string from appsettings.json
             .EnableSensitiveDataLogging()     // for development only
             .LogTo(new DbContextToFileLogger().Log,
-                new[]
-                {
+                [
                     DbLoggerCategory.Database.Command.Name
-                },
+                ],
                 LogLevel.Information);
 
     /// <summary>

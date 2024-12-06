@@ -59,15 +59,5 @@ namespace WineConsoleApp.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] wine {
-            get {
-                object obj = ResourceManager.GetObject("wine", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
     }
 }

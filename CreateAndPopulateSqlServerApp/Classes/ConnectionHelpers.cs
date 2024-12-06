@@ -16,10 +16,9 @@ public class ConnectionHelpers
             .EnableSensitiveDataLogging()
             .AddInterceptors(new AuditInterceptor())
             .LogTo(new DbContextToFileLogger().Log,
-                new[]
-                {
+                [
                     DbLoggerCategory.Database.Command.Name
-                },
+                ],
                 Microsoft.Extensions.Logging.LogLevel.Information);
 
     }

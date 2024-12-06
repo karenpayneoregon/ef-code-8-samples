@@ -1,16 +1,17 @@
-using System;
 using System.IO;
 using System.Threading.Tasks;
-using Classes;
 using Interceptors;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+
+namespace Classes;
 
 public class DailyMessageContext : DbContext
 {
     private static readonly CachingCommandInterceptor _cachingInterceptor
         = new CachingCommandInterceptor();
-    private readonly StreamWriter _logStream = new StreamWriter("LogFiles\\ef-logs.txt", append: true);
+    private readonly StreamWriter _logStream = 
+        new("LogFiles\\ef-logs.txt", append: true);
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder
