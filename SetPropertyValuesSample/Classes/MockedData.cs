@@ -10,7 +10,7 @@ public static class MockedData
     public static List<Person> PeopleList()
         =>
         [
-            new Person()
+            new()
             {
                 Id = 1,
                 Title = "Miss",
@@ -19,7 +19,7 @@ public static class MockedData
                 BirthDate = new DateOnly(1956, 9, 24)
             },
 
-            new Person()
+            new()
             {
                 Id = 2,
                 Title = "Mr",
@@ -28,7 +28,7 @@ public static class MockedData
                 BirthDate = new DateOnly(1960, 2, 12)
             },
 
-            new Person()
+            new()
             {
                 Id = 3,
                 Title = "Mr",

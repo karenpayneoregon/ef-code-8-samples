@@ -8,6 +8,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
+        var image = Properties.Resources.wine;
         using var context = new WineContext();
 
         context.CleanStart();
@@ -23,4 +24,5 @@ internal partial class Program
 
         ExitPrompt();
     }
+
 }
