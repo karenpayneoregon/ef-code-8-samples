@@ -1,0 +1,54 @@
+[
+  {
+    "ContactTypeIdentifier": 1,
+    "ContactTitle": "Accounting Manager"
+  },
+  {
+    "ContactTypeIdentifier": 2,
+    "ContactTitle": "Assistant Sales Agent"
+  },
+  {
+    "ContactTypeIdentifier": 3,
+    "ContactTitle": "Assistant Sales Representative"
+  },
+  {
+    "ContactTypeIdentifier": 4,
+    "ContactTitle": "Marketing Assistant"
+  },
+  {
+    "ContactTypeIdentifier": 5,
+    "ContactTitle": "Marketing Manager"
+  },
+  {
+    "ContactTypeIdentifier": 6,
+    "ContactTitle": "Order Administrator"
+  },
+  {
+    "ContactTypeIdentifier": 7,
+    "ContactTitle": "Owner"
+  },
+  {
+    "ContactTypeIdentifier": 8,
+    "ContactTitle": "Owner/Marketing Assistant"
+  },
+  {
+    "ContactTypeIdentifier": 9,
+    "ContactTitle": "Sales Agent"
+  },
+  {
+    "ContactTypeIdentifier": 10,
+    "ContactTitle": "Sales Associate"
+  },
+  {
+    "ContactTypeIdentifier": 11,
+    "ContactTitle": "Sales Manager"
+  },
+  {
+    "ContactTypeIdentifier": 12,
+    "ContactTitle": "Sales Representative"
+  },
+  {
+    "ContactTypeIdentifier": 13,
+    "ContactTitle": "Vice President, Sales"
+  }
+]

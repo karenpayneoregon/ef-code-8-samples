@@ -1,0 +1,572 @@
+[
+  {
+    "id": 1,
+    "ContactId": 1,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(5) 555-4729"
+  },
+  {
+    "id": 2,
+    "ContactId": 2,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(5) 555-3932"
+  },
+  {
+    "id": 3,
+    "ContactId": 3,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(171) 555-7788"
+  },
+  {
+    "id": 4,
+    "ContactId": 4,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0921-12 34 65"
+  },
+  {
+    "id": 5,
+    "ContactId": 1,
+    "PhoneTypeIdentifier": 1,
+    "PhoneNumber": "(5) 555-4729"
+  },
+  {
+    "id": 6,
+    "ContactId": 5,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0921-12 34 35"
+  },
+  {
+    "id": 7,
+    "ContactId": 5,
+    "PhoneTypeIdentifier": 2,
+    "PhoneNumber": "0921-11 34 65"
+  },
+  {
+    "id": 8,
+    "ContactId": 5,
+    "PhoneTypeIdentifier": 1,
+    "PhoneNumber": "0921-10 34 65"
+  },
+  {
+    "id": 9,
+    "ContactId": 6,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0621-08460"
+  },
+  {
+    "id": 10,
+    "ContactId": 6,
+    "PhoneTypeIdentifier": 2,
+    "PhoneNumber": "0621-08444"
+  },
+  {
+    "id": 11,
+    "ContactId": 6,
+    "PhoneTypeIdentifier": 1,
+    "PhoneNumber": "0555-08460"
+  },
+  {
+    "id": 12,
+    "ContactId": 7,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "88.60.15.31"
+  },
+  {
+    "id": 13,
+    "ContactId": 8,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(91) 555 22 82"
+  },
+  {
+    "id": 14,
+    "ContactId": 9,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "91.24.45.40"
+  },
+  {
+    "id": 15,
+    "ContactId": 11,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(1) 135-5555"
+  },
+  {
+    "id": 16,
+    "ContactId": 12,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(5) 555-3392"
+  },
+  {
+    "id": 17,
+    "ContactId": 14,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(171) 555-2282"
+  },
+  {
+    "id": 18,
+    "ContactId": 15,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0241-039123"
+  },
+  {
+    "id": 19,
+    "ContactId": 16,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "40.67.88.88"
+  },
+  {
+    "id": 20,
+    "ContactId": 17,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(171) 555-0297"
+  },
+  {
+    "id": 21,
+    "ContactId": 18,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "7675-3425"
+  },
+  {
+    "id": 22,
+    "ContactId": 19,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(91) 555 94 44"
+  },
+  {
+    "id": 23,
+    "ContactId": 20,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "20.16.10.16"
+  },
+  {
+    "id": 24,
+    "ContactId": 21,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0695-34 67 21"
+  },
+  {
+    "id": 25,
+    "ContactId": 22,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "089-0877310"
+  },
+  {
+    "id": 26,
+    "ContactId": 23,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "40.32.21.21"
+  },
+  {
+    "id": 27,
+    "ContactId": 24,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "011-4988269"
+  },
+  {
+    "id": 28,
+    "ContactId": 25,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(1) 354-2534"
+  },
+  {
+    "id": 29,
+    "ContactId": 26,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(93) 203 4560"
+  },
+  {
+    "id": 30,
+    "ContactId": 27,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(95) 555 82 82"
+  },
+  {
+    "id": 31,
+    "ContactId": 28,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0555-09876"
+  },
+  {
+    "id": 32,
+    "ContactId": 29,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "30.59.84.10"
+  },
+  {
+    "id": 33,
+    "ContactId": 30,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "61.77.61.10"
+  },
+  {
+    "id": 34,
+    "ContactId": 31,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "069-0245984"
+  },
+  {
+    "id": 35,
+    "ContactId": 32,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "035-640230"
+  },
+  {
+    "id": 36,
+    "ContactId": 33,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(02) 201 24 67"
+  },
+  {
+    "id": 37,
+    "ContactId": 34,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0342-023176"
+  },
+  {
+    "id": 38,
+    "ContactId": 35,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(171) 555-7733"
+  },
+  {
+    "id": 39,
+    "ContactId": 36,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(1) 135-5333"
+  },
+  {
+    "id": 40,
+    "ContactId": 37,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0221-0644327"
+  },
+  {
+    "id": 41,
+    "ContactId": 38,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(1) 42.34.22.66"
+  },
+  {
+    "id": 42,
+    "ContactId": 39,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(5) 552-3745"
+  },
+  {
+    "id": 43,
+    "ContactId": 40,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "6562-9722"
+  },
+  {
+    "id": 44,
+    "ContactId": 41,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(1) 356-5634"
+  },
+  {
+    "id": 45,
+    "ContactId": 42,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0372-035188"
+  },
+  {
+    "id": 46,
+    "ContactId": 43,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(1) 123-5555"
+  },
+  {
+    "id": 47,
+    "ContactId": 44,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0522-556721"
+  },
+  {
+    "id": 48,
+    "ContactId": 45,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0897-034214"
+  },
+  {
+    "id": 49,
+    "ContactId": 46,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(91) 745 6200"
+  },
+  {
+    "id": 50,
+    "ContactId": 47,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "07-98 92 35"
+  },
+  {
+    "id": 51,
+    "ContactId": 48,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(171) 555-1717"
+  },
+  {
+    "id": 52,
+    "ContactId": 49,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "31 12 34 56"
+  },
+  {
+    "id": 53,
+    "ContactId": 50,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(1) 47.55.60.10"
+  },
+  {
+    "id": 54,
+    "ContactId": 51,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(071) 23 67 22 20"
+  },
+  {
+    "id": 55,
+    "ContactId": 52,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0251-031259"
+  },
+  {
+    "id": 56,
+    "ContactId": 53,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(5) 555-2933"
+  },
+  {
+    "id": 57,
+    "ContactId": 54,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "86 21 32 43"
+  },
+  {
+    "id": 58,
+    "ContactId": 55,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "78.32.54.86"
+  },
+  {
+    "id": 59,
+    "ContactId": 56,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "26.47.15.10"
+  },
+  {
+    "id": 60,
+    "ContactId": 57,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "0711-020361"
+  },
+  {
+    "id": 61,
+    "ContactId": 58,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "981-443655"
+  },
+  {
+    "id": 62,
+    "ContactId": 60,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(26) 642-7012"
+  },
+  {
+    "id": 63,
+    "ContactId": 61,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(907) 555-7584"
+  },
+  {
+    "id": 64,
+    "ContactId": 62,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(604) 555-4729"
+  },
+  {
+    "id": 65,
+    "ContactId": 63,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(604) 555-3392"
+  },
+  {
+    "id": 66,
+    "ContactId": 64,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(415) 555-5938"
+  },
+  {
+    "id": 67,
+    "ContactId": 65,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "2967 542"
+  },
+  {
+    "id": 68,
+    "ContactId": 66,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(2) 283-2951"
+  },
+  {
+    "id": 69,
+    "ContactId": 67,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(208) 555-8097"
+  },
+  {
+    "id": 70,
+    "ContactId": 68,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(198) 555-8888"
+  },
+  {
+    "id": 71,
+    "ContactId": 69,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(9) 331-6954"
+  },
+  {
+    "id": 72,
+    "ContactId": 70,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(406) 555-5834"
+  },
+  {
+    "id": 73,
+    "ContactId": 71,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(505) 555-5939"
+  },
+  {
+    "id": 74,
+    "ContactId": 72,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(8) 34-56-12"
+  },
+  {
+    "id": 75,
+    "ContactId": 73,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(503) 555-7555"
+  },
+  {
+    "id": 76,
+    "ContactId": 74,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(503) 555-6874"
+  },
+  {
+    "id": 77,
+    "ContactId": 75,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(503) 555-9573"
+  },
+  {
+    "id": 78,
+    "ContactId": 76,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(503) 555-3612"
+  },
+  {
+    "id": 79,
+    "ContactId": 77,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(514) 555-8054"
+  },
+  {
+    "id": 80,
+    "ContactId": 78,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(21) 555-0091"
+  },
+  {
+    "id": 81,
+    "ContactId": 79,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(21) 555-4252"
+  },
+  {
+    "id": 82,
+    "ContactId": 80,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(21) 555-3412"
+  },
+  {
+    "id": 83,
+    "ContactId": 81,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(11) 555-7647"
+  },
+  {
+    "id": 84,
+    "ContactId": 82,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(11) 555-9857"
+  },
+  {
+    "id": 85,
+    "ContactId": 83,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(11) 555-9482"
+  },
+  {
+    "id": 86,
+    "ContactId": 84,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(11) 555-1189"
+  },
+  {
+    "id": 87,
+    "ContactId": 85,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(11) 555-2167"
+  },
+  {
+    "id": 88,
+    "ContactId": 86,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(14) 555-8122"
+  },
+  {
+    "id": 89,
+    "ContactId": 87,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(5) 555-1340"
+  },
+  {
+    "id": 90,
+    "ContactId": 88,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(509) 555-7969"
+  },
+  {
+    "id": 91,
+    "ContactId": 90,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(206) 555-8257"
+  },
+  {
+    "id": 92,
+    "ContactId": 91,
+    "PhoneTypeIdentifier": 3,
+    "PhoneNumber": "(206) 555-4112"
+  },
+  {
+    "id": 93,
+    "ContactId": 24,
+    "PhoneTypeIdentifier": 1,
+    "PhoneNumber": "011-4988270"
+  },
+  {
+    "id": 94,
+    "ContactId": 24,
+    "PhoneTypeIdentifier": 2,
+    "PhoneNumber": "022-4988255"
+  },
+  {
+    "id": 95,
+    "ContactId": 1,
+    "PhoneTypeIdentifier": 2,
+    "PhoneNumber": "456-987-1234"
+  }
+]

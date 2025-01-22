@@ -1,0 +1,14 @@
+[
+  {
+    "PhoneTypeIdenitfier": 1,
+    "PhoneTypeDescription": "Home"
+  },
+  {
+    "PhoneTypeIdenitfier": 2,
+    "PhoneTypeDescription": "Cell"
+  },
+  {
+    "PhoneTypeIdenitfier": 3,
+    "PhoneTypeDescription": "Office"
+  }
+]
