@@ -38,7 +38,9 @@ public class BogusOperations
             b.Gender = f.PickRandom<Gender>();
             b.FirstName = f.Name.FirstName((Name.Gender?)b.Gender);
             b.LastName = f.Name.LastName();
-            b.BirthDate = f.Date.BetweenDateOnly(new DateOnly(1950, 1, 1), new DateOnly(2010, 1, 1));
+            b.BirthDate = f.Date.BetweenDateOnly(
+                new DateOnly(1950, 1, 1), 
+                new DateOnly(2010, 1, 1));
             b.Email = f.Internet.Email(b.FirstName, b.LastName);
         });
 
