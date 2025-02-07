@@ -8,7 +8,7 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        var image = Properties.Resources.wine;
+        //var image = Properties.Resources.wine;
         using var context = new WineContext();
 
         context.CleanStart();
@@ -18,7 +18,7 @@ internal partial class Program
         Line();
 
         WineOperations.Indexing();
-
+        WineOperations.MergeCases();
         Console.WriteLine();
         CyanMarkup("[cyan]See ef core log file under the app folder[/]");
 

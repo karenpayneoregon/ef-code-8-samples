@@ -63,11 +63,10 @@ public partial class Context : DbContext
         /*
          * Only push mocked data while running in Visual Studio IDE
          */
-        if (EntitySettings.Instance.CreateNew)
-        {
-            modelBuilder.Entity<GenderData>().HasData(BogusOperations.GenderTypes());
-            modelBuilder.Entity<BirthDays>().HasData(new List<BirthDays>(BogusOperations.PeopleList(20, 338)));
-        }
+        if (!EntitySettings.Instance.CreateNew) return;
+        modelBuilder.Entity<GenderData>().HasData(BogusOperations.GenderTypes());
+        modelBuilder.Entity<BirthDays>()
+            .HasData(new List<BirthDays>(BogusOperations.PeopleList(20, 338)));
 
 
     }

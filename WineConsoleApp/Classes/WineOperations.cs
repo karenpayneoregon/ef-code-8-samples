@@ -1,8 +1,9 @@
 ﻿using System.Text;
-using Spectre.Console;
 using WineConsoleApp.Data;
 using WineConsoleApp.Models;
+using static Spectre.Console.AnsiConsole;
 using static WineConsoleApp.Classes.AnsiConsoleHelpers;
+using Console = System.Console;
 
 #pragma warning disable CS8602
 
@@ -10,6 +11,37 @@ namespace WineConsoleApp.Classes;
 
 public class WineOperations
 {
+    public static void MergeCases()
+    {
+        using WineContext context = new();
+        var wines = context.Wines.ToList();
+
+        foreach (var wine in wines)
+        {
+            switch (wine.WineType)
+            {
+                case WineType.Red:
+                    PrintWine1(wine);
+                    break;
+                case WineType.Rose:
+                    PrintWine1(wine);
+                    break;
+                case WineType.White:
+                    PrintWine2(wine);
+                    break;
+
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        return;
+
+        void PrintWine1(Wine wine) => MarkupLine($"{wine.WineId,-2}[red]{wine.Name}[/]");
+        void PrintWine2(Wine wine) => MarkupLine($"{wine.WineId,-2}[white]{wine.Name}[/]");
+    }
+
+    
     public static void Indexing()
     {
         using WineContext context = new();
@@ -69,7 +101,7 @@ public class WineOperations
         foreach (WineType wineType in (WineType[])Enum.GetValues(typeof(WineType)))
         {
             var wineTypeArray = wines.Where(w => w.WineType == wineType);
-            AnsiConsole.MarkupLine($"[lightgreen_1]{wineType}[/]");
+            MarkupLine($"[lightgreen_1]{wineType}[/]");
             foreach (var wine in wineTypeArray)
             {
                 Console.WriteLine($"{wine.WineId,-2}{wine.Name}");

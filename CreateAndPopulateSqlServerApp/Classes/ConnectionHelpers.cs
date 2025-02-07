@@ -15,10 +15,7 @@ public class ConnectionHelpers
             .UseSqlServer(ConfigurationHelper.ConnectionString())
             .EnableSensitiveDataLogging()
             .AddInterceptors(new AuditInterceptor())
-            .LogTo(new DbContextToFileLogger().Log,
-                [
-                    DbLoggerCategory.Database.Command.Name
-                ],
+            .LogTo(new DbContextToFileLogger().Log, [DbLoggerCategory.Database.Command.Name],
                 Microsoft.Extensions.Logging.LogLevel.Information);
 
     }

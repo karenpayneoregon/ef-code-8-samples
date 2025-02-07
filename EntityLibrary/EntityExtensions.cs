@@ -14,11 +14,7 @@ public static class EntityExtensions
         optionsBuilder
             .UseSqlServer(connectionString)
             .EnableSensitiveDataLogging()
-            .LogTo(new DbContextToFileLogger().Log,
-                new[]
-                {
-                    DbLoggerCategory.Database.Command.Name
-                },
+            .LogTo(new DbContextToFileLogger().Log, [DbLoggerCategory.Database.Command.Name],
                 LogLevel.Information);
     }
 
