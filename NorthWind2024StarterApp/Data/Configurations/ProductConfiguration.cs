@@ -12,6 +12,11 @@ namespace NorthWind2024StarterApp.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Product> entity)
         {
+
+            entity.Property(e => e.ProductName)
+                .HasComment("English name of the product")
+                .HasColumnName("ProductName");
+
             entity.HasIndex(e => e.CategoryId, "IX_Products_CategoryID");
 
             entity.HasIndex(e => e.SupplierId, "IX_Products_SupplierID");

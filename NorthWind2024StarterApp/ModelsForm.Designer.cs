@@ -30,6 +30,7 @@ partial class ModelsForm
     {
         ModelsComboBox = new ComboBox();
         CurrentButton = new Button();
+        ResultsTextBox = new TextBox();
         SuspendLayout();
         // 
         // ModelsComboBox
@@ -51,11 +52,21 @@ partial class ModelsForm
         CurrentButton.UseVisualStyleBackColor = true;
         CurrentButton.Click += CurrentButton_Click;
         // 
+        // ResultsTextBox
+        // 
+        ResultsTextBox.Location = new Point(24, 88);
+        ResultsTextBox.Multiline = true;
+        ResultsTextBox.Name = "ResultsTextBox";
+        ResultsTextBox.ScrollBars = ScrollBars.Vertical;
+        ResultsTextBox.Size = new Size(764, 350);
+        ResultsTextBox.TabIndex = 2;
+        // 
         // ModelsForm
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
         ClientSize = new Size(800, 450);
+        Controls.Add(ResultsTextBox);
         Controls.Add(CurrentButton);
         Controls.Add(ModelsComboBox);
         Name = "ModelsForm";
@@ -63,10 +74,12 @@ partial class ModelsForm
         Text = "Models";
         Load += ModelsForm_Load;
         ResumeLayout(false);
+        PerformLayout();
     }
 
     #endregion
 
     private ComboBox ModelsComboBox;
     private Button CurrentButton;
+    private TextBox ResultsTextBox;
 }

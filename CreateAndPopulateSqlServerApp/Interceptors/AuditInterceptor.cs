@@ -6,6 +6,15 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace CreateAndPopulateSqlServerApp.Interceptors
 {
+    /// <summary>
+    /// Represents an interceptor for auditing changes in the Entity Framework Core context.
+    /// </summary>
+    /// <remarks>
+    /// This class extends <see cref="SaveChangesInterceptor"/> to inspect and log changes made to the database context.
+    /// It overrides methods for handling save operations, such as <see cref="SavingChangesAsync(DbContextEventData, InterceptionResult{int}, CancellationToken)"/>,
+    /// <see cref="SavingChanges(DbContextEventData, InterceptionResult{int})"/>, and <see cref="SavedChanges(SaveChangesCompletedEventData, int)"/>.
+    /// The changes are inspected and can be logged or processed further.
+    /// </remarks>
     public class AuditInterceptor : SaveChangesInterceptor
     {
         public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = new CancellationToken())

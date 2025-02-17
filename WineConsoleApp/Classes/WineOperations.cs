@@ -4,6 +4,7 @@ using WineConsoleApp.Models;
 using static Spectre.Console.AnsiConsole;
 using static WineConsoleApp.Classes.AnsiConsoleHelpers;
 using Console = System.Console;
+// ReSharper disable LocalizableElement
 
 #pragma warning disable CS8602
 

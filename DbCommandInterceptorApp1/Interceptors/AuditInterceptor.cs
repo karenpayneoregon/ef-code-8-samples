@@ -5,8 +5,36 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace DbCommandInterceptorApp1.Interceptors;
 
+/// <summary>
+/// Represents an interceptor that audits changes made to the database context during save operations.
+/// </summary>
+/// <remarks>
+/// This class extends <see cref="Microsoft.EntityFrameworkCore.Diagnostics.SaveChangesInterceptor"/> 
+/// to inspect and log changes to entities in the database context. It captures added, modified, 
+/// and deleted entities, serializes the changes, and writes them to a JSON file for auditing purposes.
+/// </remarks>
 public class AuditInterceptor : SaveChangesInterceptor
 {
+    /// <summary>
+    /// Intercepts the asynchronous save operation in the database context to inspect and audit changes.
+    /// </summary>
+    /// <param name="eventData">
+    /// The event data associated with the save operation, containing information about the context and changes.
+    /// </param>
+    /// <param name="result">
+    /// The result of the save operation, which can be modified or inspected.
+    /// </param>
+    /// <param name="cancellationToken">
+    /// A token to monitor for cancellation requests.
+    /// </param>
+    /// <returns>
+    /// A <see cref="ValueTask{TResult}"/> representing the asynchronous operation, containing the interception result.
+    /// </returns>
+    /// <remarks>
+    /// This method overrides <see cref="Microsoft.EntityFrameworkCore.Diagnostics.SaveChangesInterceptor.SavingChangesAsync"/> 
+    /// to capture and log changes made to entities in the database context during save operations. It inspects the 
+    /// change tracker entries for added, modified, and deleted entities, and processes them for auditing purposes.
+    /// </remarks>
     public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result, CancellationToken cancellationToken = new CancellationToken())
     {
         Inspect(eventData);

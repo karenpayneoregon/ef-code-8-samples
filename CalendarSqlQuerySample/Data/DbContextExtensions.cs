@@ -6,6 +6,32 @@ namespace CalendarSqlQuerySample.Data
 {
     public static class DbContextExtensions
     {
+        /// <summary>
+        /// Executes a raw SQL query and maps the results to a list of entities of type <typeparamref name="T"/>.
+        /// </summary>
+        /// <typeparam name="T">
+        /// The type of the entities to map the query results to. Must be a reference type.
+        /// </typeparam>
+        /// <param name="db">
+        /// The <see cref="DbContext"/> instance used to execute the query.
+        /// </param>
+        /// <param name="sql">
+        /// The raw SQL query string to execute.
+        /// </param>
+        /// <param name="parameters">
+        /// An optional array of parameters to pass to the SQL query. Defaults to an empty array if not provided.
+        /// </param>
+        /// <param name="cancellationToken">
+        /// A <see cref="CancellationToken"/> to observe while waiting for the task to complete.
+        /// </param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. The task result contains a list of entities of type <typeparamref name="T"/>.
+        /// If the type <typeparamref name="T"/> has no properties, the query is executed without returning results.
+        /// </returns>
+        /// <remarks>
+        /// This method uses <see cref="RelationalDatabaseFacadeExtensions.SqlQueryRaw{TEntity}"/> to execute the query
+        /// and map the results to entities of type <typeparamref name="T"/>.
+        /// </remarks>
         public static async Task<List<T>> SqlQueryAsync<T>(this DbContext db, string sql, object[] parameters = null, CancellationToken cancellationToken = default) where T : class
         {
             if (parameters is null)
@@ -17,7 +43,6 @@ namespace CalendarSqlQuerySample.Data
             {
                 return await db.Database
                     .SqlQueryRaw<T>(sql, parameters)
-                    // Karen Payne: Added TagWithDebugInfo which if code is regenerated will be lost.
                     .TagWithDebugInfo("Holidays Protected - Stored procedure")
                     .ToListAsync(cancellationToken);
             }
