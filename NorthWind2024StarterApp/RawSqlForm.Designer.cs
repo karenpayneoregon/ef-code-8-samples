@@ -62,7 +62,7 @@ partial class RawSqlForm
         button3.TabIndex = 2;
         button3.Text = "button3";
         button3.UseVisualStyleBackColor = true;
-        button3.Click += button3_Click;
+        button3.Click += FormattableString_Click;
         // 
         // button4
         // 

@@ -99,17 +99,13 @@ internal static class EntityCoreExtensions
     /// An <see cref="IEnumerable{T}"/> of <see cref="ModelComment"/> objects, where each object contains
     /// the name and comment of a property in the specified entity model.
     /// </returns>
-    /// <exception cref="ArgumentNullException">
-    /// Thrown when the <paramref name="context"/> parameter is <c>null</c>.
-    /// </exception>
     public static IEnumerable<ModelComment> Comments(DbContext context, string modelName)
     {
         if (context == null) throw new ArgumentNullException(nameof(context));
 
         var commentList = new List<ModelComment>();
 
-        IEnumerable<IEntityType> entityTypes = context.GetService<IDesignTimeModel>()
-            .Model.GetEntityTypes().Where(x => x.ClrType.Name == modelName);
+        IEnumerable<IEntityType> entityTypes = context.GetService<IDesignTimeModel>().Model.GetEntityTypes().Where(x => x.ClrType.Name == modelName);
         
         foreach (IEntityType entityType in entityTypes)
         {
@@ -129,5 +125,4 @@ internal static class EntityCoreExtensions
         return commentList;
 
     }
-
 }

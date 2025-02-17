@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using NorthWind2024StarterApp.Data;
 using NorthWind2024StarterApp.Models;
@@ -28,6 +30,7 @@ public partial class RawSqlForm : Form
             .Include(c => c.Contact)
             .ToList();
 
+        Debugger.Break();
 
     }
 
@@ -38,8 +41,19 @@ public partial class RawSqlForm : Form
 
         string statement =
             """
-            SELECT *
-             FROM dbo.Customers
+            SELECT CustomerIdentifier
+            ,CompanyName
+            ,ContactId
+            ,Street
+            ,City
+            ,Region
+            ,PostalCode
+            ,CountryIdentifier
+            ,Phone
+            ,Fax
+            ,ContactTypeIdentifier
+            ,ModifiedDate
+            FROM dbo.Customers
             WHERE ContactTypeIdentifier = @ContactTypeIdentifier
             """;
         using var context = new Context();
@@ -47,9 +61,10 @@ public partial class RawSqlForm : Form
             .Include(c => c.Contact)
             .ToList();
 
+        Debugger.Break();
     }
 
-    private void button3_Click(object sender, EventArgs e)
+    private void FormattableString_Click(object sender, EventArgs e)
     {
 
         const int contactTypeIdentifier = 9;
@@ -59,6 +74,7 @@ public partial class RawSqlForm : Form
               FROM dbo.Customers
              WHERE ContactTypeIdentifier = {contactTypeIdentifier}
              """;
+
         using var context = new Context();
         var list = context.Customers.FromSqlInterpolated(statement)
             .Include(c => c.Contact)
@@ -68,7 +84,7 @@ public partial class RawSqlForm : Form
 
     private void button4_Click(object sender, EventArgs e)
     {
-        var countries = new List<int> { 4, 9 };
+        List<int> countries = [4, 9];
         //using var context = new Context();
         //var test = string.Join(", ", countries);
 
@@ -91,8 +107,24 @@ public partial class RawSqlForm : Form
         //var list = data.OrderBy(x => x.CountryName).ToList();
 
         var list = GetCustomersCountriesFiltered(countries);
+
+        Debugger.Break();
     }
 
+    /// <summary>
+    /// Retrieves a filtered list of customers and their associated countries based on the specified country identifiers.
+    /// </summary>
+    /// <param name="countries">
+    /// A list of country identifiers used to filter the customers.
+    /// </param>
+    /// <returns>
+    /// A list of <see cref="CustomersCountries"/> objects containing customer and country details
+    /// for the specified country identifiers.
+    /// </returns>
+    /// <remarks>
+    /// This method executes a raw SQL query to fetch customer and country data from the database.
+    /// The query filters customers based on the provided country identifiers.
+    /// </remarks>
     public static List<CustomersCountries> GetCustomersCountriesFiltered(List<int> countries)
     {
         

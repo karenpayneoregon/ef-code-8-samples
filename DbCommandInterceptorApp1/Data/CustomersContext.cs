@@ -1,4 +1,6 @@
-﻿using DbCommandInterceptorApp1.Classes;
+﻿
+using System.Diagnostics;
+using DbCommandInterceptorApp1.Classes.Configuration;
 using DbCommandInterceptorApp1.Interceptors;
 using DbCommandInterceptorApp1.Models;
 using Microsoft.EntityFrameworkCore;
@@ -11,10 +13,21 @@ public class CustomersContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder
-            .EnableSensitiveDataLogging()
-            .AddInterceptors(new AuditInterceptor())
-            .AddInterceptors(new CommandSourceInterceptor())
-            .UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=EFCoreSample1");
+        if (Debugger.IsAttached)
+        {
+            optionsBuilder
+                .EnableSensitiveDataLogging()
+                .AddInterceptors(new AuditInterceptor())
+                .AddInterceptors(new CommandSourceInterceptor())
+                .UseSqlServer(ConnectionReader.GetMainConnectionString());
+        }
+        else
+        {
+            optionsBuilder
+                .AddInterceptors(new AuditInterceptor())
+                .AddInterceptors(new CommandSourceInterceptor())
+                .UseSqlServer(ConnectionReader.GetMainConnectionString());
+
+        }
     }
 }

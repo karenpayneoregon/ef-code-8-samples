@@ -4,6 +4,7 @@ using NorthWind2024StarterApp.Classes;
 using NorthWind2024StarterApp.Components;
 using NorthWind2024StarterApp.Data;
 using NorthWind2024StarterApp.Models;
+// ReSharper disable AsyncVoidMethod
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
 namespace NorthWind2024StarterApp;

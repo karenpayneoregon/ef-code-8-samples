@@ -12,12 +12,3 @@ public class CompanyNameValidator : AbstractValidator<CustomerItem>
             .MinimumLength(3);
     }
 }
-
-public class CustomerItemValidator : AbstractValidator<CustomerItem>
-{
-    public CustomerItemValidator()
-    {
-        Include(new CompanyNameValidator());
-    }
-}
-
