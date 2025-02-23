@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage;
-using Serilog;
 
-namespace DatabaseCheckedApp.Classes.Helpers;
+namespace DatabaseCheckedLibrary;
 
-internal class DbContextHelpers
+public class DbContextHelpers
 {
     /// <summary>
     /// Checks if the database associated with the provided <see cref="DbContext"/> exists.
@@ -19,7 +18,7 @@ internal class DbContextHelpers
     /// </exception>
     public static bool DatabaseExists<TContext>(TContext context) where TContext : DbContext
     {
-        Log.Information($"Executing {nameof(DatabaseExists)}");
+  
 
         if (context.GetService<IDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator)
         {
@@ -41,8 +40,6 @@ internal class DbContextHelpers
     /// </exception>
     public static bool HasTables<TContext>(TContext context) where TContext : DbContext
     {
-
-        Log.Information($"Executing {nameof(HasTables)}");
 
         if (context.GetService<IRelationalDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator)
         {
@@ -68,8 +65,6 @@ internal class DbContextHelpers
     /// </exception>
     public static bool TablesExist(DbContext context, params string[] tableNames)
     {
-
-        Log.Information($"Executing {nameof(TablesExist)}");
 
         var existingTables = new HashSet<string>(
             context.Model.GetEntityTypes()

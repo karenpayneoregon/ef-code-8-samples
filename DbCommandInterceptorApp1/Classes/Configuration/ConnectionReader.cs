@@ -12,7 +12,7 @@ namespace DbCommandInterceptorApp1.Classes.Configuration
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
-            return _configuration.GetConnectionString();
+            return _configuration.GetConnectionString("MainConnection");
         }
     }
 

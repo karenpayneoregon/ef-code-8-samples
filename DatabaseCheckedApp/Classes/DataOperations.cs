@@ -1,4 +1,5 @@
-﻿using DatabaseCheckedApp.Data;
+﻿using DatabaseCheckedApp.Classes.Helpers;
+using DatabaseCheckedApp.Data;
 using DatabaseCheckedApp.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -49,6 +50,7 @@ namespace DatabaseCheckedApp.Classes
                 .Customers
                 .Include(c => c.ContactTypeIdentifierNavigation)
                 .Include(c => c.GenderIdentifierNavigation)
+                .TagWithDebugInfo("Get customers")
                 .Take(2)
                 .ToList();
     }

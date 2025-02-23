@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using DatabaseCheckedApp.Classes.Configuration;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 #nullable disable
 
@@ -27,8 +28,20 @@ public partial class Context : DbContext
 
     public virtual DbSet<Gender> Genders { get; set; }
 
+    /// <summary>
+    /// Configures the database context options, such as the database provider and logging behavior.
+    /// </summary>
+    /// <param name="optionsBuilder">
+    /// An instance of <see cref="DbContextOptionsBuilder"/> used to configure the context.
+    /// </param>
+    /// <remarks>
+    /// This method sets up the SQL Server database connection using the main connection string
+    /// from <see cref="Classes.Configuration.DataConnections"/> and configures logging
+    /// to write executed commands to a file using <see cref="Classes.Configuration.DbContextToFileLogger"/>.
+    /// </remarks>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer(DataConnections.Instance.MainConnection);
+        => optionsBuilder.UseSqlServer(DataConnections.Instance.MainConnection)
+            .LogTo(new DbContextToFileLogger().Log, [RelationalEventId.CommandExecuted]);
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
