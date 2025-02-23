@@ -29,19 +29,20 @@ class EntityQueryHelpers
     {
         await using var context = new Context();
         await using var connection = context.Database.GetDbConnection();
-        const string sql = """
-                           SELECT 
-                               TableSchema = s.name,
-                               Name = t.name,
-                               [RowCount] = p.rows
-                           FROM sys.tables t
-                           INNER JOIN sys.schemas s ON t.schema_id = s.schema_id
-                           INNER JOIN sys.indexes i ON t.object_id = i.object_id
-                           INNER JOIN sys.partitions p ON i.object_id = p.object_id AND i.index_id = p.index_id
-                           WHERE t.is_ms_shipped = 0
-                           GROUP BY t.name, s.name, p.rows
-                           ORDER BY s.name, t.name;
-                           """;
+        const string sql = 
+            """
+            SELECT 
+                TableSchema = s.name,
+                Name = t.name,
+                [RowCount] = p.rows
+            FROM sys.tables t
+            INNER JOIN sys.schemas s ON t.schema_id = s.schema_id
+            INNER JOIN sys.indexes i ON t.object_id = i.object_id
+            INNER JOIN sys.partitions p ON i.object_id = p.object_id AND i.index_id = p.index_id
+            WHERE t.is_ms_shipped = 0
+            GROUP BY t.name, s.name, p.rows
+            ORDER BY s.name, t.name;
+            """;
 
         return (await connection.QueryAsync<TableInfo>(sql)).AsList();
     }
