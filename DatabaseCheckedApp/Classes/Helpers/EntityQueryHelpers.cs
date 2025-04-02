@@ -3,6 +3,10 @@ using DatabaseCheckedApp.Data;
 using DatabaseCheckedApp.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
+using System.Data.Common;
+using System.Text;
+using Microsoft.Extensions.Configuration;
 
 namespace DatabaseCheckedApp.Classes.Helpers;
 
@@ -29,7 +33,7 @@ class EntityQueryHelpers
     {
         await using var context = new Context();
         await using var connection = context.Database.GetDbConnection();
-        const string sql = 
+        const string sql =
             """
             SELECT 
                 TableSchema = s.name,
@@ -46,4 +50,66 @@ class EntityQueryHelpers
 
         return (await connection.QueryAsync<TableInfo>(sql)).AsList();
     }
+
+    /// <summary>
+    /// Retrieves the row counts for specified database tables.
+    /// </summary>
+    /// <param name="tableNames">
+    /// An array of table names for which to retrieve row counts. 
+    /// If no table names are provided, row counts for all user-defined tables are returned.
+    /// </param>
+    /// <returns>
+    /// A task representing the asynchronous operation. The task result contains a list of 
+    /// <see cref="TableInfo"/> objects, each representing metadata about a table, including its schema, 
+    /// name, and row count.
+    /// </returns>
+    /// <remarks>
+    /// This method queries the database using Dapper to retrieve row count information for the specified tables.
+    /// It connects to the database using the connection string defined in the application's configuration.
+    /// </remarks>
+    /// <exception cref="SqlException">
+    /// Thrown if there is an issue connecting to the database or executing the query.
+    /// </exception>
+    /// <example>
+    /// <code>
+    /// var tableInfos = await EntityQueryHelpers.GetTableRowCountsAsync("Customer", "Orders");
+    /// foreach (var tableInfo in tableInfos)
+    /// {
+    ///     Console.WriteLine($"{tableInfo.TableSchema}.{tableInfo.Name}: {tableInfo.RowCount} rows");
+    /// }
+    /// </code>
+    /// </example>
+    public static async Task<List<TableInfo>> GetTableRowCountsAsync(params string[] tableNames)
+    {
+
+        /*
+         * Config is defined in GlobalUsings.cs
+         * ConnectionStrings is defined in ConsoleConfigurationLibrary
+         */
+        var connectionString = Config.Configuration.JsonRoot()
+            .GetSection(nameof(ConnectionStrings))
+            .GetValue<string>(nameof(ConnectionStrings.MainConnection));
+
+        IDbConnection cn = new SqlConnection(connectionString);
+
+        const string sql =
+            """
+            SELECT 
+                TableSchema = s.name,
+                Name = t.name,
+                [RowCount] = p.rows
+            FROM sys.tables t
+            INNER JOIN sys.schemas s ON t.schema_id = s.schema_id
+            INNER JOIN sys.indexes i ON t.object_id = i.object_id
+            INNER JOIN sys.partitions p ON i.object_id = p.object_id AND i.index_id = p.index_id
+            WHERE t.is_ms_shipped = 0
+            AND t.name IN @TableNames
+            GROUP BY t.name, s.name, p.rows
+            ORDER BY s.name, t.name;
+            """;
+
+        return (await cn.QueryAsync<TableInfo>(sql, new { TableNames = tableNames })).ToList();
+    }
+
 }
+

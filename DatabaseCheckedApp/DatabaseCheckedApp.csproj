@@ -19,6 +19,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="ConsoleConfigurationLibrary" Version="1.0.0.10" />
 		<PackageReference Include="ObjectDumper.NET" Version="4.3.2" />
 	</ItemGroup>
 

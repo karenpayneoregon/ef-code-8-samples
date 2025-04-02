@@ -13,6 +13,9 @@ internal partial class Program
 
         await Setup();
 
+      
+        var query = await EntityQueryHelpers.GetTableRowCountsAsync(["Customer", "Genders", "ContactTypes"]);
+
         await using var context = new Context();
 
         var tableNames = ApplicationConfiguration.GetTableNames();
@@ -38,7 +41,12 @@ internal partial class Program
             var tableInfos = await EntityQueryHelpers.GetTableRowCountsAsync();
 
             Console.WriteLine(ObjectDumper.Dump(tableInfos));
+
+            tableInfos = await EntityQueryHelpers.GetTableRowCountsAsync("Customer", "Genders", "ContactTypes");
+            Console.WriteLine();
+            Console.WriteLine(ObjectDumper.Dump(tableInfos));
         }
+
         else
         {
             AnsiConsole.MarkupLine("[red]Create the database and run the script under[/][cyan] Data scripts[/]");

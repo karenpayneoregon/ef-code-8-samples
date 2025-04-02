@@ -12,4 +12,5 @@ public class TableInfo
     public string TableSchema { get; set; }
     public string Name { get; set; }
     public long RowCount { get; set; }
+    public override string ToString() => $"{Name} {RowCount}";
 }
