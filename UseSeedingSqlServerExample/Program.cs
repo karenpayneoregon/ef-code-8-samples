@@ -53,6 +53,7 @@ public class Program
         // Trigger to run UseAsyncSeeding()
         using (var scope = app.Services.CreateScope())
         {
+            // Create a scope to obtain a reference to the database context (CarDbContext)
             var db = scope.ServiceProvider.GetRequiredService<CarDbContext>();
             await db.Database.EnsureCreatedAsync(); // Will trigger UseAsyncSeeding
         }
