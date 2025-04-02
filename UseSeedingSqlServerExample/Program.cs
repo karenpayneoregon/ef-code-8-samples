@@ -7,48 +7,44 @@ namespace UseSeedingSqlServerExample;
 
 public class Program
 {
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
         builder.Services.AddRazorPages();
+
         SetupLogging.Development();
 
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
         builder.Services.AddDbContext<CarDbContext>((serviceProvider, options) =>
         {
+
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
             var environment = serviceProvider.GetRequiredService<IWebHostEnvironment>();
-
             var shouldSeed = configuration.GetValue<bool>("Database:SeedDataEnabled");
 
             options.UseSqlServer(connectionString);
 
             if ((environment.IsDevelopment() || environment.IsStaging()) && shouldSeed)
             {
-                options.UseSeeding((context, _) =>
-                {
-                    Console.WriteLine("🚗 Running sync seeding...");
-
-                    var demoCar = context.Set<Car>().FirstOrDefault(b => b.Id == 2);
-                    if (demoCar == null)
-                    {
-                        context.Set<Car>().Add(new Car { Make = "Tesla", Model = "Model S", YearOf = 2025});
-                        context.SaveChanges();
-                    }
-                });
-
                 options.UseAsyncSeeding(async (context, _, cancellationToken) =>
                 {
-                    Console.WriteLine("🚗 Running async seeding...");
+                    Console.WriteLine("🚗 Async seeding started...");
 
-                    var demoCar = await context.Set<Car>().FirstOrDefaultAsync(b => b.Id == 2, cancellationToken);
-                    if (demoCar == null)
+                    var exists = await context.Set<Car>().AnyAsync(c => c.Id == 1, cancellationToken);
+                    if (!exists)
                     {
-                        context.Set<Car>().Add(new Car { Make = "Tesla", Model = "Model S", YearOf = 2025 });
+                        context.Set<Car>().Add(new Car { Make = "Tesla", Model = "Model S", YearOf = 2025});
                         await context.SaveChangesAsync(cancellationToken);
                     }
+
+                    //var exists2 = await context.Set<Car>().AnyAsync(c => c.Id == 2, cancellationToken);
+                    //if (!exists2)
+                    //{
+                    //    context.Set<Car>().Add(new Car { Make = "Ford", Model = "Mustang Mach-E" });
+                    //    await context.SaveChangesAsync(cancellationToken);
+                    //}
                 });
             }
         });
@@ -61,11 +57,11 @@ public class Program
             app.UseHsts();
         }
 
-        // Run EF Core migrations to trigger UseSeeding
+        // Trigger EF Core to run UseAsyncSeeding()
         using (var scope = app.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<CarDbContext>();
-            db.Database.EnsureCreated(); // required to run UseSeeding
+            await db.Database.EnsureCreatedAsync(); // Will trigger UseAsyncSeeding
         }
 
         app.UseHttpsRedirection();
@@ -77,6 +73,6 @@ public class Program
 
         app.MapRazorPages();
 
-        app.Run();
+        await app.RunAsync();
     }
 }
