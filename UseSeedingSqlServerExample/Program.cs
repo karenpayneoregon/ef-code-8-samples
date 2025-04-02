@@ -15,7 +15,6 @@ public class Program
 
         SetupLogging.Development();
 
-        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
         builder.Services.AddDbContext<CarDbContext>((serviceProvider, options) =>
         {
@@ -23,8 +22,8 @@ public class Program
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
             var environment = serviceProvider.GetRequiredService<IWebHostEnvironment>();
             var shouldSeed = configuration.GetValue<bool>(AppSettings.SeedDataEnabled);
-
-            options.UseSqlServer(connectionString);
+            
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 
             if ((environment.IsDevelopment() || environment.IsStaging()) && shouldSeed)
             {
