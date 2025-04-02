@@ -31,19 +31,14 @@ public class Program
                 options.UseAsyncSeeding(async (context, _, cancellationToken) =>
                 {
 
-                    var exists = await context.Set<Car>().AnyAsync(c => c.Id == 2, cancellationToken);
+                    var exists = await context.Set<Car>().AnyAsync(c => c.Id == 1, cancellationToken);
+
                     if (!exists)
                     {
-                        context.Set<Car>().Add(new Car { Make = "Tesla", Model = "Model S", YearOf = 2025});
+                        context.Set<Car>().Add(new Car { Make = "Mazda", Model = "Miata", YearOf = 2025});
                         await context.SaveChangesAsync(cancellationToken);
                     }
-
-                    //var exists2 = await context.Set<Car>().AnyAsync(c => c.Id == 2, cancellationToken);
-                    //if (!exists2)
-                    //{
-                    //    context.Set<Car>().Add(new Car { Make = "Ford", Model = "Mustang Mach-E" });
-                    //    await context.SaveChangesAsync(cancellationToken);
-                    //}
+                    
                 });
             }
         });
@@ -56,7 +51,7 @@ public class Program
             app.UseHsts();
         }
 
-        // Trigger EF Core to run UseAsyncSeeding()
+        // Trigger to run UseAsyncSeeding()
         using (var scope = app.Services.CreateScope())
         {
             var db = scope.ServiceProvider.GetRequiredService<CarDbContext>();
