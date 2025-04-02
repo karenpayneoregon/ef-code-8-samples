@@ -15,6 +15,7 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        Log.Information("Greetings");
+        Log.Information("Car count {C}", _context.Car.Count());
+        
     }
 }
