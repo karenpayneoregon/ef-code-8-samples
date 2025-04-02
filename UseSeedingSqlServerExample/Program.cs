@@ -22,7 +22,7 @@ public class Program
 
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
             var environment = serviceProvider.GetRequiredService<IWebHostEnvironment>();
-            var shouldSeed = configuration.GetValue<bool>("Database:SeedDataEnabled");
+            var shouldSeed = configuration.GetValue<bool>(AppSettings.SeedDataEnabled);
 
             options.UseSqlServer(connectionString);
 
@@ -30,9 +30,8 @@ public class Program
             {
                 options.UseAsyncSeeding(async (context, _, cancellationToken) =>
                 {
-                    Console.WriteLine("🚗 Async seeding started...");
 
-                    var exists = await context.Set<Car>().AnyAsync(c => c.Id == 1, cancellationToken);
+                    var exists = await context.Set<Car>().AnyAsync(c => c.Id == 2, cancellationToken);
                     if (!exists)
                     {
                         context.Set<Car>().Add(new Car { Make = "Tesla", Model = "Model S", YearOf = 2025});

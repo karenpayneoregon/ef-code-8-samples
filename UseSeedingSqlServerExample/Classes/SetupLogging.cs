@@ -5,13 +5,22 @@ using SeriLogThemesLibrary;
 namespace UseSeedingSqlServerExample.Classes;
 
 /// <summary>
-/// For setting up SeriLog to keep Program.Main clean and allows code to be easily copied to other projects.
+/// Provides functionality to configure logging using Serilog for the application.
 /// </summary>
+/// <remarks>
+/// This class is designed to encapsulate the setup of Serilog logging, ensuring that the 
+/// <c>Program.Main</c> method remains clean and maintainable. It allows the logging configuration 
+/// to be easily reused across multiple projects.
+/// </remarks>
 public class SetupLogging
 {
     /// <summary>
-    /// Configure SeriLog
+    /// Configures the Serilog logger for development environments.
     /// </summary>
+    /// <remarks>
+    /// This method sets up the Serilog logger with a default theme and a minimum log level override for Microsoft logs.
+    /// It is intended to be used in development scenarios to provide structured logging output to the console.
+    /// </remarks>
     public static void Development()
     {
         Log.Logger = new LoggerConfiguration()
