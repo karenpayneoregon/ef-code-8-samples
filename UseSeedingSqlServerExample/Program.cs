@@ -23,7 +23,7 @@ public class Program
             var environment = serviceProvider.GetRequiredService<IWebHostEnvironment>();
             var shouldSeed = configuration.GetValue<bool>(AppSettings.SeedDataEnabled);
             
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
 
             if ((environment.IsDevelopment() || environment.IsStaging()) && shouldSeed)
             {
