@@ -31,11 +31,9 @@ public class Program
                 options.UseAsyncSeeding(async (context, _, cancellationToken) =>
                 {
 
-                    var exists = await context.Set<Car>().AnyAsync(c => c.Id == 1, cancellationToken);
-
-                    if (!exists)
+                    if (!await context.Set<Car>().AnyAsync(c => c.Id == 1, cancellationToken))
                     {
-                        context.Set<Car>().Add(new Car { Make = "Mazda", Model = "Miata", YearOf = 2025});
+                        await context.Set<Car>().AddAsync(new Car { Make = "Mazda", Model = "Miata", YearOf = 2025}, cancellationToken);
                         await context.SaveChangesAsync(cancellationToken);
                     }
                     
