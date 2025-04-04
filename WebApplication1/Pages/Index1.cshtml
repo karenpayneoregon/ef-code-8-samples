@@ -1,0 +1,25 @@
+﻿@page
+@model WebApplication1.Pages.Index1Model
+@{
+}
+<h1 class="text-center">Action-Based Reusable Modal</h1>
+
+
+<div class="mx-auto p-2" style="width: 200px;">
+
+    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">
+        Delete Customer #42
+    </button>
+</div>
+
+<!-- Render modal with context -->
+<partial name="_ConfirmModal" model="(Model.ConfirmationMessage, Model.ConfirmationAction, Model.ConfirmationItemId)" />
+
+@if (Model.UserResponse.HasValue)
+{
+    <div class="alert alert-info mt-3">
+        Action: <strong>@Model.LastActionName</strong><br />
+        Item ID: <strong>@Model.LastItemId</strong><br />
+        Response: <strong>@(Model.UserResponse.Value ? "Yes" : "No")</strong>
+    </div>
+}

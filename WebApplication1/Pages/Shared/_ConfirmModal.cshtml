@@ -1,0 +1,34 @@
+﻿@model (string Message, string ActionName, int ItemId)
+
+<form method="post" asp-page-handler="Confirm">
+
+    <div class="modal fade" id="confirmModal" data-bs-backdrop="static"s tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmModalLabel">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    @Model.Message
+                </div>
+
+                <input type="hidden" name="actionName" value="@Model.ActionName"/>
+                <input type="hidden" name="itemId" value="@Model.ItemId"/>
+
+                <div class="modal-footer">
+                    <button type="submit" name="answer" value="false" class="btn btn-secondary">No</button>
+                    <button type="submit" name="answer" value="true" class="btn btn-primary">Yes</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
