@@ -5,48 +5,24 @@
 
 <h1 class="text-center">Modal dialog</h1>
 
+<div class="mx-auto p-2" style="width: 180px;">
+    Order ID: @Model.OrderId
+</div>
+
 <div class="mx-auto p-2" style="width: 200px;">
 
-    <button class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#confirmModal">
-        Archive order
+    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#confirmModal">
+        Archive Order
     </button>
-
+    
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="confirmModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
-
-    <div class="modal-dialog  modal-dialog-centered">
-
-        <div class="modal-content ">
-
-            <form method="post" asp-page-handler="Confirm">
-
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmModalLabel">Please Confirm</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <div class="modal-body">
-                    Are you sure you want to continue?
-                </div>
-
-                <div class="modal-footer">
-                    <button type="submit" name="answer" value="false" class="btn btn-secondary">No</button>
-                    <button type="submit" name="answer" value="true" class="btn btn-primary">Yes</button>
-                </div>
-
-            </form>
-
-        </div>
-
-    </div>
-
-</div>
+<!-- Reuse the modal -->
+<partial name="_ConfirmModal" model="@(ValueTuple.Create("Are you sure you want to archive this order?", "ArchiveOrder", Model.OrderId))" />
 
 @if (Model.UserResponse.HasValue)
 {
-    <div class="alert alert-info mt-3 text-center">
+    <div class="alert alert-secondary mt-3 text-center">
         You clicked: <strong>@(Model.UserResponse.Value ? "Yes" : "No")</strong>
     </div>
 }

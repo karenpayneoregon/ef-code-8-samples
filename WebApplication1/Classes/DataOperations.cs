@@ -10,4 +10,9 @@ public class DataOperations
     /// <c>true</c> if the customer was successfully removed; otherwise, <c>false</c>.
     /// </returns>
     public static bool RemoveCustomer(int id) => true;
+
+    public static void ArchiveOrder(int itemId)
+    {
+        Console.WriteLine($"Order {itemId} archived.");
+    }
 }

@@ -1,8 +1,17 @@
 ﻿@model (string Message, string ActionName, int ItemId)
+@* 
+    This partial page defines a Bootstrap modal dialog intended to confirm a user action. 
+    It accepts a tuple model containing a confirmation message (Message), the name of the action to execute (ActionName), 
+    and the identifier of the item involved (ItemId). The modal is rendered as a form that posts back to the page handler named 
+    Confirm. The form includes hidden fields to pass along the action name and item ID, preserving context when the form 
+    is submitted. The modal presents the user with the provided message and two buttons: "Yes" and "No", which submit 
+    boolean values (true or false) via the answer field to indicate the user's choice. This approach provides a clean, reusable way 
+    to prompt users for confirmation before proceeding with potentially destructive or significant actions.
+*@
 
 <form method="post" asp-page-handler="Confirm">
 
-    <div class="modal fade" id="confirmModal" data-bs-backdrop="static"s tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal fade" id="confirmModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
 
         <div class="modal-dialog modal-dialog-centered">
 

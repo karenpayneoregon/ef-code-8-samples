@@ -24,12 +24,16 @@ public class Index2Model : PageModel
     {
         if (bool.TryParse(answer, out var result))
         {
+
             UserResponse = result;
 
             if (actionName == "ArchiveOrder" && result)
             {
-                Console.WriteLine($"Order {itemId} archived.");
-                // Insert actual archive logic here
+                DataOperations.ArchiveOrder(itemId);
+            }
+            else
+            {
+                Console.WriteLine($"Order {itemId} not archived.");
             }
         }
 
