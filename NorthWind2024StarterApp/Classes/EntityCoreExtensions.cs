@@ -105,7 +105,9 @@ internal static class EntityCoreExtensions
 
         var commentList = new List<ModelComment>();
 
-        IEnumerable<IEntityType> entityTypes = context.GetService<IDesignTimeModel>().Model.GetEntityTypes().Where(x => x.ClrType.Name == modelName);
+        IEnumerable<IEntityType> entityTypes = context.GetService<IDesignTimeModel>()
+            .Model.GetEntityTypes()
+            .Where(x => x.ClrType.Name == modelName);
         
         foreach (IEntityType entityType in entityTypes)
         {

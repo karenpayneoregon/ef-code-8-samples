@@ -1,4 +1,6 @@
-﻿namespace WebApplication1.Classes;
+﻿using Serilog;
+
+namespace WebApplication1.Classes;
 
 public class DataOperations
 {
@@ -11,8 +13,12 @@ public class DataOperations
     /// </returns>
     public static bool RemoveCustomer(int id) => true;
 
-    public static void ArchiveOrder(int itemId)
+    /// <summary>
+    /// Archives an order with the specified identifier.
+    /// </summary>
+    /// <param name="id">The unique identifier of the order to be archived.</param>
+    public static void ArchiveOrder(int id)
     {
-        Console.WriteLine($"Order {itemId} archived.");
+        Log.Information("Order number '{P1}' archived.",id);
     }
 }

@@ -8,7 +8,7 @@ Below shows how to get comuted columns with SQL statement.
 
 ![Screenshot1](assets/screenshot1.png)
 
-With Entity Framework Core reverse engineered with [EF Power Tools](EFCorePowerTools), the computed columns are included in the model defined in the DbContext.
+With Entity Framework Core reverse engineered with [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EFCorePowerTools), the computed columns are included in the model defined in the DbContext.
 
 ```csharp
 modelBuilder.Entity<Contact>(entity =>

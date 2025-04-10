@@ -15,7 +15,12 @@
 </div>
 
 <!-- Modal see index1 and index2 which share a common dialog in a partial view -->
-<div class="modal fade" id="confirmModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+<div class="modal fade"
+     id="confirmModal"
+     data-bs-backdrop="static"
+     tabindex="-1"
+     aria-labelledby="confirmModalLabel"
+     aria-hidden="true">
 
     <div class="modal-dialog  modal-dialog-centered">
 
@@ -24,8 +29,16 @@
             <form method="post" asp-page-handler="Confirm">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="confirmModalLabel">Please Confirm</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <h5 class="modal-title"
+                        id="confirmModalLabel">
+                        Please Confirm
+                    </h5>
+
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                 </div>
 
                 <div class="modal-body">
@@ -33,8 +46,19 @@
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" name="answer" value="false" class="btn btn-secondary">No</button>
-                    <button type="submit" name="answer" value="true" class="btn btn-primary">Yes</button>
+                    <button type="submit"
+                            name="answer"
+                            value="false"
+                            class="btn btn-secondary">
+                        No
+                    </button>
+
+                    <button type="submit"
+                            name="answer"
+                            value="true"
+                            class="btn btn-primary">
+                        Yes
+                    </button>
                 </div>
 
             </form>

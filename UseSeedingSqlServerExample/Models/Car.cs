@@ -14,4 +14,5 @@ public partial class Car
     public string Model { get; set; }
 
     public int YearOf { get; set; }
+    public int Year => YearOf;
 }
