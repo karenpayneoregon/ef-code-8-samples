@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using System;
 using UseSeedingSqlServerExample.Classes;
 using UseSeedingSqlServerExample.Data;
 using UseSeedingSqlServerExample.Models;
@@ -12,19 +10,17 @@ public class Program
     public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
-
+        bool shouldSeed = builder.Configuration.GetValue<bool>(AppSettings.SeedDataEnabled);
         builder.Services.AddRazorPages();
 
         SetupLogging.Development();
-
 
         builder.Services.AddDbContext<Context>((serviceProvider, options) =>
         {
 
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
             var environment = serviceProvider.GetRequiredService<IWebHostEnvironment>();
-            var shouldSeed = configuration.GetValue<bool>(AppSettings.SeedDataEnabled);
-            
+
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
                 sqlOptions =>
                 {
@@ -47,8 +43,25 @@ public class Program
                         await context.Set<Car>().AddRangeAsync(MockedData.GetCars(), cancellationToken);
                         await context.SaveChangesAsync(cancellationToken);
                     }
-                    
+
                 });
+
+                options.UseSeeding((context, _) =>
+                {
+                    if (context.ShouldSeed<Manufacturer>())
+                    {
+                        context.Set<Manufacturer>().AddRange(MockedData.GetManufacturers());
+                        context.SaveChanges();
+                    }
+
+                    if (context.ShouldSeed<Car>())
+                    {
+                        context.Set<Car>().AddRange(MockedData.GetCars());
+                        context.SaveChanges();
+                    }
+
+                });
+
             }
         });
 
@@ -61,9 +74,10 @@ public class Program
         }
 
         // Trigger to run UseAsyncSeeding()
-        using (var scope = app.Services.CreateScope())
+        if (shouldSeed)
         {
-            // Create a scope to obtain a reference to the database context (CarDbContext)
+            using var scope = app.Services.CreateScope();
+            // Create a scope to obtain a reference to the database context (Context)
             var db = scope.ServiceProvider.GetRequiredService<Context>();
             await db.Database.EnsureCreatedAsync(); // Will trigger UseAsyncSeeding
         }

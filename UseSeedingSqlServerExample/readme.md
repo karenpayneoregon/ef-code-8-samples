@@ -11,3 +11,6 @@ A very simple example of how to use the `UseAsyncSeeding` class to seed a SQL-Se
 ## Microsoft documentation
 
 https://learn.microsoft.com/en-us/ef/core/modeling/data-seeding
+
+> [!TIP]
+> Consider using `GitHub Copilot` to help understand the code. It can provide explanations.
