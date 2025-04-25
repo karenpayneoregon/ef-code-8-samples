@@ -4,8 +4,33 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="container">
-    <div class="alert alert-primary" role="alert">
-        <h1 class="fs-5">Welcome</h1>    
+@* -------------------------------------------------------------------------------------------
+    
+    Rendering code below was done using Copilot which needed
+    H tags adjusted to comply with the WCAG AA standards
+    
+    This is excellent use of AI so a developer can focus on more important task.
+
+ ------------------------------------------------------------------------------------------- *@
+
+<div class="container mt-5">
+
+    <h1 class="mb-4">Available Cars</h1>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        @foreach (var car in Model.Cars)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="card-title fs-4">@car.Make @car.Model</h2>
+                        <p class="card-text">
+                            <strong>Year:</strong> @car.YearOf <br/>
+                            <strong>Manufacturer:</strong> @(car.Manufacturer?.Name ?? "N/A")
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>
