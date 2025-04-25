@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using System;
 using UseSeedingSqlServerExample.Classes;
 using UseSeedingSqlServerExample.Data;
 using UseSeedingSqlServerExample.Models;
@@ -24,7 +26,10 @@ public class Program
             var shouldSeed = configuration.GetValue<bool>(AppSettings.SeedDataEnabled);
             
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-                sqlOptions => sqlOptions.CommandTimeout(5));
+                sqlOptions =>
+                {
+                    sqlOptions.CommandTimeout(5);
+                }).LogTo(Console.WriteLine, LogLevel.Information);
 
             if ((environment.IsDevelopment() || environment.IsStaging()) && shouldSeed)
             {
@@ -73,14 +78,5 @@ public class Program
         app.MapRazorPages();
 
         await app.RunAsync();
-    }
-}
-
-public static class Extensions
-{
-    public static bool ShouldSeed<T>(this DbContext context) where T : class
-    {
-        var set = context.Set<T>();
-        return !set.Any();
     }
 }
