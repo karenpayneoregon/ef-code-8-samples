@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UseSeedingSqlServerExample.Models;
 
@@ -14,5 +15,9 @@ public partial class Car
     public string Model { get; set; }
 
     public int YearOf { get; set; }
-    public int Year => YearOf;
+
+    [Column("ManufacturerIId")] 
+    public int? ManufacturerId { get; set; }
+
+    public virtual Manufacturer Manufacturer { get; set; }
 }

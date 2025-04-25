@@ -7,25 +7,37 @@ using UseSeedingSqlServerExample.Models;
 
 namespace UseSeedingSqlServerExample.Data;
 
-public partial class CarContext : DbContext
+public partial class Context : DbContext
 {
-    public CarContext()
+    public Context()
     {
     }
 
-    public CarContext(DbContextOptions<CarContext> options)
+    public Context(DbContextOptions<Context> options)
         : base(options)
     {
     }
 
     public virtual DbSet<Car> Car { get; set; }
 
+    public virtual DbSet<Manufacturer> Manufacturer { get; set; }
+
+ 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Car>(entity =>
         {
             entity.Property(e => e.Make).IsRequired();
             entity.Property(e => e.Model).IsRequired();
+
+            entity.HasOne(d => d.Manufacturer).WithMany(p => p.Car)
+                .HasForeignKey(d => d.ManufacturerId)
+                .HasConstraintName("FK_Car_Manufacturer");
+        });
+
+        modelBuilder.Entity<Manufacturer>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_Manufacturers");
         });
 
         OnModelCreatingPartial(modelBuilder);

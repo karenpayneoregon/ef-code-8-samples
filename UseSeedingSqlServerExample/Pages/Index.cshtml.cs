@@ -6,9 +6,9 @@ using UseSeedingSqlServerExample.Data;
 namespace UseSeedingSqlServerExample.Pages;
 public class IndexModel : PageModel
 {
-    private readonly CarContext _context;
+    private readonly Context _context;
 
-    public IndexModel(CarContext context)
+    public IndexModel(Context context)
     {
         _context = context;
     }
@@ -16,6 +16,9 @@ public class IndexModel : PageModel
     public void OnGet()
     {
         Log.Information("Car count {C}", _context.Car.Count());
-        
+
+        var firstCar = _context.Car.Include(x => x.Manufacturer).FirstOrDefault();
+ 
+
     }
 }

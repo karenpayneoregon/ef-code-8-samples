@@ -17,6 +17,10 @@
       {
          "Name": "[dbo].[Car]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Manufacturer]",
+         "ObjectType": 0
       }
    ],
    "UiHint": null,

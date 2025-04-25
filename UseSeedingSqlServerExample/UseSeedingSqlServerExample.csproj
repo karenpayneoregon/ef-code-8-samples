@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
 		<TargetFramework>net9.0</TargetFramework>
@@ -29,5 +29,9 @@
 
 	<ItemGroup>
 	  <Folder Include="DataScripts\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="efpt.config.json.user" />
 	</ItemGroup>
 </Project>
