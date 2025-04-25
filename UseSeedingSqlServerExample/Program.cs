@@ -16,7 +16,7 @@ public class Program
         SetupLogging.Development();
 
 
-        builder.Services.AddDbContext<CarDbContext>((serviceProvider, options) =>
+        builder.Services.AddDbContext<CarContext>((serviceProvider, options) =>
         {
 
             var configuration = serviceProvider.GetRequiredService<IConfiguration>();
@@ -31,9 +31,15 @@ public class Program
                 options.UseAsyncSeeding(async (context, _, cancellationToken) =>
                 {
 
-                    if (!await context.Set<Car>().AnyAsync(c => c.Id == 1, cancellationToken))
+                    //if (!await context.Set<Car>().AnyAsync(cancellationToken))
+                    //{
+                    //    await context.Set<Car>().AddAsync(new Car { Make = "Mazda", Model = "Miata", YearOf = 2025}, cancellationToken);
+                    //    await context.SaveChangesAsync(cancellationToken);
+                    //}
+
+                    if (context.ShouldSeed<Car>())
                     {
-                        await context.Set<Car>().AddAsync(new Car { Make = "Mazda", Model = "Miata", YearOf = 2025}, cancellationToken);
+                        await context.Set<Car>().AddAsync(new Car { Make = "Mazda", Model = "Miata", YearOf = 2025 }, cancellationToken);
                         await context.SaveChangesAsync(cancellationToken);
                     }
                     
@@ -53,7 +59,7 @@ public class Program
         using (var scope = app.Services.CreateScope())
         {
             // Create a scope to obtain a reference to the database context (CarDbContext)
-            var db = scope.ServiceProvider.GetRequiredService<CarDbContext>();
+            var db = scope.ServiceProvider.GetRequiredService<CarContext>();
             await db.Database.EnsureCreatedAsync(); // Will trigger UseAsyncSeeding
         }
 
@@ -67,5 +73,14 @@ public class Program
         app.MapRazorPages();
 
         await app.RunAsync();
+    }
+}
+
+public static class Extensions
+{
+    public static bool ShouldSeed<T>(this DbContext context) where T : class
+    {
+        var set = context.Set<T>();
+        return set.Any();
     }
 }

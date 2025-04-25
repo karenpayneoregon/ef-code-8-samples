@@ -16,7 +16,7 @@ namespace SelectiveUpdatesApp
             ShouldLastNameBeUpdated();
             OnlyUpdateFirstName();
 
-            int identifier = 5;
+            const int identifier = 5;
             var dto = new PersonDto
             {
                 Title = "Miss",
@@ -32,13 +32,14 @@ namespace SelectiveUpdatesApp
         }
 
 
+ 
         /// <summary>
-        /// Determines whether the last name of a person should be updated in the database.
+        /// Updates the first and optionally the last name of the first person in the database.
         /// </summary>
         /// <remarks>
-        /// This method retrieves the first person from the database and checks if their last name
-        /// is different from "Gallagher". If so, it conditionally updates the last name and saves
-        /// the changes to the database.
+        /// This method retrieves the first person from the database and modifies their first name.
+        /// The last name is updated only if it differs from a predefined value ("Gallagher").
+        /// Changes are tracked and saved to the database using Entity Framework.
         /// </remarks>
         private static void ShouldLastNameBeUpdated()
         {

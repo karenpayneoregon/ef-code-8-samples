@@ -6,9 +6,9 @@ using UseSeedingSqlServerExample.Data;
 namespace UseSeedingSqlServerExample.Pages;
 public class IndexModel : PageModel
 {
-    private readonly CarDbContext _context;
+    private readonly CarContext _context;
 
-    public IndexModel(CarDbContext context)
+    public IndexModel(CarContext context)
     {
         _context = context;
     }

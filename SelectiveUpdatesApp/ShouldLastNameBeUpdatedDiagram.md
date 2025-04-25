@@ -18,3 +18,29 @@ flowchart TD
 
 ```
 
+---
+
+```mermaid
+---
+config:
+  layout: dagre
+---
+flowchart TD
+    A["What are your core interests?"] 
+    A --> B["People-Oriented"]
+    A --> C["Data/Systems"]
+    A --> D["Hands-On"]
+    A --> E["Art/Expression"]
+
+    B --> B1["Helping"] --> F["Healthcare"]
+    B --> B2["Leading"] --> G["Business"]
+    B --> B3["Teaching"] --> H["Education"]
+
+    C --> C1["Problem Solving"] --> I["Eng, Dev, IT Sec"]
+    C --> C2["Data Analysis"] --> J["Data Sci, BI, Actuary"]
+    C --> C3["System Efficiency"] --> K["PM, Ops, DevOps"]
+
+    D --> D1["Fixing/Building"] --> L["Trades"]
+    D --> D2["Active Work"] --> M["Logistics, Fitness, EMS"]
+    D --> D3["Outdoors"] --> N["Agri, Forestry, Env Services"]
+```

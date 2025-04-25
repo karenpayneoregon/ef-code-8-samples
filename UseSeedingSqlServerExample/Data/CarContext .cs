@@ -7,13 +7,13 @@ using UseSeedingSqlServerExample.Models;
 
 namespace UseSeedingSqlServerExample.Data;
 
-public partial class CarDbContext : DbContext
+public partial class CarContext : DbContext
 {
-    public CarDbContext()
+    public CarContext()
     {
     }
 
-    public CarDbContext(DbContextOptions<CarDbContext> options)
+    public CarContext(DbContextOptions<CarContext> options)
         : base(options)
     {
     }
