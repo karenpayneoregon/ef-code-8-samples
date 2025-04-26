@@ -30,6 +30,7 @@ public class CreditCardMaskingInterceptor : IMaterializationInterceptor
     /// <remarks>
     /// This method is specifically designed to handle <see cref="Person"/> entities by masking their credit card numbers.
     /// If the credit card number is null or shorter than four characters, it defaults to "****-****-****-****".
+    /// Could also use X's like with the SocialSecurity property.
     /// </remarks>
     public object InitializedInstance(MaterializationInterceptionData materializationData, object entity)
     {
