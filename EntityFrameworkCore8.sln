@@ -136,6 +136,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelectiveUpdatesApp", "SelectiveUpdatesApp\SelectiveUpdatesApp.csproj", "{468909C3-0EB3-6460-9FD7-9D8EB316D5D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_Core_MaskingSample", "EF_Core_MaskingSample\EF_Core_MaskingSample.csproj", "{FBD572E8-2700-9655-F1EE-848C634926F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -338,6 +340,10 @@ Global
 		{468909C3-0EB3-6460-9FD7-9D8EB316D5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{468909C3-0EB3-6460-9FD7-9D8EB316D5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{468909C3-0EB3-6460-9FD7-9D8EB316D5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBD572E8-2700-9655-F1EE-848C634926F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBD572E8-2700-9655-F1EE-848C634926F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBD572E8-2700-9655-F1EE-848C634926F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD572E8-2700-9655-F1EE-848C634926F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -396,6 +402,7 @@ Global
 		{3182DD0E-D559-4298-B51F-51EE38FB1C49} = {102E00B5-C267-4ADF-8808-884E3374BD22}
 		{0805F5D4-B374-4A23-81A5-E39E40F955C8} = {102E00B5-C267-4ADF-8808-884E3374BD22}
 		{468909C3-0EB3-6460-9FD7-9D8EB316D5D6} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
+		{FBD572E8-2700-9655-F1EE-848C634926F5} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}
