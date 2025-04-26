@@ -19,18 +19,19 @@ public partial class Context : DbContext
     public virtual DbSet<Person> Person { get; set; }
 
     /// <summary>
-    /// Configures the database context options, the database provider and interceptors.
+    /// Configures the database context options, including the database provider and interceptors.
     /// </summary>
     /// <param name="optionsBuilder">
     /// An instance of <see cref="DbContextOptionsBuilder"/> used to configure the context.
     /// </param>
     /// <remarks>
-    /// This method sets the database provider to SQL Server using a connection string retrieved
-    /// from the configuration. Additionally, it adds a <see cref="SocialSecurityMaskingInterceptor"/>
-    /// to mask social security numbers during materialization.
-    ///
-    /// Connection string is retrieved from the configuration file using the <see cref="Config.JsonRoot()"/> from
-    /// NuGet package <a href="https://www.nuget.org/packages/ConsoleConfigurationLibrary">ConsoleConfigurationLibrary</a>.
+    /// This method configures the database provider to use SQL Server with a connection string
+    /// retrieved from the configuration file via <see cref="Config.JsonRoot()"/>. 
+    /// It also adds interceptors, such as <see cref="SocialSecurityMaskingInterceptor"/> and 
+    /// <see cref="CreditCardMaskingInterceptor"/>, to handle data masking during materialization.
+    /// 
+    /// The connection string is fetched from the <c>ConnectionStrings</c> section of the configuration
+    /// using the <a href="https://www.nuget.org/packages/ConsoleConfigurationLibrary">ConsoleConfigurationLibrary</a>.
     /// </remarks>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
