@@ -7,6 +7,7 @@ using System.Data.Common;
 using ConsoleConfigurationLibrary.Models;
 using EF_Core_MaskingSample.Interceptors;
 using EF_Core_MaskingSample.Models;
+using EntityCoreFileLogger;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -40,7 +41,9 @@ public partial class Context : DbContext
             .AddInterceptors(
                 new SocialSecurityMaskingInterceptor(),
                 new CreditCardMaskingInterceptor()
-            );
+            ).LogTo(new DbContextToFileLogger().Log,
+                new[] { DbLoggerCategory.Database.Command.Name },
+                Microsoft.Extensions.Logging.LogLevel.Information);
 
     }
 

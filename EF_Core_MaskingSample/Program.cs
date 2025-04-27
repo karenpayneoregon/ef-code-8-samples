@@ -10,7 +10,7 @@ internal partial class Program
         AnsiConsole.MarkupLine($"[{Color.Cyan1}]MaterializationInterceptionData[/]");
         Console.WriteLine();
         using var context = new Context();
-        var person = context.Person.ToList();
+        var person = context.Person.TagWithDebugInfo("All people").ToList();
 
         foreach (var p in person)
         {
