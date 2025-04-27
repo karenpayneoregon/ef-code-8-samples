@@ -15,22 +15,25 @@ namespace EF_Core_MaskingSample.Interceptors;
 public class CreditCardMaskingInterceptor : IMaterializationInterceptor
 {
     /// <summary>
-    /// Initializes an entity instance during the materialization process in Entity Framework Core.
+    /// Initializes an entity instance during the materialization process in Entity Framework Core,
+    /// applying specific logic for masking sensitive data.
     /// </summary>
     /// <param name="materializationData">
-    /// Contains contextual information about the materialization process, such as the entity type and the DbContext.
+    /// Provides contextual information about the materialization process, including the entity type
+    /// and the associated <see cref="Microsoft.EntityFrameworkCore.DbContext"/>.
     /// </param>
     /// <param name="entity">
-    /// The entity instance being materialized. This is typically an instance of a class mapped to a database table.
+    /// The entity instance being materialized. If the entity is of type <see cref="Person"/>,
+    /// its credit card number is masked to display only the last four digits.
     /// </param>
     /// <returns>
-    /// The initialized entity instance. If the entity is of type <see cref="Person"/>, the credit card number
-    /// is masked to display only the last four digits. Otherwise, the entity is returned as-is.
+    /// The initialized entity instance. For <see cref="Person"/> entities, the credit card number
+    /// is masked. For other entity types, the instance is returned without modification.
     /// </returns>
     /// <remarks>
-    /// This method is specifically designed to handle <see cref="Person"/> entities by masking their credit card numbers.
-    /// If the credit card number is null or shorter than four characters, it defaults to "****-****-****-****".
-    /// Could also use X's like with the SocialSecurity property.
+    /// This method ensures that credit card numbers in <see cref="Person"/> entities are masked
+    /// for security purposes. If the credit card number is null or shorter than four characters,
+    /// it defaults to "XXXX-XXXX-XXXX-XXXX".
     /// </remarks>
     public object InitializedInstance(MaterializationInterceptionData materializationData, object entity)
     {
@@ -40,11 +43,11 @@ public class CreditCardMaskingInterceptor : IMaterializationInterceptor
         if (!string.IsNullOrEmpty(person.CreditCard) && person.CreditCard.Length >= 4)
         {
             // Mask all but the last 4 digits
-            person.CreditCard = $"****-****-****-{person.CreditCard[^4..]}";
+            person.CreditCard = $"XXXX-XXXX-XXXX-{person.CreditCard[^4..]}";
         }
         else
         {
-            person.CreditCard = "****-****-****-****";
+            person.CreditCard = "XXXX-XXXX-XXXX-XXXX";
         }
 
         return entity;

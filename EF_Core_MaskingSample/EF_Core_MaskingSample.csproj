@@ -19,7 +19,6 @@
 		<None Update="appsettings.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
-		<PackageReference Include="Bogus" Version="35.6.3" />
 		<PackageReference Include="ConfigurationLibrary" Version="1.0.6" />
 		<PackageReference Include="ConsoleHelperLibrary" Version="1.0.2" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />

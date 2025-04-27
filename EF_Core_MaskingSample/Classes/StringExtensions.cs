@@ -12,5 +12,5 @@ internal static class StringExtensions
     /// displayed, formatted with color tags.
     /// </returns>
     public static string Colorized1(this string ssn) => $"[{Color.Pink1}]XXX-XX-[/]{ssn[^4..]}";
-    public static string Colorized2(this string cc) => $"[{Color.Pink1}]****-****-****-[/]{cc[^4..]}";
+    public static string Colorized2(this string cc) => $"[{Color.Pink1}]XXXX-XXXX-XXXX-[/]{cc[^4..]}";
 }

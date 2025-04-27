@@ -19,14 +19,24 @@ public partial class Person
     public string SocialSecurity { get; set; }
 
     public string CreditCard { get; set; }
-    /// <summary>
-    /// Gets the masked version of the Social Security number.
-    /// </summary>
-    /// <remarks>
-    /// The masked Social Security number hides all but the last four digits.
-    /// If the <see cref="SocialSecurity"/> property is null, empty, or shorter than 4 characters, 
-    /// the default masked value "XXX-XX-XXXX" is returned.
-    /// </remarks>
+
+    [NotMapped]
+    public string MaskedCreditCard
+    {
+        get
+        {
+            if (string.IsNullOrWhiteSpace(CreditCard))
+                return "XXXX-XXXX-XXXX-XXXX";
+
+            // Optional: Strip spaces, dashes, etc.
+            var digitsOnly = new string(CreditCard.Where(char.IsDigit).ToArray());
+
+            if (digitsOnly.Length < 4)
+                return "XXXX-XXXX-XXXX-XXXX";
+
+            return $"XXXX-XXXX-XXXX-{digitsOnly[^4..]}";
+        }
+    }
     [NotMapped]
     public string MaskedSocialSecurity
     {

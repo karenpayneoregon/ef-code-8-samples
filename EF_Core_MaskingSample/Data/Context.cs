@@ -7,6 +7,7 @@ using System.Data.Common;
 using ConsoleConfigurationLibrary.Models;
 using EF_Core_MaskingSample.Interceptors;
 using EF_Core_MaskingSample.Models;
+using EF_Core_MaskingSample.ValueConverters;
 using EntityCoreFileLogger;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -37,7 +38,8 @@ public partial class Context : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder
-            .UseSqlServer(Config.JsonRoot().GetSection(nameof(ConnectionStrings)).Get<ConnectionStrings>().MainConnection)
+            .UseSqlServer(Config.JsonRoot()
+                .GetSection(nameof(ConnectionStrings)).Get<ConnectionStrings>().MainConnection)
             .AddInterceptors(
                 new SocialSecurityMaskingInterceptor(),
                 new CreditCardMaskingInterceptor()
@@ -51,15 +53,18 @@ public partial class Context : DbContext
     {
         modelBuilder.Entity<Person>(entity =>
         {
+
             entity.Property(e => e.FirstName).IsRequired();
             entity.Property(e => e.LastName).IsRequired();
             entity.Property(e => e.SocialSecurity).IsRequired();
             entity.Property(e => e.CreditCard).IsRequired();
+            entity.Property(e => e.CreditCard).HasConversion(new CreditCardMaskConverter());
 
         });
 
 
         OnModelCreatingPartial(modelBuilder);
+
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

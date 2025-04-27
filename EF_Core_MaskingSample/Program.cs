@@ -7,12 +7,11 @@ internal partial class Program
 {
     private static void Main(string[] args)
     {
-        AnsiConsole.MarkupLine($"[{Color.Cyan1}]MaterializationInterceptionData[/]");
-        Console.WriteLine();
         using var context = new Context();
-        var person = context.Person.TagWithDebugInfo("All people").ToList();
+        var list = context.Person.TagWithDebugInfo("All people").ToList();
 
-        foreach (var p in person)
+        AnsiConsole.MarkupLine($"[{Color.Yellow}]Id   FirstName      LastName       SSN            BirthDate   CreditCard[/]");
+        foreach (var p in list)
         {
             AnsiConsole.MarkupLine($"{p.Id,-5}{p.FirstName,-15}{p.LastName,-15}{p.SocialSecurity.Colorized1(),-25}{p.BirthDate,-12}{p.CreditCard.Colorized2()}");
         }
