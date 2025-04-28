@@ -24,10 +24,7 @@ public class Program
 
         builder.Services.AddDbContext<Context>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-                .EnableSensitiveDataLogging()
-                .LogTo(new DbContextToFileLogger().Log,
-                    [DbLoggerCategory.Database.Command.Name],
-                    LogLevel.Information));
+                .LogTo(new DbContextToFileLogger().Log, [DbLoggerCategory.Database.Command.Name], LogLevel.Information));
 
         builder.Services.AddDataProtection();
         builder.Services.AddScoped<EncryptionService>();

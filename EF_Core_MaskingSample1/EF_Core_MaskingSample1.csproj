@@ -16,6 +16,10 @@
 		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="Scripts\" />
+	</ItemGroup>
+
 	<Target Name="MakeLogDir" AfterTargets="Build">
 		<!-- Create folder LogFiles than each day create a folder with the current date -->
 		<MakeDir Directories="$(OutDir)LogFiles\$([System.DateTime]::Now.ToString(yyyy-MM-dd))" />
