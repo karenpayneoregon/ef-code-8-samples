@@ -18,6 +18,18 @@ public partial class Person
 
     public string CreditCard { get; set; }
 
+    /// <summary>
+    /// Gets the masked representation of the credit card number for the current <see cref="Person"/> instance.
+    /// </summary>
+    /// <value>
+    /// A string containing the masked credit card number in the format "XXXX-XXXX-XXXX-####", 
+    /// where "####" represents the last four digits of the original credit card number. 
+    /// If the <see cref="CreditCard"/> property is null, empty, or contains fewer than four digits, 
+    /// the value will be "XXXX-XXXX-XXXX-XXXX".
+    /// </value>
+    /// <remarks>
+    /// This property is not mapped to the database and is derived from the <see cref="CreditCard"/> property.
+    /// </remarks>
     [NotMapped]
     public string MaskedCreditCard
     {
@@ -35,6 +47,16 @@ public partial class Person
         }
     }
 
+    /// <summary>
+    /// Encrypts the credit card information for the current <see cref="Person"/> instance.
+    /// </summary>
+    /// <param name="encryptionService">
+    /// An instance of <see cref="EncryptionService"/> used to encrypt the credit card data.
+    /// </param>
+    /// <remarks>
+    /// This method utilizes the provided <see cref="EncryptionService"/> to encrypt the 
+    /// <see cref="CreditCard"/> property if it contains a non-empty value.
+    /// </remarks>
     public void EncryptCreditCard(EncryptionService encryptionService)
     {
         if (!string.IsNullOrEmpty(CreditCard))
@@ -43,6 +65,16 @@ public partial class Person
         }
     }
 
+    /// <summary>
+    /// Decrypts the encrypted credit card information for the current <see cref="Person"/> instance.
+    /// </summary>
+    /// <param name="encryptionService">
+    /// An instance of <see cref="EncryptionService"/> used to decrypt the credit card data.
+    /// </param>
+    /// <remarks>
+    /// This method utilizes the provided <see cref="EncryptionService"/> to decrypt the 
+    /// <see cref="CreditCard"/> property if it contains a non-empty value.
+    /// </remarks>
     public void DecryptCreditCard(EncryptionService encryptionService)
     {
         if (!string.IsNullOrEmpty(CreditCard))

@@ -1,10 +1,37 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Person List";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <h1 class="mb-4">Person List</h1>
+
+    @if (Model.List is { Count: > 0 })
+    {
+        <div class="row fw-bold border-bottom pb-2 mb-3">
+            <div class="col-1">ID</div>
+            <div class="col-2">First Name</div>
+            <div class="col-2">Last Name</div>
+            <div class="col-2">Birth Date</div>
+            <div class="col-3">Masked Credit Card</div>
+        </div>
+
+        @foreach (var person in Model.List)
+        {
+            <div class="row border-bottom py-2">
+                <div class="col-1">@person.Id</div>
+                <div class="col-2">@person.FirstName</div>
+                <div class="col-2">@person.LastName</div>
+                <div class="col-2">@person.BirthDate.ToString("yyyy-MM-dd")</div>
+                <div class="col-3">@person.MaskedCreditCard</div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info" role="alert">
+            No persons found.
+        </div>
+    }
 </div>

@@ -16,6 +16,7 @@ public class Program
                    .MinimumLevel.Override("Microsoft", Serilog.Events.LogEventLevel.Warning)
                    .MinimumLevel.Override("System", Serilog.Events.LogEventLevel.Warning)
                    .MinimumLevel.Information()
+                   .Destructure.With(new PersonDestructuringPolicy())
                    .WriteTo.Console()
                    .CreateLogger();
 
