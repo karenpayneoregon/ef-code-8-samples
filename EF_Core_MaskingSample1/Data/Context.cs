@@ -25,6 +25,18 @@ public partial class Context : DbContext
 
     }
 
+    /// <summary>
+    /// Configures the model for the database context by defining entity mappings and constraints.
+    /// </summary>
+    /// <param name="modelBuilder">
+    /// An instance of <see cref="ModelBuilder"/> used to configure the shape of entities, relationships, 
+    /// and database schema mappings.
+    /// </param>
+    /// <remarks>
+    /// This method is overridden to provide custom configurations for the <see cref="Person"/> entity, 
+    /// such as marking specific properties as required. It also invokes the <see cref="OnModelCreatingPartial"/> 
+    /// method to allow additional configurations in partial classes.
+    /// </remarks>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Person>(entity =>
@@ -32,6 +44,7 @@ public partial class Context : DbContext
 
             entity.Property(e => e.FirstName).IsRequired();
             entity.Property(e => e.LastName).IsRequired();
+            entity.Property(e => e.BirthDate).IsRequired();
             entity.Property(e => e.CreditCard).IsRequired();
 
         });
