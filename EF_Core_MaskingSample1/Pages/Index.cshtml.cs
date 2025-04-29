@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
 using EF_Core_MaskingSample1.Models;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace EF_Core_MaskingSample1.Pages;
 public class IndexModel(Context context, EncryptionService encryptionService, PersonService personService) : PageModel
@@ -38,8 +39,18 @@ public class IndexModel(Context context, EncryptionService encryptionService, Pe
         {
             var person = context.Person.FirstOrDefault(x => x.Id == index);
             if (person == null) continue;
+            
+            if (index == 1)
+            {
+                Log.Information("Encrypted:\n {p}", person.CreditCard);
+            }
+
             person.DecryptCreditCard(encryptionService);
             List.Add(person);
+            if (index == 1)
+            {
+                Log.Information("Masked:\n {@p}", person);
+            }
         }
     }
 }

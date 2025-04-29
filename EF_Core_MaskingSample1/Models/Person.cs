@@ -15,7 +15,19 @@ public partial class Person
 
     public DateOnly BirthDate { get; set; }
 
-
+    /// <summary>
+    /// Gets or sets the credit card number for the current <see cref="Person"/> instance.
+    /// </summary>
+    /// <value>
+    /// A string representing the credit card number. The value is encrypted when stored in the database 
+    /// and should be decrypted using the <see cref="DecryptCreditCard"/> method when accessed.
+    /// </value>
+    /// <remarks>
+    /// Ensure that the credit card data is encrypted using the <see cref="EncryptCreditCard"/> method 
+    /// before storing it persistently and decrypted using the <see cref="DecryptCreditCard"/> method 
+    /// when needed. Use the <see cref="MaskedCreditCard"/> property to retrieve a masked version of the 
+    /// credit card number for display purposes.
+    /// </remarks>
     public string CreditCard { get; set; }
 
     /// <summary>

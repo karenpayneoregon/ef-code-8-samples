@@ -1,5 +1,4 @@
-﻿using System;
-using EF_Core_MaskingSample.Data;
+﻿using EF_Core_MaskingSample.Data;
 using EF_Core_MaskingSample1.Models;
 
 namespace EF_Core_MaskingSample1.Classes;

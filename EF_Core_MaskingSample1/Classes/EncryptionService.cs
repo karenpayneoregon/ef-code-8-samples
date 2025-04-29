@@ -9,6 +9,12 @@ namespace EF_Core_MaskingSample1.Classes;
 /// This class utilizes <see cref="IDataProtectionProvider"/> to create a data protector
 /// for encrypting and decrypting sensitive information such as credit card details.
 /// </remarks>
+/// <example>
+/// The class uses a primary constructor to inject an instance of <see cref="IDataProtectionProvider"/>:
+/// <code>
+/// var encryptionService = new EncryptionService(dataProtectionProvider);
+/// </code>
+/// </example>
 public class EncryptionService(IDataProtectionProvider provider)
 {
     private readonly IDataProtector _protector = provider.CreateProtector("CreditCardProtection");
