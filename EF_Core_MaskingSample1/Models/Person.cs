@@ -16,7 +16,7 @@ public partial class Person
     public DateOnly BirthDate { get; set; }
 
     /// <summary>
-    /// Gets or sets the credit card number for the current <see cref="Person"/> instance.
+    /// Gets or sets the credit card number for the current <see cref="Person"/> ie.
     /// </summary>
     /// <value>
     /// A string representing the credit card number. The value is encrypted when stored in the database 
