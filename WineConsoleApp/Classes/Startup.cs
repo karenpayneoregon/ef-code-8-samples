@@ -10,7 +10,22 @@ public static class Startup
     /// </summary>
     public static void Clean()
     {
-        if (!AppConfigLoader.LoadSettings().UseMockedData) return;
+        if (!AppConfigLoader.LoadSettings().UseMockedData)
+        {
+            AnsiConsole.Status()
+
+                .Start("[cyan]Skipping recreating database[/]", ctx =>
+                {
+
+                    Thread.Sleep(2000);
+
+                    ctx.Spinner(Spinner.Known.Star);
+                    ctx.SpinnerStyle(Style.Parse("cyan"));
+
+                });
+
+            return;
+        }
 
         using var context = new WineContext();
         AnsiConsole.Status()

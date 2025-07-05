@@ -4,6 +4,16 @@ namespace WineConsoleApp.Classes;
 
 internal class MockedData
 {
+    /// <summary>
+    /// Retrieves a predefined list of wine types.
+    /// </summary>
+    /// <returns>
+    /// A <see cref="List{T}"/> of <see cref="WineTypes"/> objects, each representing a specific type of wine.
+    /// </returns>
+    /// <remarks>
+    /// This method provides mock data for wine types, including their ID, name, and description.
+    /// It is primarily used for seeding or testing purposes.
+    /// </remarks>
     public static List<WineTypes> GetWineTypes()
     {
         return
@@ -13,6 +23,15 @@ internal class MockedData
             new WineTypes() { Id = 3, TypeName = "Rose", Description = "Imported rose" }
         ];
     }
+
+    /// <summary>
+    /// Retrieves a list of predefined wines with their unique identifiers, names, and types.
+    /// </summary>
+    /// <returns>A list of <see cref="Wine"/> objects representing various wines.</returns>
+    /// <remarks>
+    /// This method provides mocked data for wines, which can be used for testing or seeding a database.
+    /// Each wine includes its ID, name, and associated type.
+    /// </remarks>
     public static List<Wine> GetWines()
     {
         return
