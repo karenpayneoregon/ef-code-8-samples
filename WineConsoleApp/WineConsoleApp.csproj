@@ -12,6 +12,10 @@
 		<SatelliteResourceLanguages>en-US</SatelliteResourceLanguages>
 	</PropertyGroup>
 
+	<PropertyGroup>
+		<Product>EF Core Wines code sample</Product>
+	</PropertyGroup>
+
 	<ItemGroup>
 	  <None Remove="ForTwitter.sql" />
 	  <None Remove="Models\readme.md" />
@@ -20,13 +24,13 @@
 
 	<ItemGroup>
 	  <Content Include="assets\csharp.ico" />
-	  <Content Include="ForTwitter.sql" />
 	  <Content Include="Models\readme.md" />
 	  <Content Include="readme.md" />
 	</ItemGroup>
 
 
 	<ItemGroup>
+		<PackageReference Include="EntityCoreFileLogger" Version="1.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
 	</ItemGroup>
 
@@ -74,9 +78,7 @@
 	  <Folder Include="Scripts\" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\EntityLibrary\EntityLibrary.csproj" />
-	</ItemGroup>
+
 
 	<ItemGroup>
 	  <EmbeddedResource Update="Properties\Resources.resx">
@@ -85,8 +87,8 @@
 	  </EmbeddedResource>
 	</ItemGroup>
 
-	<Target Name="MakeMyDir" AfterTargets="Build">
-		<MakeDir Directories="$(OutDir)LogFiles" />
+	<Target Name="MakeLogDir" AfterTargets="Build">
+		<MakeDir Directories="$(OutDir)LogFiles\$([System.DateTime]::Now.ToString(yyyy-MM-dd))" />
 	</Target>
 
 </Project>

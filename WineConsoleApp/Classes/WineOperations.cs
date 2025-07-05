@@ -12,39 +12,13 @@ namespace WineConsoleApp.Classes;
 
 public class WineOperations
 {
-    public static void MergeCases()
-    {
-        using WineContext context = new();
-        var wines = context.Wines.ToList();
 
-        foreach (var wine in wines)
-        {
-            switch (wine.WineType)
-            {
-                case WineType.Red:
-                    PrintWine1(wine);
-                    break;
-                case WineType.Rose:
-                    PrintWine1(wine);
-                    break;
-                case WineType.White:
-                    PrintWine2(wine);
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        return;
-
-        void PrintWine1(Wine wine) => MarkupLine($"{wine.WineId,-2}[red]{wine.Name}[/]");
-        void PrintWine2(Wine wine) => MarkupLine($"{wine.WineId,-2}[white]{wine.Name}[/]");
-    }
 
     
     public static void Indexing()
     {
+        CyanMarkup("Indexing");
+
         using WineContext context = new();
         var wines = context.Wines.ToList();
 
@@ -56,14 +30,14 @@ public class WineOperations
 
         foreach (var container in wineContainer)
         {
-            builder.AppendLine($" {container.Value.Name,-25} " +
+            builder.AppendLine($" {container.Value.Name,-45} " +
                                $"{container.Value.WineType,-7} " +
                                $"{container.StartIndex,-6} " +
                                $"{container.EndIndex,-7}" +
                                $"{container.MonthIndex}");
         }
-        Console.WriteLine(" Wine                      Type    Start  End    Ordinal");
-        Console.WriteLine("                                   range  range  index");
+        Console.WriteLine(" Wine                                          Type    Start  End    Ordinal");
+        Console.WriteLine("                                                       range  range  index");
         Console.WriteLine(builder);
 
         Console.WriteLine();
@@ -99,7 +73,7 @@ public class WineOperations
          * Example of iterate an enum
          */
 
-        foreach (WineType wineType in (WineType[])Enum.GetValues(typeof(WineType)))
+        foreach (WineType wineType in Enum.GetValues<WineType>())
         {
             var wineTypeArray = wines.Where(w => w.WineType == wineType);
             MarkupLine($"[lightgreen_1]{wineType}[/]");
