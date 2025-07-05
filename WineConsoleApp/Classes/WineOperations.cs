@@ -120,9 +120,72 @@ public class WineOperations
     {
         using WineContext context = new();
 
+        List<Wine> allWines = context.Wines.ToList();
 
+        //var grouped = allWines
+        //    .GroupBy(wine => wine.WineType)
+        //    .Select(group => (group.Key, group.ToList()));
+
+
+        CyanMarkup("All");
+
+        foreach (Wine wine in allWines)
+        {
+            Console.WriteLine($"{wine.WineType,-8}{wine.Name}");
+        }
+
+        Console.WriteLine();
+
+    }
+
+    private static void DisplayRedWines()
+    {
+        CyanMarkup("Red");
+
+        using WineContext context = new();
+        List<Wine> redWines = context.Wines
+            .Where(wine => wine.WineType == WineType.Red)
+            .ToList();
+
+        foreach (Wine wine in redWines)
+        {
+            Console.WriteLine($"{wine.Name,30}");
+        }
+
+        Console.WriteLine();
+
+    }
+
+    private static void ParameterizeRoseWines()
+    {
+        using WineContext context = new();
+        var parameterizedWineType = WineType.Rose;
+        List<Wine> rose = context.Wines
+            .Where(wine => wine.WineType == parameterizedWineType)
+            .ToList();
+
+        CyanMarkup("Rose");
+
+        if (rose.Count == 0)
+        {
+            Console.WriteLine("\tNone");
+        }
+        else
+        {
+            foreach (Wine roseWine in rose)
+            {
+                Console.WriteLine($"{roseWine.Name,30}");
+            }
+        }
+
+        Console.WriteLine();
+
+    }
+
+    private static void GroupAndDisplayWines()
+    {
         CyanMarkup("Grouped");
-
+        using WineContext context = new();  
         List<WineGroupItem> allWinesGrouped = context.Wines
             .GroupBy( wine => wine.WineType)
             .Select(wineGrouped => 
@@ -139,49 +202,5 @@ public class WineOperations
         }
 
         Console.WriteLine();
-
-        List<Wine> allWines = context.Wines.ToList();
-
-
-        CyanMarkup("All");
-
-        foreach (Wine wine in allWines)
-        {
-            Console.WriteLine($"{wine.WineType,-8}{wine.Name}");
-        }
-
-        Console.WriteLine();
-
-        var parameterizedWineType = WineType.Rose;
-        List<Wine> rose = context.Wines
-            .Where(wine => wine.WineType == parameterizedWineType)
-            .ToList();
-        
-        CyanMarkup("Rose");
-
-        if (rose.Count == 0)
-        {
-            Console.WriteLine("\tNone");
-        }
-        else
-        {
-            foreach (Wine roseWine in rose)
-            {
-                Console.WriteLine($"{roseWine.Name,30}");
-            }
-        }
-
-
-        CyanMarkup("Red");
-
-        List<Wine> redWines = context.Wines
-            .Where(wine => wine.WineType == WineType.Red)
-            .ToList();
-
-        foreach (Wine wine in redWines)
-        {
-            Console.WriteLine($"{wine.Name,30}");
-        }
-
     }
 }
