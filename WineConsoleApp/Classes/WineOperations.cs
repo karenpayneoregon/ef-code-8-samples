@@ -90,6 +90,11 @@ public class WineOperations
 
     }
 
+    public static List<Wine> GetAllWines()
+    {
+        using WineContext context = new();
+        return context.Wines.ToList();
+    }
     public static void Run()
     {
         using WineContext context = new();

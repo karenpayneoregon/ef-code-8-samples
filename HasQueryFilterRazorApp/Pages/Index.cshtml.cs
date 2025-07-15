@@ -17,7 +17,7 @@ public class IndexModel : PageModel
         _context = context;
     }
 
-    public IList<Contact> Contacts { get; set; } = default!;
+    public IList<Contact> Contacts { get; set; } = null!;
 
     [BindProperty]
     public int IgnoreCount { get; set; }

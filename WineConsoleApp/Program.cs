@@ -10,10 +10,10 @@ internal partial class Program
     {
         Startup.Clean();
 
-        WineOperations.Run();
-        //WineOperations.Indexing();
-        
-     
+        var wines = WineOperations.GetAllWines();
+
+
+
         CyanMarkup("[cyan]See ef core log file under the app folder[/]");
 
         ExitPrompt();
