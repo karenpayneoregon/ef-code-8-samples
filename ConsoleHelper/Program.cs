@@ -5,7 +5,7 @@ using static ConsoleHelper.Classes.GlobbingOperations;
 namespace ConsoleHelper;
 internal class Program
 {
-    private static List<string> _projectNames = new();
+    private static List<string> _projectNames = [];
     static async Task Main(string[] args)
     {
         TraverseFileMatch += GlobbingTraverseFileMatch;

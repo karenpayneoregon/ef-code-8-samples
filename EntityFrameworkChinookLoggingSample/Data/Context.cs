@@ -43,6 +43,9 @@ public partial class Context : DbContext
 
     public virtual DbSet<Track> Track { get; set; }
 
+    private static readonly SlowQueryInterceptor _slowQueryInterceptor
+        = new SlowQueryInterceptor();
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         /*
@@ -52,6 +55,7 @@ public partial class Context : DbContext
         if (Debugger.IsAttached)
         {
             optionsBuilder.UseSqlServer(ConnectionString())
+                .AddInterceptors(_slowQueryInterceptor)
                 .EnableSensitiveDataLogging()
                 .LogTo(new DbContextToFileLogger().Log,
                     new[] { DbLoggerCategory.Database.Command.Name }, 
@@ -60,6 +64,7 @@ public partial class Context : DbContext
         else
         {
             optionsBuilder.UseSqlServer(ConnectionString())
+                .AddInterceptors(new SlowQueryInterceptor())
                 .LogTo(new DbContextToFileLogger().Log,
                     new[] { DbLoggerCategory.Database.Command.Name }, 
                     Microsoft.Extensions.Logging.LogLevel.Information);
