@@ -35,8 +35,8 @@ internal class Operations
         await context.Customers
             .Where(e => e.Name == name)
             .ExecuteUpdateAsync(
-                s => 
-                    s.SetProperty(b => b.CustomerInfo.Tag, "Tagged")
+                cust => 
+                    cust.SetProperty(b => b.CustomerInfo.Tag, "Tagged")
                     .SetProperty(b => b.Name, b => 
                         b.Name + "_Tagged"));
 
@@ -46,15 +46,15 @@ internal class Operations
             .Where(e => e.Region == "France")
             .Union(context.Stores.Where(e => e.Region == "France")
                 .SelectMany(e => e.Customers))
-            .ExecuteUpdateAsync(s => 
-                s.SetProperty(b => b.Tag, "The French Connection"));
+            .ExecuteUpdateAsync(cust => 
+                cust.SetProperty(b => b.Tag, "The French Connection"));
 
         RunningMessage("Updated - Union");
 
         await context.TptSpecialCustomers
             .Where(e => e.Name == name)
-            .ExecuteUpdateAsync(s => 
-                s.SetProperty(b => b.Name, b => 
+            .ExecuteUpdateAsync(cust => 
+                cust.SetProperty(b => b.Name, b => 
                     b.Name + " (Noted)"));
 
         RunningMessage("Update properties of a single table in a TPT hierarchy");

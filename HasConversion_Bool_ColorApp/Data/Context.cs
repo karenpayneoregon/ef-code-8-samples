@@ -32,8 +32,7 @@ public partial class Context : DbContext
             .HasConversion(
                 color => color.Name,
                 value => Color.FromName(value));
-
-
+        
         var dateTimeConverter = new ValueConverter<DateTime, DateTime>(
             datetime => datetime,
             dateTime => DateTime.SpecifyKind(dateTime, DateTimeKind.Utc));
@@ -51,5 +50,6 @@ public partial class Context : DbContext
         }
 
     }
+    
     //partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
