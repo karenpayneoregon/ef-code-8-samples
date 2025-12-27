@@ -9,11 +9,13 @@
     <Copyright>Karen Payne</Copyright>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <PackageTags>efcore;csharp;file-logging</PackageTags>
-    <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+    <PackageReleaseNotes>Refactored logging mechanism for improved performance and reliability.</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/karenpayneoregon/ef-code-8-samples/tree/master/EntityCoreFileLogger</PackageProjectUrl>
     <RepositoryUrl>https://github.com/karenpayneoregon/ef-code-8-samples/tree/master</RepositoryUrl>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>EF Core Logger</Title>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

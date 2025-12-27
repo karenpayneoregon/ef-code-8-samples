@@ -21,10 +21,13 @@ internal class Operations
     public static void ReadForRetirement()
     {
         using var context = new Context();
-        int yearsOld = 65;
+        const int yearsOld = 65;
 
         AnsiConsole.MarkupLine($"[cyan]Ready for retirement, age > [/][yellow]{yearsOld}[/]");
-        var readyForRetirement = context.Contact.Where(contact => contact.YearsOld > yearsOld).ToList();
+        
+        var readyForRetirement = context.Contact
+            .Where(contact => contact.YearsOld > yearsOld)
+            .ToList();
 
         foreach (Contact item in readyForRetirement)
         {

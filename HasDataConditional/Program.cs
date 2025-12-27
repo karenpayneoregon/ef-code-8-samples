@@ -10,7 +10,7 @@ internal partial class Program
     {
         await Setup();
 
-        //await FetchContactsWithDetailsAsync();
+        await FetchContactsWithDetailsAsync();
         ExitPrompt();
     }
 
