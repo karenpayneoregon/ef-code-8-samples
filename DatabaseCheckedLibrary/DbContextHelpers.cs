@@ -16,17 +16,11 @@ public class DbContextHelpers
     /// <exception cref="InvalidOperationException">
     /// Thrown when the database creator service is not available in the provided context.
     /// </exception>
-    public static bool DatabaseExists<TContext>(TContext context) where TContext : DbContext
-    {
-  
+    public static bool DatabaseExists<TContext>(TContext context) where TContext : DbContext =>
+        context.GetService<IDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator ? 
+            throw new InvalidOperationException("Database creator service is not available.") : 
+            databaseCreator.Exists();
 
-        if (context.GetService<IDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator)
-        {
-            throw new InvalidOperationException("Database creator service is not available.");
-        }
-
-        return databaseCreator.Exists();
-    }
     /// <summary>
     /// Determines whether the database associated with the provided <see cref="DbContext"/> contains any tables.
     /// </summary>
@@ -38,16 +32,10 @@ public class DbContextHelpers
     /// <exception cref="InvalidOperationException">
     /// Thrown when the relational database creator service is not available in the provided context.
     /// </exception>
-    public static bool HasTables<TContext>(TContext context) where TContext : DbContext
-    {
-
-        if (context.GetService<IRelationalDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator)
-        {
-            throw new InvalidOperationException("Database creator service is not available.");
-        }
-
-        return databaseCreator.HasTables();
-    }
+    public static bool HasTables<TContext>(TContext context) where TContext : DbContext =>
+        context.GetService<IRelationalDatabaseCreator>() is not RelationalDatabaseCreator databaseCreator ? 
+            throw new InvalidOperationException("Database creator service is not available.") : 
+            databaseCreator.HasTables();
 
     /// <summary>
     /// Checks whether the specified tables exist in the database associated with the provided <see cref="DbContext"/>.
