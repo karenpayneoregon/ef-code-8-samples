@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Text;
 using W = ConsoleHelperLibrary.Classes.WindowUtility;
 
 // ReSharper disable once CheckNamespace
@@ -16,6 +17,12 @@ partial class Program
         AnsiConsole.MarkupLine("[cyan]Reading employee information[/]");
 
         W.SetConsoleWindowPosition(W.AnchorWindow.Center);
+        
+    }
 
+    public static void SetEncoding()
+    {
+        Console.OutputEncoding = new UTF8Encoding(encoderShouldEmitUTF8Identifier: false);
+        Console.InputEncoding = Encoding.UTF8;
     }
 }

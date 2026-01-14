@@ -1,7 +1,8 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using NorthWind2020ConsoleApp;
 using NorthWind2023Library.Data;
 using NorthWind2023Library.Models;
 using NorthWind2023ReportsToApp.Models;
+using System.Diagnostics.CodeAnalysis;
 // ReSharper disable AccessToDisposedClosure
 
 namespace NorthWind2023ReportsToApp.Classes;
@@ -20,14 +21,15 @@ public class EmployeeOperations
         using var context = new Context();
 
         var table = CreateViewTable();
-
+        using var ces = new ConsoleEncodingScope();
+        
         AnsiConsole.Status()
 
             .Start("Working...", ctx =>
             {
                 Thread.Sleep(500);
 
-                ctx.Spinner(Spinner.Known.Star);
+                ctx.Spinner(Spinner.Known.Arrow);
                 ctx.SpinnerStyle(Style.Parse("cyan"));
 
                 List<Employees> employees = [.. context.Employees];
@@ -73,7 +75,7 @@ public class EmployeeOperations
                         currentNode.AddNode(worker.FullName);
                     }
                 }
-
+                ces.Dispose();
                 AnsiConsole.Write(root);
 
 
