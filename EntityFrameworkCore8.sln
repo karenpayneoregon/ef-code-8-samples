@@ -142,6 +142,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF_Core_MaskingSample1", "E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Masking", "Masking", "{6A151566-6F8B-4B02-9470-3B71E9370960}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HasQueryFilterConditionalSample", "HasQueryFilterConditionalSample\HasQueryFilterConditionalSample.csproj", "{F6624BA2-A0F6-4460-873F-AF736F0BC8DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -352,6 +354,10 @@ Global
 		{50684ECF-324A-4E70-B7CD-E908A5BC749B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50684ECF-324A-4E70-B7CD-E908A5BC749B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50684ECF-324A-4E70-B7CD-E908A5BC749B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6624BA2-A0F6-4460-873F-AF736F0BC8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6624BA2-A0F6-4460-873F-AF736F0BC8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6624BA2-A0F6-4460-873F-AF736F0BC8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6624BA2-A0F6-4460-873F-AF736F0BC8DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -413,6 +419,7 @@ Global
 		{FBD572E8-2700-9655-F1EE-848C634926F5} = {6A151566-6F8B-4B02-9470-3B71E9370960}
 		{50684ECF-324A-4E70-B7CD-E908A5BC749B} = {6A151566-6F8B-4B02-9470-3B71E9370960}
 		{6A151566-6F8B-4B02-9470-3B71E9370960} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
+		{F6624BA2-A0F6-4460-873F-AF736F0BC8DB} = {6B247C4B-0225-457B-ACBC-38CEB792C12B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97482D50-3D54-4B15-B814-EE1227933C17}

@@ -21,16 +21,12 @@ public class EmployeeOperations
         using var context = new Context();
 
         var table = CreateViewTable();
-        using var ces = new ConsoleEncodingScope();
+        //using var ces = new ConsoleEncodingScope();
         
-        AnsiConsole.Status()
-
+        AnsiConsole.Status().Spinner(Spinner.Known.Dots).SpinnerStyle(Style.Parse("cyan"))
             .Start("Working...", ctx =>
             {
-                Thread.Sleep(500);
-
-                ctx.Spinner(Spinner.Known.Arrow);
-                ctx.SpinnerStyle(Style.Parse("cyan"));
+                //Thread.Sleep(500);
 
                 List<Employees> employees = [.. context.Employees];
 
@@ -64,7 +60,7 @@ public class EmployeeOperations
 
                 Console.Clear();
 
-                var root = new Tree("~[white on blue][B]Employees[/][/]~");
+                var root = new Tree("[white][B]Employees[/][/]");
 
                 foreach (var manager in managers)
                 {
@@ -75,7 +71,7 @@ public class EmployeeOperations
                         currentNode.AddNode(worker.FullName);
                     }
                 }
-                ces.Dispose();
+            
                 AnsiConsole.Write(root);
 
 
