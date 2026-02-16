@@ -27,20 +27,21 @@ internal partial class Program
                 SpectreConsoleHelpers.ExitPrompt(Justify.Left);
                 return;
             }
-            SpectreConsoleHelpers.PinkPill(Justify.Left, $"{count} with query filter on {country?.Name} ");
+            SpectreConsoleHelpers.PinkPill(Justify.Left, $"Count {count} with query filter on {country?.Name} ");
         }
         else
         {
-            SpectreConsoleHelpers.PinkPill(Justify.Left, $"{count} w/o query filter");
+            SpectreConsoleHelpers.PinkPill(Justify.Left, $"Count {count} w/o query filter");
         }
 
         Console.WriteLine();
 
         var categoryOptions = ContextSettings.Instance.CategoryOptions;
+        var categoryCount = context.Categories.Count();
 
         SpectreConsoleHelpers.PinkPill(Justify.Left, $"Category options: Use filter " +
                                                      $"{categoryOptions.UseQueryFilter.ToYesNo()} " +
-                                                     $"category id {categoryOptions.Id}");
+                                                     $"category id {categoryOptions.Id} Count {categoryCount}");
 
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
