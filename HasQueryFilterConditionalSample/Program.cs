@@ -3,14 +3,14 @@ using HasQueryFilterConditionalSample.Classes.Core;
 using HasQueryFilterConditionalSample.Data;
 using HasQueryFilterConditionalSample.Extensions;
 using Spectre.Console;
-using System.Xml;
-using HasQueryFilterConditionalSample.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace HasQueryFilterConditionalSample;
 internal partial class Program
 {
     static void Main(string[] args)
     {
+        AnsiConsole.MarkupLine(":small_blue_diamond: [bold yellow]Query Filter Example[/] :small_blue_diamond:");
         var useCustomerQueryFilter = ContextSettings.Instance.CustomerOptions.UseQueryFilter;
 
         using var context = new Context();
@@ -30,19 +30,18 @@ internal partial class Program
                 SpectreConsoleHelpers.ExitPrompt(Justify.Left);
                 return;
             }
-            
-            SpectreConsoleHelpers.PinkPill(Justify.Left, $"Count {count} with query filter on {country?.Name} ");
+
+            var unfilterCount = context.Customers.IgnoreQueryFilters().Count();
+            SpectreConsoleHelpers.PinkPill(Justify.Left, $"Count {count} " +
+                                                         $"with query filter on {country?.Name} " +
+                                                         $"total rows {unfilterCount}");
         }
         else
         {
             SpectreConsoleHelpers.PinkPill(Justify.Left, $"Count {count} w/o query filter");
         }
 
-        bool hasFilter = context.HasQueryFilter<Customer>();
-        var entityType = context.Model.FindEntityType(typeof(Customer));
 
-        var filter = context.QueryFilterDefinition<Customer>();
-        Console.WriteLine(filter);
 
 
         Console.WriteLine();
