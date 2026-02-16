@@ -94,6 +94,17 @@ public partial class Context : DbContext
             entity.Property(e => e.Picture)
                 .HasComment("Image which represents a category")
                 .HasColumnType("image");
+
+            if (ContextSettings.Instance.CategoryOptions.UseQueryFilter)
+            {
+
+                modelBuilder.Entity<Category>()
+                    .HasQueryFilter(c =>
+                        EF.Property<int?>(c,
+                            nameof(Models.Category.CategoryId)) ==
+                        ContextSettings.Instance.CategoryOptions.Id);
+                
+            }
         });
 
         modelBuilder.Entity<Contact>(entity =>

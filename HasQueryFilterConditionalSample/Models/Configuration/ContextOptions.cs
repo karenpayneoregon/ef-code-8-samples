@@ -11,4 +11,5 @@ public class ContextOptions
     /// query filters or other customer-specific configurations.
     /// </remarks>
     public CustomerOptions CustomersOptions { get; set; } = new();
+    public CategoryOptions CategoryOptions { get; set; } = new();
 }

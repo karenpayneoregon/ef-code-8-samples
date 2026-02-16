@@ -9,15 +9,15 @@ internal partial class Program
 {
     static void Main(string[] args)
     {
-        var useQueryFilter = ContextSettings.Instance.CustomerOptions.UseQueryFilter;
+        var useCustomerQueryFilter = ContextSettings.Instance.CustomerOptions.UseQueryFilter;
 
         using var context = new Context();
 
         var count = context.Customers
-            .TagWithDebugInfo($"With ignore filter {useQueryFilter.ToYesNo()}")
+            .TagWithDebugInfo($"With ignore filter {useCustomerQueryFilter.ToYesNo()}")
             .Count();
 
-        if (useQueryFilter)
+        if (useCustomerQueryFilter)
         {
             var countryId = ContextSettings.Instance.CustomerOptions.CountryCode;
             var country = context.Countries.FirstOrDefault(c => c.CountryIdentifier == countryId);
@@ -33,7 +33,15 @@ internal partial class Program
         {
             SpectreConsoleHelpers.PinkPill(Justify.Left, $"{count} w/o query filter");
         }
-        
+
+        Console.WriteLine();
+
+        var categoryOptions = ContextSettings.Instance.CategoryOptions;
+
+        SpectreConsoleHelpers.PinkPill(Justify.Left, $"Category options: Use filter " +
+                                                     $"{categoryOptions.UseQueryFilter.ToYesNo()} " +
+                                                     $"category id {categoryOptions.Id}");
+
         SpectreConsoleHelpers.ExitPrompt(Justify.Left);
     }
 }

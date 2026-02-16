@@ -1,6 +1,4 @@
-﻿
-
-using HasQueryFilterConditionalSample.Models.Configuration;
+﻿using HasQueryFilterConditionalSample.Models.Configuration;
 using Microsoft.Extensions.Configuration;
 
 namespace HasQueryFilterConditionalSample.Classes.Configuration;
@@ -36,6 +34,16 @@ public sealed class ContextSettings
     public CustomerOptions CustomerOptions { get; set; }
 
     /// <summary>
+    /// Gets or sets the configuration options specific to category-related operations.
+    /// </summary>
+    /// <remarks>
+    /// This property provides access to settings that customize the behavior of category operations, 
+    /// such as enabling query filters or specifying identifiers. These options are typically used 
+    /// to configure how categories are handled within the application's database context.
+    /// </remarks>
+    public CategoryOptions CategoryOptions { get; set; }
+    
+    /// <summary>
     /// Initializes a new instance of the <see cref="ContextSettings"/> class.
     /// </summary>
     /// <remarks>
@@ -56,7 +64,10 @@ public sealed class ContextSettings
         ContextOptions options = Config.Configuration.JsonRoot()
             .GetSection(nameof(ContextOptions))
             .Get<ContextOptions>()!;
-        
+
         CustomerOptions = options.CustomersOptions;
+        CategoryOptions = options.CategoryOptions;
+ 
     }
+
 }
