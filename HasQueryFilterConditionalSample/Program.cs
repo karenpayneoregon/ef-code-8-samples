@@ -2,6 +2,7 @@
 using HasQueryFilterConditionalSample.Classes.Core;
 using HasQueryFilterConditionalSample.Data;
 using HasQueryFilterConditionalSample.Extensions;
+using HasQueryFilterConditionalSample.Models;
 using Spectre.Console;
 using Microsoft.EntityFrameworkCore;
 
@@ -40,8 +41,6 @@ internal partial class Program
         {
             SpectreConsoleHelpers.PinkPill(Justify.Left, $"Count {count} w/o query filter");
         }
-
-
 
 
         Console.WriteLine();

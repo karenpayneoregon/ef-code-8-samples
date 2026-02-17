@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "HasQueryFilterConditionalSample": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "UseThis": ""
+      }
+    }
+  }
+}

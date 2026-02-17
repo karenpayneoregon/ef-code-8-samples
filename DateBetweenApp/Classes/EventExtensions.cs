@@ -1,5 +1,4 @@
-﻿using DateBetweenApp.Models;
-
+﻿using DateBetweenApp.Interfaces;
 
 namespace DateBetweenApp.Classes;
 public static class EventExtensions

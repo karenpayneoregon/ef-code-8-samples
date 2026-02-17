@@ -30,4 +30,6 @@ public class CategoryOptions
     /// such as applying query filters in the database context.
     /// </remarks>
     public int Id { get; set; }
+
+    public int[] Identifiers { get; set; }  
 }

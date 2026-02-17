@@ -4,7 +4,7 @@ A very simple example of how to use the `UseAsyncSeeding` class to seed a SQL-Se
 
 ## Article location
 
-[EF Core seeding data](https://dev.to/karenpayneoregon/ef-core-seeding-data-f4bs)
+[EF Core seeding data](https://dev.to/karenpayneoregon/ef-core-seeding-data-f4b)
 
 ## Instructions
 
