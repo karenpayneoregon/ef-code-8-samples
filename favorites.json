@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "items": [
+    {
+      "name": "DbContextHelpers.cs",
+      "path": "DatabaseCheckedLibrary\\DbContextHelpers.cs"
+    },
+    {
+      "name": "DbContextToFileLogger.cs",
+      "path": "EntityCoreFileLogger\\DbContextToFileLogger.cs"
+    }
+  ]
+}

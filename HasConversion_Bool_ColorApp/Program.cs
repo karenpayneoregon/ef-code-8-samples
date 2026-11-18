@@ -1,4 +1,6 @@
-﻿using HasConversion_Bool_ColorApp.Classes;
+﻿using System.Globalization;
+using HasConversion_Bool_ColorApp.Classes;
+using HasConversion_Bool_ColorApp.Classes.Core;
 using HasConversion_Bool_ColorApp.Data;
 using HasConversion_Bool_ColorApp.Models;
 using static HasConversion_Bool_ColorApp.Classes.Helpers;
@@ -22,25 +24,38 @@ internal partial class Program
         foreach (var peep in people)
         {
             table.AddRow(
-                peep.Id.ToString(), 
-                peep.FirstName, 
-                peep.LastName, 
+                peep.Id.ToString(),
+                peep.FirstName,
+                peep.LastName,
                 peep.IsFriend.ToYesNo(), // stored as a string, reads back as bool
-                peep.IsFriend.ToString(), 
-                $"[{peep.Color.Name}]{peep.Color.Name}[/]", 
-                peep.BirthDate.ToString());
+                peep.IsFriend.ToString(),
+                $"[{peep.Color.Name}]{peep.Color.Name}[/]",
+                peep.BirthDate.ToString("d", CultureInfo.InvariantCulture)
+            );
         }
         AnsiConsole.Write(table);
+        
+        
         Console.WriteLine();
-        AnsiConsole.MarkupLine("[white]Press ENTER to exit[/]");
-        Console.ReadLine();
+        SpectreConsoleHelpers.ExitPrompt(Justify.Center);
+
     }
 
+    /// <summary>
+    /// Initializes the database with a fresh set of <see cref="Person"/> entities.
+    /// </summary>
+    /// <param name="context">
+    /// The <see cref="Context"/> instance used to interact with the database.
+    /// </param>
+    /// <remarks>
+    /// This method clears the existing database, recreates the schema, and adds a predefined set of 
+    /// <see cref="Person"/> entities with various properties, such as names, birth dates, friendship status, 
+    /// and colors. Changes are saved to the database.
+    /// </remarks>
     private static void StartFresh(Context context)
     {
         CleanDatabase(context);
-
-
+        
         context.Add(new Person()
         {
             FirstName = "Jim",
