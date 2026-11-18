@@ -1,5 +1,7 @@
 ﻿# About
 
+:stop_sign: First run uncomment `StartFresh` in `Program.cs`
+
 EF Core code sample for 
 
 - HasConversion
@@ -8,7 +10,7 @@ EF Core code sample for
     - DateTime local to Utc 
 
 
-Originally written with NET5, updated to NET8
+Originally written with NET5, updated to NET8 then NET11
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
